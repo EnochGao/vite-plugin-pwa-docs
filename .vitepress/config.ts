@@ -264,7 +264,7 @@ function prepareSidebar(idx: number) {
       items: Guide,
     },
     {
-      text: 'PWA 资源生成器',
+      text: 'PWA 资产生成器',
       collapsible: true,
       collapsed: true,
       items: AssetsGenerator,
