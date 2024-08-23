@@ -3,7 +3,7 @@ title: Integrations | PWA Assets 生成器
 outline: deep
 ---
 
-# Integrations <Badge text="Experimental" type="tip"/>
+# Integrations <Badge text="实验性" type="tip"/>
 
 Starting with `v0.19.0`, `vite-plugin-pwa` provides experimental support for the following `@vite-pwa/assets-generator` integrations for serving, generating, and injecting PWA assets on the fly:
 

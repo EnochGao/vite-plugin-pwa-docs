@@ -29,21 +29,21 @@ onBeforeMount(async () => {
       aria-labelledby="pwa-message"
     >
       <div id="pwa-message" class="mb-3">
-        New content available, click the reload button to update.
+        有新内容可用，请单击重新加载按钮进行更新。
       </div>
       <button
         type="button"
         class="pwa-refresh mr-2 px-3 py-1 rounded"
         @click="updateServiceWorker?.()"
       >
-        Reload
+        重新加载
       </button>
       <button
         type="button"
         class="pwa-cancel b b-solid b-1px !b-color-$pwa-border mr-2 px-3 py-1 rounded"
         @click="close"
       >
-        Close
+        关闭
       </button>
     </div>
   </template>

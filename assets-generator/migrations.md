@@ -1,10 +1,10 @@
 ---
-title: Migrations | PWA Assets 生成器
+title: 迁移 | PWA Assets 生成器
 next: 开始 | Frameworks
 outline: deep
 ---
 
-# Migrations
+# 迁移
 
 When migrating from one version to a new one, you should remove all the PWA assets generated previously and generate them again after upgrading `@vite-pwa/assets-generator` package.
 

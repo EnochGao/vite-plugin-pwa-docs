@@ -22,9 +22,9 @@ $ bun create @vite-pwa/pwa
 
 :::
 
-Then follow the prompts!
+然后按照提示操作!
 
-You can also directly specify the project name and the template you want to use via additional command line options. For example, to scaffold a Vite PWA + Vue project, run:
+You can also directly specify the project name and the template you want to use via additional command line options. For example, to scaffold a Vite PWA + Vue project, run:Then follow the prompts
 
 ```bash
 # pnpm

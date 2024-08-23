@@ -169,7 +169,7 @@ onMounted(() => {
 </template>
 ```
 
-## PWA Assets <Badge text="Experimental" type="tip"/> <Badge type="tip" text="from v0.6.0" />
+## PWA Assets <Badge text="实验性" type="tip"/> <Badge type="tip" text="from v0.6.0" />
 
 This new feature includes:
 - new `NuxtPwaAssets` component to include the PWA assets in your HTML pages: if you're using `VitePwaManifest` or `NuxtPwaManifest` component, replace it with `NuxtPwaAssets`: it will inject the web manifest link, the `theme-color` meta and the PWA icon links.

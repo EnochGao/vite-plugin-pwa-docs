@@ -294,7 +294,7 @@ If you are using `injectManifest` strategy, configure the `404` route in the nav
 ```ts
 registerRoute(new NavigationRoute(createHandlerBoundToURL('/404')))
 ```
-## Experimental
+## 实验性
 
 ### Directory and Trailing Slash Handler
 
@@ -326,7 +326,7 @@ import { precacheAndRoute } from 'workbox-precaching'
 precacheAndRoute(self.__WB_MANIFEST, { directoryIndex: 'index.html', cleanURLs: true })
 ```
 
-## PWA Assets <Badge text="Experimental" type="tip"/> <Badge type="tip" text="from v0.3.0" />
+## PWA Assets <Badge text="实验性" type="tip"/> <Badge type="tip" text="from v0.3.0" />
 
 `@vite-pwa/astro` plugin will configure `integration` option properly. We suggest you to use external configuration file, Astro dev server will not be restarted when changing the configuration.
 

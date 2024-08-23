@@ -121,11 +121,11 @@ const AssetsGenerator: DefaultTheme.SidebarItem[] = [
     link: '/assets-generator/api',
   },
   {
-    text: 'Integrations <sup class="VPBadgeCustom tip">Experimental</sup>',
+    text: 'Integrations <sup class="VPBadgeCustom tip">实验性</sup>',
     link: '/assets-generator/integrations',
   },
   {
-    text: 'Migrations',
+    text: '迁移',
     link: '/assets-generator/migrations',
   },
 ]

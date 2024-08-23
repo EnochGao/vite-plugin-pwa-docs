@@ -366,7 +366,7 @@ Some kit options may have been moved/deprecated, review the SvelteKit documentat
 - [trailingSlash](https://kit.svelte.dev/docs/page-options#trailingslash): now it should be configured in the page options, and so, we cannot control it in the plugin.
 :::
 
-## PWA Assets <Badge text="Experimental" type="tip"/> <Badge type="tip" text="from v0.4.0" />
+## PWA Assets <Badge text="实验性" type="tip"/> <Badge type="tip" text="from v0.4.0" />
 
 We suggest you using external configuration file, `@vite-pwa/sveltekit` plugin will watch it for changes, avoiding dev server restarts. If you use inlined configuration, Vite will restart the dev server when changing any option.
 

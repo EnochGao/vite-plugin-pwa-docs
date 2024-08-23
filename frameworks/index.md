@@ -1,6 +1,6 @@
 ---
 title: 开始 | Frameworks
-prev: Migrations | PWA Assets 生成器
+prev: 迁移 | PWA Assets 生成器
 ---
 
 # 开始

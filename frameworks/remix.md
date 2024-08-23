@@ -123,7 +123,7 @@ If you're using Remix SSR application, then you need to add [registerRoute](http
 
 Check the [shared-sw.ts module](https://github.com/vite-pwa/remix/blob/main/examples/pwa-simple-sw/app/shared-sw.ts) and the usage in the [service worker](https://github.com/vite-pwa/remix/blob/main/examples/pwa-simple-sw/app/plain-sw.ts), remember to exclude the router in dev server.
 
-## PWA Assets <Badge text="Experimental" type="tip"/>
+## PWA Assets <Badge text="实验性" type="tip"/>
 
 This feature includes the following components:
 - `PwaManifest` component to include the PWA manifest in your HTML pages: will inject the PWA web manifest in the HTML head
