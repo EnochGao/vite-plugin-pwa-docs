@@ -10,7 +10,7 @@ You can use the built-in `Vite` virtual module `virtual:pwa-register/svelte` for
 You will need to add `workbox-window` as a `dev` dependency to your `Vite` project.
 :::
 
-## Type declarations
+## 类型声明
 
 ::: tip
 <TypeScriptError2307 />
@@ -129,7 +129,7 @@ You can use this `ReloadPrompt.svelte` component:
 
 ## Periodic SW Updates
 
-As explained in [Periodic Service Worker Updates](/guide/periodic-sw-updates), you can use this code to configure this behavior on your application with the virtual module `virtual:pwa-register/svelte`:
+As explained in [定期更新 Service Worker ](/guide/periodic-sw-updates), you can use this code to configure this behavior on your application with the virtual module `virtual:pwa-register/svelte`:
 
 ```ts
 import { useRegisterSW } from 'virtual:pwa-register/svelte'

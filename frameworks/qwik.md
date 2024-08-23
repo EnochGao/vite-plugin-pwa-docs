@@ -1,5 +1,5 @@
 ---
-title: Qwik | Examples
+title: Qwik | 示例
 ---
 
 # Qwik

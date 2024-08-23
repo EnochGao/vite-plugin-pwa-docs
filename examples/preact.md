@@ -1,5 +1,5 @@
 ---
-title: Preact | Examples
+title: Preact | 示例
 ---
 
 # Preact
@@ -13,7 +13,7 @@ To test `new content available`, you should rerun the corresponding script, and 
 If you are running an example with `Periodic SW updates`, you will need to wait 1 minute:
 <HeuristicWorkboxWindow />
 
-## Executing the examples
+## 执行示例
 
 <RunExamples />
 

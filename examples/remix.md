@@ -1,6 +1,6 @@
 ---
-title: Remix | Examples
-next: 开始 | Deploy
+title: Remix | 示例
+next: 开始 | 部署
 ---
 
 # Remix

@@ -1,8 +1,8 @@
 ---
-title: Service Worker Precache | 指南
+title: Service Worker 简介 | 指南
 ---
 
-# Service Worker Precache
+# Service Worker 简介
 
 As we have mentioned in [Service Worker](/guide/#service-worker) section, service workers act as proxies intercepting requests between the browser and the server.
 

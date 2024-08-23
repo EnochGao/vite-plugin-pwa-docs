@@ -18,7 +18,7 @@ Then, you **don't need** to learn the framework stuff.
 
 This plugin is Framework-agnostic and so you can use it with Vanilla JavaScript, TypeScript and with any framework.
 
-## Type declarations
+## 类型声明
 
 You can find all the `vite-plugin-pwa` virtual modules declarations in the following [types.ts module](https://github.com/antfu/vite-plugin-pwa/blob/main/client.d.ts).
 

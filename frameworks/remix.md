@@ -1,6 +1,6 @@
 ---
 title: Remix | 框架
-next: 开始 | 案例
+next: 开始 | 示例
 outline: deep
 ---
 

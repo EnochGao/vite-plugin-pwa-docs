@@ -1,5 +1,5 @@
 ---
-title: Vite, Rollup, PWA and Workbox Cookbook | 指南
+title: Vite, Rollup, PWA and Workbox 说明书 | 指南
 outline: deep
 ---
 
@@ -13,11 +13,12 @@ const images = Object.entries(
 }, {})
 </script>
 
-# Vite, Rollup, PWA and Workbox cookbook
+# Vite, Rollup, PWA and Workbox 说明书
 
-In this page we're going to explain how `vite-plugin-pwa` builds the service worker.
+在本页中，我们将解释`vite-plugin-pwa`如何构建 service worker。
 
-You can <a href="https://excalidraw.com/#json=TwI1I_rRXYcGFINLH-Yrw,JRavRIdQuT-uvqjTi6S3Qg">open Excalidraw source diagram</a> for the SVG images.
+你可以<a href="https://excalidraw.com/#json=TwI1I_rRXYcGFINLH-Yrw,JRavRIdQuT-uvqjTi6S3Qg">打开 Excalidraw 的源图</a>
+以查看 SVG 图像。
 
 ## Vite config file
 

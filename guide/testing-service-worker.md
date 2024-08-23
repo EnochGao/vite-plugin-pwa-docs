@@ -1,8 +1,8 @@
 ---
-title: Testing Service Worker | 指南
+title: 测试 Service Worker | 指南
 ---
 
-# Testing Service Worker
+# 测试 Service Worker
 
 There are quite a few test libraries, `vite-plugin-pwa` uses [Vitest](https://vitest.dev/) for build testing and [Playwright](https://playwright.dev/) for in-browser testing (with the Chromium browser only).
 

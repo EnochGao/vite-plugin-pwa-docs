@@ -1,24 +1,23 @@
 ---
-title: NGINX | Deployment
+title: NGINX | 开发
 ---
 
 # NGINX
 
-## Configure `manifest.webmanifest` mime type
+## 配置 `manifest.webmanifest` mime 类型
 
-You need to register the correct MIME type for the web manifest by adding it either to the [default](https://www.nginx.com/resources/wiki/start/topics/examples/full/#mime-types) file at `/etc/nginx/mime.types`
+你需要为 web manifest 注册正确的 MIME 类型，将其添加到`/etc/nginx/mime.types`的[默认](https://www.nginx.com/resources/wiki/start/topics/examples/full/#mime-types)文件中
 
 ```nginx
 # /etc/nginx/mime.types
 types {
   # Manifest files
   application/manifest+json  webmanifest;
-  ... 
+  ...
 }
 ```
 
-or any `http`, `server` or location `location` block with
-
+或者任何带有 `http`, `server` 或 `location` 位置的块
 
 ```nginx
 include mime.types;
@@ -27,17 +26,17 @@ types {
 }
 ```
 
-You can validate the setting by checking the HTTP headers once the app is deployed
+应用程序部署后，可以通过检查 HTTP 头来验证设置是否正确。
 
 ```shell script
 curl -s -I -X GET https://yourserver/manifest.webmanifest | grep content-type -i
 ```
 
-and check that the result is `content-type: application/manifest+json`.
+检查结果是否为 `content-type: application/manifest+json`.
 
-## Basic configuration with http to https redirection
+## 从HTTP重定向到HTTPS的基本配置
 
-Update your `server.conf` configuration file with:
+使用以下配置文件更新您的 `server.conf`:
 
 ```nginx
 server {

@@ -1,8 +1,8 @@
 ---
-title: Unregister Service Worker | 指南
+title: 注销 Service Worker | 指南
 ---
 
-# Unregister Service Worker
+# 注销 Service Worker
 
 If you want to unregister the service worker from your PWA application, you only need to add `selfDestroying: true` to the plugin configuration.
 
@@ -55,11 +55,11 @@ self.addEventListener('activate', (e) => {
 
 You can repeat the above process as many times as necessary, **remember not to delete** any service worker from the public directory (you don't know what version the users of your application have installed).
 
-## Development
+## 开发
 
-You can also check the `selfDestroying` plugin option in the dev server with development options enabled: check [Development section](/guide/development) for more info.
+You can also check the `selfDestroying` plugin option in the dev server with development options enabled: check [开发部分](/guide/development) for more info.
 
-## Examples
+## 示例
 
 You have in the examples folder the `**-destroy` scripts in their corresponding `package.json`, you can try it on the development server or from the production build.
 

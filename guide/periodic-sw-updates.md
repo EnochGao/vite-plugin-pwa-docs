@@ -1,8 +1,8 @@
 ---
-title: Periodic Service Worker Updates | 指南
+title: 定期更新 Service Worker  | 指南
 ---
 
-# Periodic Service Worker Updates
+# 定期更新 Service Worker 
 
 :::info
 If you're not importing any of the virtual modules provided by `vite-plugin-pwa` you'll need to figure out how to configure it, it is out of the scope of this guide.

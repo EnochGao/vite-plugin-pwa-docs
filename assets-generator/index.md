@@ -20,7 +20,7 @@ The svg sources can also be used in for the favicon html head link.
 
 ## PWA Minimal Icons Requirements
 
-As pointed out in [PWA Minimal Requirements](/guide/pwa-minimal-requirements), you will need:
+As pointed out in [PWA最低要求](/guide/pwa-minimal-requirements), you will need:
 - a 192x192 icon (PWA Manifest icon)
 - a 512x512 icon (PWA Manifest icon)
 - a 180x180 icon for iOS/MacOS (html head link: `<link rel="apple-touch-icon" href="/apple-touch-icon.png">`)

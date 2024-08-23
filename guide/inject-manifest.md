@@ -30,11 +30,11 @@ export default defineConfig({
 })
 ```
 
-## Custom Service worker
+## 自定义 Service worker
 
 We recommend you to use [Workbox](https://developer.chrome.com/docs/workbox/) to build your service worker instead using `importScripts`, you will need to include `workbox-*` dependencies as `dev dependencies` to your project.
 
-### Plugin Configuration
+### 插件配置
 
 You **must** configure `strategies: 'injectManifest'` in `vite-plugin-pwa` plugin options in your `vite.config.ts` file:
 
@@ -44,7 +44,7 @@ VitePWA({
 })
 ```
 
-### Development
+### 开发
 
 If you would like the service worker to run in development, make sure to enable it in the [devOptions](/guide/development#plugin-configuration) and to set the type to [module](/guide/development#injectmanifest-strategy) if required.
 
@@ -95,7 +95,7 @@ You can check the [vue-router example](https://github.com/vite-pwa/vite-plugin-p
 
 If you need your custom service worker works with `Auto Update` behavior, you need to change the plugin configuration options and add some custom code to your service worker code.
 
-### Plugin Configuration
+### 插件配置
 
 You must configure `registerType: 'autoUpdate'` to `vite-plugin-pwa` plugin options in your `vite.config.ts` file:
 
@@ -143,7 +143,7 @@ You can use TypeScript to write your custom service worker. To resolve service w
 }
 ```
 
-### Plugin Configuration
+### 插件配置
 
 We recommend you to put your custom service worker inside `src` directory. 
 

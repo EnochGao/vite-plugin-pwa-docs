@@ -14,7 +14,7 @@ title: 开始 | 指南
 
 service worker本质上是充当代理服务器的角色，位于Web应用程序、浏览器和网络（如果有可用）之间。service worker旨在实现以下功能：创建有效的离线体验、拦截网络请求并根据网络是否可用采取适当的行动、更新服务器上的资产，以及允许访问推送通知和后台同步API。
 
-Service Worker 是针对域名和路径注册的事件驱动型 [worker](https://developer.mozilla.org/zh-CN/docs/Web/API/Worker)。它采用 JavaScript 文件的形式，可以控制与其关联的网页/站点，拦截和修改导航和资源请求，并以非常精细的方式缓存资源，以便您完全控制应用程序在某些情况下的行为方式（最明显的是当网络不可用时）。
+Service Worker 是针对域名和路径注册的事件驱动型 [worker](https://developer.mozilla.org/zh-CN/docs/Web/API/Worker)。它采用 JavaScript 文件的形式，可以控制与其关联的网页/站点，拦截和修改导航和资产请求，并以非常精细的方式缓存资产，以便您完全控制应用程序在某些情况下的行为方式（最明显的是当网络不可用时）。
 
 关于 service worker 的更多信息可访问 [Service Worker API](https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API)
 

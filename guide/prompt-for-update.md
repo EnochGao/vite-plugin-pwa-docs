@@ -1,17 +1,17 @@
 ---
-title: Prompt for new content refreshing | 指南
+title: 新内容刷新提示 | 指南
 outline: deep
 ---
 
-# Prompt for new content refreshing
+# 新内容刷新提示
 
 <prompt-for-update-img />
 
-## Plugin Configuration
+## 插件配置
 
 Since this is the default behavior for the `registerType` plugin option, you don't need to configure it.
 
-### Cleanup Outdated Caches
+### 清理过期缓存
 
 <CleanupOutdatedCaches />
 
@@ -25,7 +25,7 @@ Since this is the default behavior for the `registerType` plugin option, you don
 
 <GenerateSWSourceMap />
 
-## Importing Virtual Modules
+## 导入虚拟模块
 
 You must include the following code on your `main.ts` or `main.js` file:
 ```ts

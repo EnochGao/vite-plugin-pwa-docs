@@ -12,7 +12,7 @@ We recommend you use the latest version of VitePress. The latest versions will a
 :::
 
 ::: info
-For `Type declarations`, `Prompt for update` and `Periodic SW Updates` go to [Vue 3](/frameworks/vue#vue-3) entry.
+For `类型声明`, `Prompt for update` and `Periodic SW Updates` go to [Vue 3](/frameworks/vue#vue-3) entry.
 :::
 
 ## VitePress PWA Module

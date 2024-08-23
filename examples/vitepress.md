@@ -1,5 +1,5 @@
 ---
-title: VitePress | Examples
+title: VitePress | 示例
 ---
 
 # VitePress

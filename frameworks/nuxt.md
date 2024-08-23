@@ -16,6 +16,7 @@ This PWA module can only be used with Vite.
 `vite-plugin-pwa` provides the new `@vite-pwa/nuxt` module that will allow you to use `vite-plugin-pwa` in your Nuxt 3 applications.
 
 You will need to install `@vite-pwa/nuxt` using:
+
 ```shell
 npx nuxi@latest module add @vite-pwa/nuxt
 ```
@@ -27,8 +28,8 @@ export default defineNuxtConfig({
   modules: ['@vite-pwa/nuxt'],
   pwa: {
     /* your pwa options */
-  }
-})
+  },
+});
 ```
 
 ## Using Nuxt 3 Plugin
@@ -38,6 +39,7 @@ export default defineNuxtConfig({
 You can access `$pwa` property directly inside your Vue component templates. You can also access to `$pwa` in your Vue script setup or in any other module via `useNuxtApp().$pwa`.
 
 The module will provide the following features via `$pwa` property:
+
 - Prompt for update and offline ready via `needRefresh` and `offlineReady` properties.
 - Cancelling prompt for update application and offline via `closePrompt` function.
 - Update application when using `prompt for update` behaviour via `updateServiceWorker` function.
@@ -61,7 +63,7 @@ This is the initial release of `@vite-pwa/nuxt` integration, we're working to im
 
 `@vite-pwa/nuxt` provides the new `$pwa?.isPWAInstalled` reactive property to check if your PWA application is installed.
 
-## Registering Web Manifest
+## 注册 Web Manifest
 
 To register the PWA web manifest in your Nuxt 3 application, `@vite-pwa/nuxt` provides the functional components `VitePwaManifest` and `NuxtPwaManifest`, you should add one of them to your `app.vue` or to all of your layouts (add only `VitePwaManifest` or `NuxtPwaManifest`).
 
@@ -71,13 +73,14 @@ You can enable `registerWebManifestInRouteRules` property in PWA configuration t
 
 ## Payload Extraction <Badge type="tip" text="from v0.3.1+" /> <Badge type="info" text="offline support" />
 
-When you enable the experimental `payloadExtraction` flag in your Nuxt configuration file, `@vite-pwa/nuxt` will add `**/_payload.json` to the `globPatterns` array inside `workbox` or `injectManifest` option, depending on the configured  `strategy`.
+When you enable the experimental `payloadExtraction` flag in your Nuxt configuration file, `@vite-pwa/nuxt` will add `**/_payload.json` to the `globPatterns` array inside `workbox` or `injectManifest` option, depending on the configured `strategy`.
 
 ## App Manifest <Badge type="tip" text="from v0.3.1+" /> <Badge type="tip" text="from Nuxt v3.8+" /> <Badge type="info" text="offline support" />
 
 When you enable the experimental `appManifest` flag in your Nuxt configuration file, `@vite-pwa/nuxt` will:
-- add `_nuxt/builds/**/*.json` to the `globPatterns` array inside `workbox` or `injectManifest` option, depending on the configured  `strategy`
-- remove `revision` entry from all service worker precache manifest files inside `_nuxt/builds/` folder  matching `<UUID>.json` pattern ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) is a random generated string by Nuxt).
+
+- add `_nuxt/builds/**/*.json` to the `globPatterns` array inside `workbox` or `injectManifest` option, depending on the configured `strategy`
+- remove `revision` entry from all service worker precache manifest files inside `_nuxt/builds/` folder matching `<UUID>.json` pattern ([UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) is a random generated string by Nuxt).
 
 ## TypeScript
 
@@ -86,35 +89,36 @@ export interface PwaInjection {
   /**
    * @deprecated use `isPWAInstalled` instead
    */
-  isInstalled: boolean
+  isInstalled: boolean;
   /**
-   * From version v0.3.5+. 
-   */  
-  isPWAInstalled: Ref<boolean>
-  showInstallPrompt: Ref<boolean>
-  cancelInstall: () => void
-  install: () => Promise<void>
-  swActivated: Ref<boolean>
-  registrationError: Ref<boolean>
-  offlineReady: Ref<boolean>
-  needRefresh: Ref<boolean>
-  updateServiceWorker: (reloadPage?: boolean | undefined) => Promise<void>
-  cancelPrompt: () => Promise<void>
-  getSWRegistration: () => ServiceWorkerRegistration | undefined
+   * From version v0.3.5+.
+   */
+  isPWAInstalled: Ref<boolean>;
+  showInstallPrompt: Ref<boolean>;
+  cancelInstall: () => void;
+  install: () => Promise<void>;
+  swActivated: Ref<boolean>;
+  registrationError: Ref<boolean>;
+  offlineReady: Ref<boolean>;
+  needRefresh: Ref<boolean>;
+  updateServiceWorker: (reloadPage?: boolean | undefined) => Promise<void>;
+  cancelPrompt: () => Promise<void>;
+  getSWRegistration: () => ServiceWorkerRegistration | undefined;
 }
 
 declare module '#app' {
   interface NuxtApp {
-    $pwa: UnwrapNestedRefs<PwaInjection>
+    $pwa: UnwrapNestedRefs<PwaInjection>;
   }
 }
 ```
 
-## Examples
+## 示例
 
 ### VitePwaManifest/NuxtPwaManifest in app.vue
 
 When adding `VitePwaManifest` or `NuxtPwaComponent` component to your `app.vue`:
+
 ```vue
 <template>
   <VitePwaManifest />
@@ -122,7 +126,7 @@ When adding `VitePwaManifest` or `NuxtPwaComponent` component to your `app.vue`:
 </template>
 ```
 
-or
+或者
 
 ```vue
 <template>
@@ -132,11 +136,12 @@ or
 ```
 
 then, the web manifest link will be added to your HTML pages:
+
 ```html
 <html>
-<head>
-    <link rel="manifest" href="/manifest.webmanifest">
-</head>
+  <head>
+    <link rel="manifest" href="/manifest.webmanifest" />
+  </head>
 </html>
 ```
 
@@ -145,33 +150,29 @@ then, the web manifest link will be added to your HTML pages:
 ```vue
 <script setup>
 // If you want to use it in setup, import from the nuxtApp.
-const { $pwa } = useNuxtApp()
+const { $pwa } = useNuxtApp();
 
-const toast = useToast()
+const toast = useToast();
 
 onMounted(() => {
-  if ($pwa.offlineReady)
-    toast.success('App ready to work offline')
-})
+  if ($pwa.offlineReady) toast.success('App ready to work offline');
+});
 </script>
 
 <template>
   <!-- You can use $pwa directly in templates! -->
   <div v-show="$pwa.needRefresh">
-    <span>
-      New content available, click on reload button to update.
-    </span>
+    <span> New content available, click on reload button to update. </span>
 
-    <button @click="$pwa.updateServiceWorker()">
-      Reload
-    </button>
+    <button @click="$pwa.updateServiceWorker()">Reload</button>
   </div>
 </template>
 ```
 
-## PWA Assets <Badge text="实验性" type="tip"/> <Badge type="tip" text="from v0.6.0" />
+## PWA Assets <Badge text="实验性" type="tip"/> <Badge type="tip" text="从 v0.6.0" />
 
-This new feature includes:
+新功能包括:
+
 - new `NuxtPwaAssets` component to include the PWA assets in your HTML pages: if you're using `VitePwaManifest` or `NuxtPwaManifest` component, replace it with `NuxtPwaAssets`: it will inject the web manifest link, the `theme-color` meta and the PWA icon links.
 - new `PwaAppleImage`, `PwaAppleSplashScreenImage`, `PwaFaviconImage`, `PwaMaskableImage` and `PwaTransparentImage` components to use PWA icons in your code base
 - new `useApplePwaIcon`, `useAppleSplashScreenPwaIcon`, `useFaviconPwaIcon`, `useMaskablePwaIcon` and `useTransparentPwaIcon` composables

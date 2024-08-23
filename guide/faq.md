@@ -9,7 +9,7 @@ next: 开始 | PWA Assets 生成器
 
 <TypeScriptError2307 />
 
-## Type declarations
+## 类型声明
 
 You can find the full list of the `vite-plugin-pwa` plugin configuration options in the following [types.ts module](https://github.com/antfu/vite-plugin-pwa/blob/main/src/types.ts).
 

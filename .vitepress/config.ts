@@ -15,35 +15,35 @@ const Guide: DefaultTheme.SidebarItem[] = [
     link: '/guide/register-service-worker',
   },
   {
-    text: 'Service Worker Precache',
+    text: 'Service Worker 简介',
     link: '/guide/service-worker-precache',
   },
   {
-    text: 'PWA Minimal Requirements',
+    text: 'PWA最低要求',
     link: '/guide/pwa-minimal-requirements',
   },
   {
-    text: 'Service Worker Strategies And Behaviors',
+    text: 'Service Worker 策略和行为',
     link: '/guide/service-worker-strategies-and-behaviors',
   },
   {
-    text: 'Automatic reload',
+    text: '自动重新加载',
     link: '/guide/auto-update',
   },
   {
-    text: 'Prompt for update',
+    text: '更新提示',
     link: '/guide/prompt-for-update',
   },
   {
-    text: 'Advanced (injectManifest)',
+    text: '高级 (injectManifest)',
     link: '/guide/inject-manifest',
   },
   {
-    text: 'Static assets handling',
+    text: '静态资产处理',
     link: '/guide/static-assets',
   },
   {
-    text: 'Periodic SW updates',
+    text: '定期 SW 更新',
     link: '/guide/periodic-sw-updates',
   },
   {
@@ -51,23 +51,23 @@ const Guide: DefaultTheme.SidebarItem[] = [
     link: '/guide/development',
   },
   {
-    text: 'Scaffolding Your First Vite PWA Project <sup class="VPBadgeCustom tip">新</sup>',
+    text: '搭建您的第一个Vite PWA项目<sup class="VPBadgeCustom tip">新</sup>',
     link: '/guide/scaffolding',
   },
   {
-    text: 'Service Worker without PWA capabilities',
+    text: '没有PWA功能的Service Worker',
     link: '/guide/service-worker-without-pwa-capabilities',
   },
   {
-    text: 'Unregister Service Worker',
+    text: '注销 Service Worker',
     link: '/guide/unregister-service-worker',
   },
   {
-    text: 'Testing Service Worker',
+    text: '测试 Service Worker',
     link: '/guide/testing-service-worker',
   },
   {
-    text: 'Vite, Rollup, PWA and Workbox Cookbook',
+    text: 'Vite, Rollup, PWA and Workbox 说明书',
     link: '/guide/cookbook',
   },
   {
@@ -121,7 +121,7 @@ const AssetsGenerator: DefaultTheme.SidebarItem[] = [
     link: '/assets-generator/api',
   },
   {
-    text: 'Integrations <sup class="VPBadgeCustom tip">实验性</sup>',
+    text: '集成 <sup class="VPBadgeCustom tip">实验性</sup>',
     link: '/assets-generator/integrations',
   },
   {
@@ -276,7 +276,7 @@ function prepareSidebar(idx: number) {
       items: Frameworks,
     },
     {
-      text: '案例',
+      text: '示例',
       collapsible: true,
       collapsed: true,
       items: Examples,
@@ -419,7 +419,7 @@ export default withPwa(defineConfig({
             activeMatch: '^/frameworks/',
           },
           {
-            text: '案例',
+            text: '示例',
             link: '/examples/',
             activeMatch: '^/examples/',
           },

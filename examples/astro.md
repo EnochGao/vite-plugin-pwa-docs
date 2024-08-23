@@ -1,5 +1,5 @@
 ---
-title: Astro | Examples
+title: Astro | 示例
 ---
 
 # Astro

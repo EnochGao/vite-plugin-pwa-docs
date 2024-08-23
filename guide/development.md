@@ -1,10 +1,10 @@
 ---
-title: Development | 指南
+title: 开发 | 指南
 ---
 
-# Development
+# 开发
 
-From version `v0.11.13` you can use the service worker on development.
+从`v0.11.13`版本你可以在开发环境使用 service worker.
 
 The PWA will not be registered, only the service worker logic, check the details for each strategy below.
 
@@ -14,12 +14,12 @@ There will be only one single registration on the service worker precache manife
 
 The service worker on development will be only available if `disabled` plugin option is not `true` and the `enable` development option is `true`.
 
-## Plugin configuration
+## 插件配置
 
-To enable the service worker on development, you only need to add the following options to the plugin configuration:
+要在开发中启用 service worker，你只需要在插件配置中添加以下选项：
 
 ```ts
-import { VitePWA } from 'vite-plugin-pwa'
+import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
   plugins: [
@@ -27,23 +27,23 @@ export default defineConfig({
       /* other options */
       /* enable sw on development */
       devOptions: {
-        enabled: true
+        enabled: true,
         /* other options */
-      }
-    })
-  ]
-})
+      },
+    }),
+  ],
+});
 ```
 
-## Type declarations
+## 类型声明
 
-::: warning
+::: warning 警告
 Since version `0.12.4+`, the `webManifestUrl` has been deprecated, the plugin will use `navigateFallbackAllowlist` instead.
 :::
 
 ```ts
 /**
- * Development options.
+ * 开发 options.
  */
 export interface DevOptions {
   /**
@@ -51,13 +51,13 @@ export interface DevOptions {
    *
    * @default false
    */
-  enabled?: boolean
+  enabled?: boolean;
   /**
    * The service worker type.
    *
    * @default 'classic'
    */
-  type?: WorkerType
+  type?: WorkerType;
   /**
    * This option will enable you to not use the `runtimeConfig` configured on `workbox.runtimeConfig` plugin option.
    *
@@ -65,14 +65,14 @@ export interface DevOptions {
    *
    * @default false
    */
-  disableRuntimeConfig?: boolean
+  disableRuntimeConfig?: boolean;
   /**
    * This option will allow you to configure the `navigateFallback` when using `registerRoute` for `offline` support:
    * configure here the corresponding `url`, for example `navigateFallback: 'index.html'`.
    *
    * **WARNING**: this option will only be used when using `injectManifest` strategy.
    */
-  navigateFallback?: string
+  navigateFallback?: string;
 
   /**
    * This option will allow you to configure the `navigateFallbackAllowlist`: new option from version `v0.12.4`.
@@ -85,7 +85,7 @@ export interface DevOptions {
    *
    * @default [/^\/$/]
    */
-  navigateFallbackAllowlist?: RegExp[]
+  navigateFallbackAllowlist?: RegExp[];
 
   /**
    * On dev mode the `manifest.webmanifest` file can be on other path.
@@ -98,7 +98,7 @@ export interface DevOptions {
    * @deprecated This option has been deprecated from version `v0.12.4`, the plugin will use navigateFallbackAllowlist instead.
    * @see navigateFallbackAllowlist
    */
-  webManifestUrl?: string
+  webManifestUrl?: string;
 }
 ```
 
@@ -106,7 +106,7 @@ export interface DevOptions {
 
 Since version `0.12.1` the `manifest.webmanifest` is also served on development mode: you can now check it on `dev tools`.
 
-## generateSW strategy
+## generateSW 策略
 
 When using this strategy, the `navigateFallback` on development options will be ignored. The PWA plugin will check if `workbox.navigateFallback` is configured and will only register it on `additionalManifestEntries`.
 
@@ -120,31 +120,34 @@ Uncaught (in promise) TypeError: Failed to execute 'importScripts' on 'WorkerGlo
 If your pages/routes other than the entry point are being intercepted by the service worker, use `navigateFallbackAllowlist` to include only the entry point: by default, the plugin will use `[/^\/$/]`.
 
 You **ONLY** need to add the `navigateFallbackAllowlist` option to the `devOptions` entry in `vite-plugin-pwa` configuration if your pages/routes are being intercepting by the service worker and preventing to work as expected:
+
 ```ts
 export default defineConfig({
   plugins: [
     VitePWA({
       /* other options */
       devOptions: {
-        navigateFallbackAllowlist: [/^index.html$/]
+        navigateFallbackAllowlist: [/^index.html$/],
         /* other options */
-      }
-    })
-  ]
-})
+      },
+    }),
+  ],
+});
 ```
+
 :::
 
-## injectManifest strategy
+## injectManifest 策略
 
 You can use `type: 'module'` when registering the service worker (right now only supported on latest versions of `Chromium` based browsers: `Chromium/Chrome/Edge`):
 
 <!--eslint-skip-->
+
 ```ts
 devOptions: {
   enabled: true,
   type: 'module',
-  /* other options */  
+  /* other options */
 }
 ```
 
@@ -154,17 +157,17 @@ When building the application, the `vite-plugin-pwa` plugin will always register
 
 ::: tip
 You should only intercept the entry point of your application, if you don't include the `allowlist` option in the `NavigationRoute`, all your pages/routes might not work as they are being intercepted by the service worker (which will return by default the content of the entry point by not including your pages/routes in its precache manifest):
+
 ```ts
-let allowlist: undefined | RegExp[]
-if (import.meta.env.DEV)
-  allowlist = [/^\/$/]
+let allowlist: undefined | RegExp[];
+if (import.meta.env.DEV) allowlist = [/^\/$/];
 
 // to allow work offline
-registerRoute(new NavigationRoute(
-  createHandlerBoundToURL('index.html'),
-  { allowlist }
-))
+registerRoute(
+  new NavigationRoute(createHandlerBoundToURL('index.html'), { allowlist })
+);
 ```
+
 :::
 
 When using this strategy, the `vite-plugin-pwa` plugin will delegate the service worker compilation to `Vite`, so if you're using `import` statements instead `importScripts` in your custom service worker, you **must** configure `type: 'module'` on development options.
@@ -174,21 +177,23 @@ If you are using `registerRoute` in your custom service worker you should add `n
 You **must** not use `HMR (Hot Module Replacement)` in your custom service worker, since we cannot use yet dynamic imports in service workers: `import.meta.hot`.
 
 If you register your custom service worker (not using `vite-plugin-pwa` virtual module and configuring `injectRegister: false` or `injectRegister: null`), use the following code (remember also to add `scope` option if necessary):
+
 ```js
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register(
     import.meta.env.MODE === 'production' ? '/sw.js' : '/dev-sw.js?dev-sw'
-  )
+  );
 }
 ```
 
 If you are also using `import` statements instead `importScripts`, use the following code (remember also to add the `scope` option if necessary):
+
 ```ts
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register(
     import.meta.env.MODE === 'production' ? '/sw.js' : '/dev-sw.js?dev-sw',
     { type: import.meta.env.MODE === 'production' ? 'classic' : 'module' }
-  )
+  );
 }
 ```
 
@@ -200,8 +205,9 @@ When you change your service worker source code, `Vite` will force a full reload
 
 You can find an example here: [vue-router](https://github.com/antfu/vite-plugin-pwa/tree/main/examples/vue-router).
 
-To run the example, you must build the PWA plugin (`pnpm run build` from root folder), change to `vue-router` directory 
+To run the example, you must build the PWA plugin (`pnpm run build` from root folder), change to `vue-router` directory
 (`cd examples/vue-router`) and run it:
+
 - `generateSW` strategy: `pnpm run dev`
 - `injectManifest` strategy: `pnpm run dev-claims`
 

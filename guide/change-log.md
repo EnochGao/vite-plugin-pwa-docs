@@ -33,7 +33,7 @@ From `v0.19.6`, `vite-plugin-pwa` adds `envOptions` option to `injectManifest` t
 
 From `v0.19.0`, `vite-plugin-pwa` adds experimental support for `@vite-pwa/assets-generator` to serve, generate and inject PWA assets on the fly.
 
-Check the [PWA Assets 生成器 Integrations](/assets-generator/integrations) section for more details.  
+Check the [PWA Assets 生成器集成](/assets-generator/integrations) section for more details.  
 
 ## New Vite Build <Badge type="tip" text="from v0.18.0" />
 

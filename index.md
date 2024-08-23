@@ -48,8 +48,8 @@ features:
     title: Stale-while-revalidate
     details: 当有新的内容可用时自动刷新
   - icon: ✨
-    title: 静态资源处理
-    details: 为离线支持配置静态资源
+    title: 静态资产处理
+    details: 为离线支持配置静态资产
   - icon: 🐞
     title: 开发支持
     details: 在开发应用程序时调试自定义 Service Worker 逻辑
@@ -62,12 +62,12 @@ features:
     linkText: 框架
   - icon: 💥
     title: PWA Assets 生成器
-    details: 从单个命令和单个源映像生成所有PWA资源
+    details: 从单个命令和单个源映像生成所有PWA资产
     link: /assets-generator/
     linkText: 开始
   - icon: 🚀
-    title: PWA 资源集成
+    title: PWA 资产集成
     details: 在应用程序中动态地生成和注入PWA资产
     link: /assets-generator/integrations
-    linkText: PWA 资源集成
+    linkText: PWA 资产集成
 ---

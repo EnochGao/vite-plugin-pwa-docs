@@ -84,4 +84,4 @@ if ('serviceWorker' in navigator) {
 
 ## 自动注册
 
-如果你的应用代码库没有导入任何由插件公开的虚拟模块，那么插件将回退到[脚本注册](/guide/register-service-worker#script-registration)，否则，导入的虚拟模块将为你注册 service worker。
+如果你的应用代码库没有导入任何由插件公开的虚拟模块，那么插件将回退到[脚本注册](/guide/register-service-worker#脚本注册)，否则，导入的虚拟模块将为你注册 service worker。

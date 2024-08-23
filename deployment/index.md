@@ -1,11 +1,11 @@
 ---
-title: 开始 | Deploy
-prev: Remix | Examples
+title: 开始 | 部署
+prev: Remix | 示例
 ---
 
 # 开始
 
-Since you need to install your application as a [Progressive Web App](https://web.dev/explore/progressive-web-apps), you must configure your server to meet [PWA Minimal Requirements](/guide/pwa-minimal-requirements), that is, your server **must**:
+Since you need to install your application as a [Progressive Web App](https://web.dev/explore/progressive-web-apps), you must configure your server to meet [PWA最低要求](/guide/pwa-minimal-requirements), that is, your server **must**:
 - serve `manifest.webmanifest` with `application/manifest+json` mime type
 - you must serve your application over `https`
 - you must redirect from `http` to `https`

@@ -1,9 +1,9 @@
 ---
-title: Automatic reload | 指南
+title: 自动重新加载 | 指南
 outline: deep
 ---
 
-# Automatic reload
+# 自动重新加载
 
 With this behavior, once the browser detects a new version of your application, then, it will update the caches and will reload any browser windows/tabs with the application opened automatically to take the control.
 
@@ -27,7 +27,7 @@ If your application has forms, we recommend you to change the behavior to use de
 Before you put your application into production, you need to be sure of the behavior you want for the service worker. Changing the behavior of the service worker from `autoUpdate` to `prompt` can be a pain.
 :::
 
-## Plugin Configuration
+## 插件配置
 
 With this option, the plugin will force `workbox.clientsClaim` and `workbox.skipWaiting` to `true` on the plugin options.
 
@@ -53,7 +53,7 @@ VitePWA({
 
 <GenerateSWSourceMap />
 
-## Importing Virtual Modules
+## 导入虚拟模块
 
 With this behavior, you **must** import one of the virtual modules exposed by `vite-plugin-pwa` plugin **only** if you need to prompt a dialog to the user when the application is ready to work offline, otherwise you can import or just omit it.
 

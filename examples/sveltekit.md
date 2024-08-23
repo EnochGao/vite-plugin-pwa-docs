@@ -1,5 +1,5 @@
 ---
-title: SvelteKit | Examples
+title: SvelteKit | 示例
 ---
 
 # SvelteKit

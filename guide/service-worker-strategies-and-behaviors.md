@@ -1,12 +1,12 @@
 ---
-title: Service Worker Strategies And Behaviors | 指南
+title: Service Worker 策略和行为 | 指南
 ---
 
-# Service Worker Strategies And Behaviors
+# Service Worker 策略和行为
 
 A service worker strategy is related to how the `vite-plugin-pwa` plugin will generate your service worker, while the behavior of a service worker is related to how the service worker will work in the browser once the browser detects a new version of your application.
 
-## Service Worker Strategies
+## Service Worker 策略
 
 As we mention in [Configuring vite-plugin-pwa](/guide/#configuring-vite-plugin-pwa) section, `vite-plugin-pwa` plugin will use `workbox-build` node library to generate your service worker. There are 2 available strategies, `generateSW` and `injectManifest`:
 - `generateSW`: the `vite-plugin-pwa` will generate the service worker for you, you don't need to write the code for the service worker
@@ -16,7 +16,7 @@ To configure the service worker strategy, use the `strategies`' plugin option wi
 
 You can find more information about the strategies in the [generateSW](/workbox/generate-sw) or [injectManifest](/workbox/inject-manifest) `Workbox` sections.
 
-## Service Worker Behaviors
+## Service Worker 行为
 
 The behavior of the service worker will help you to update the application in the browser, that is, when the browser detects a new version of your application, you can control how the browser updates it.
 

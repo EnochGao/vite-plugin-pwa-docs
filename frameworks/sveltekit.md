@@ -12,7 +12,7 @@ From version `^0.1.0`, `SvelteKitPWA` has SvelteKit `^1.0.0` as peer dependency.
 :::
 
 ::: info
-For `Type declarations`, `Prompt for update` and `Periodic SW Updates` go to [Svelte](/frameworks/svelte) entry.
+For `类型声明`, `Prompt for update` and `Periodic SW Updates` go to [Svelte](/frameworks/svelte) entry.
 :::
 
 ::: tip

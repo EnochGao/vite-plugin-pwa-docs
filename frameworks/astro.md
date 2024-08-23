@@ -45,13 +45,13 @@ export default defineConfig({
 })
 ```
 
-## Importing Virtual Modules
+## 导入虚拟模块
 
 ::: warning
 Since Astro will not inject any script in your application when using Astro components, you will need to use/import a PWA virtual module.
 :::
 
-You can also enable [Development Support](/guide/development) to test your PWA webmanifest and debug your custom service worker logic as you develop your Astro application.
+You can also enable [开发支持](/guide/development) to test your PWA webmanifest and debug your custom service worker logic as you develop your Astro application.
 
 ### 自动更新
 
