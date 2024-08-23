@@ -1,5 +1,5 @@
 ---
-title: Unregister Service Worker | Guide
+title: Unregister Service Worker | 指南
 ---
 
 # Unregister Service Worker

@@ -1,5 +1,5 @@
 ---
-title: Development | Guide
+title: Development | 指南
 ---
 
 # Development

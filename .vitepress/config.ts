@@ -7,7 +7,7 @@ import { pwa } from './scripts/pwa'
 
 const Guide: DefaultTheme.SidebarItem[] = [
   {
-    text: 'Getting Started',
+    text: '开始',
     link: '/guide/',
   },
   {
@@ -47,11 +47,11 @@ const Guide: DefaultTheme.SidebarItem[] = [
     link: '/guide/periodic-sw-updates',
   },
   {
-    text: 'Development',
+    text: '开发',
     link: '/guide/development',
   },
   {
-    text: 'Scaffolding Your First Vite PWA Project <sup class="VPBadgeCustom tip">New</sup>',
+    text: 'Scaffolding Your First Vite PWA Project <sup class="VPBadgeCustom tip">新</sup>',
     link: '/guide/scaffolding',
   },
   {
@@ -71,18 +71,18 @@ const Guide: DefaultTheme.SidebarItem[] = [
     link: '/guide/cookbook',
   },
   {
-    text: 'Change Log',
+    text: '更新日志',
     link: '/guide/change-log',
   },
   {
-    text: 'FAQ',
+    text: '常见问题解答',
     link: '/guide/faq',
   },
 ]
 
 const Deployment: DefaultTheme.SidebarItem[] = [
   {
-    text: 'Getting Started',
+    text: '开始',
     link: '/deployment/',
   },
   {
@@ -109,7 +109,7 @@ const Deployment: DefaultTheme.SidebarItem[] = [
 
 const AssetsGenerator: DefaultTheme.SidebarItem[] = [
   {
-    text: 'Getting Started',
+    text: '开始',
     link: '/assets-generator/',
   },
   {
@@ -132,7 +132,7 @@ const AssetsGenerator: DefaultTheme.SidebarItem[] = [
 
 const Frameworks: DefaultTheme.SidebarItem[] = [
   {
-    text: 'Getting Started',
+    text: '开始',
     link: '/frameworks/',
   },
   {
@@ -187,7 +187,7 @@ const Frameworks: DefaultTheme.SidebarItem[] = [
 
 const Examples: DefaultTheme.SidebarItem[] = [
   {
-    text: 'Getting Started',
+    text: '开始',
     link: '/examples/',
   },
   {
@@ -242,7 +242,7 @@ const Examples: DefaultTheme.SidebarItem[] = [
 
 const Workbox: DefaultTheme.SidebarItem[] = [
   {
-    text: 'Getting Started',
+    text: '开始',
     link: '/workbox/',
   },
   {
@@ -258,31 +258,31 @@ const Workbox: DefaultTheme.SidebarItem[] = [
 function prepareSidebar(idx: number) {
   return [
     {
-      text: 'Guide',
+      text: '指南',
       collapsible: true,
       collapsed: true,
       items: Guide,
     },
     {
-      text: 'PWA Assets Generator',
+      text: 'PWA 资源生成器',
       collapsible: true,
       collapsed: true,
       items: AssetsGenerator,
     },
     {
-      text: 'Frameworks',
+      text: '框架',
       collapsible: true,
       collapsed: true,
       items: Frameworks,
     },
     {
-      text: 'Examples',
+      text: '案例',
       collapsible: true,
       collapsed: true,
       items: Examples,
     },
     {
-      text: 'Deploy',
+      text: '部署',
       collapsible: true,
       collapsed: true,
       items: Deployment,
@@ -305,7 +305,7 @@ const ogUrl = 'https://vite-pwa-org.netlify.app/'
 const ogImage = `${ogUrl}og-image.png`
 
 export default withPwa(defineConfig({
-  lang: 'en-US',
+  lang: 'zh-Hans',
   title: 'Vite PWA',
   description: 'Zero-config PWA Framework-agnostic for Vite and Integrations',
   head: [
@@ -341,20 +341,55 @@ export default withPwa(defineConfig({
   },
   themeConfig: {
     // logo: '/favicon.svg',
+    docFooter: {
+      prev: '上一页',
+      next: '下一页',
+    },
+    outline: {
+      label: '页面导航',
+    },
+    lastUpdated: {
+      text: '最后更新于',
+      formatOptions: {
+        dateStyle: 'short',
+        timeStyle: 'medium',
+      },
+    },
+    langMenuLabel: '多语言',
+    returnToTopLabel: '回到顶部',
+    sidebarMenuLabel: '菜单',
+    darkModeSwitchLabel: '主题',
+    lightModeSwitchTitle: '切换到浅色模式',
+    darkModeSwitchTitle: '切换到深色模式',
     editLink: {
       pattern: 'https://github.com/vite-pwa/docs/edit/main/:path',
-      text: 'Suggest changes to this page',
+      text: '在 GitHub 上编辑此页面',
     },
     search: {
       provider: 'local',
-      /*
-      provider: 'algolia',
       options: {
-        appId: 'TTO9T0AE3F',
-        apiKey: '71bd3d3c7274205843267bb1ccb6b1a8',
-        indexName: 'vite-plugin-pwa',
+        translations: {
+          button: {
+            buttonText: '搜索文档',
+            buttonAriaLabel: '搜索文档',
+          },
+          modal: {
+            displayDetails: '显示详细列表',
+            resetButtonTitle: '重置搜索',
+            backButtonTitle: '关闭搜索',
+            noResultsText: '没有结果',
+            footer: {
+              selectText: '选择',
+              selectKeyAriaLabel: '输入',
+              navigateText: '导航',
+              navigateUpKeyAriaLabel: '上箭头',
+              navigateDownKeyAriaLabel: '下箭头',
+              closeText: '关闭',
+              closeKeyAriaLabel: 'esc',
+            },
+          },
+        },
       },
-       */
     },
     socialLinks: [
       { icon: 'discord', link: 'https://discord.gg/uccDuWkScq' },
@@ -366,25 +401,25 @@ export default withPwa(defineConfig({
     },
     nav: [
       {
-        text: 'Guide',
+        text: '指南',
         items: [
           {
-            text: 'Getting Started',
+            text: '开始',
             link: '/guide/',
             activeMatch: '^/guide/',
           },
           {
-            text: 'PWA Assets Generator',
+            text: 'PWA 资源生成器',
             link: '/assets-generator/',
             activeMatch: '^/assets-generator/',
           },
           {
-            text: 'Frameworks',
+            text: '框架',
             link: '/frameworks/',
             activeMatch: '^/frameworks/',
           },
           {
-            text: 'Examples',
+            text: '案例',
             link: '/examples/',
             activeMatch: '^/examples/',
           },
@@ -392,7 +427,7 @@ export default withPwa(defineConfig({
         activeMatch: '^/(guide|assets-generator|frameworks|examples)/',
       },
       {
-        text: 'Deploy',
+        text: '部署',
         link: '/deployment/',
         activeMatch: '^/deployment/',
       },
@@ -408,11 +443,11 @@ export default withPwa(defineConfig({
             text: 'Vite Plugin PWA',
             items: [
               {
-                text: 'Release Notes',
+                text: '更新日志',
                 link: 'https://github.com/vite-pwa/vite-plugin-pwa/releases',
               },
               {
-                text: 'Contributing',
+                text: '参与贡献',
                 link: 'https://github.com/vite-pwa/vite-plugin-pwa/blob/main/CONTRIBUTING.md',
               },
             ],
@@ -425,13 +460,13 @@ export default withPwa(defineConfig({
                 link: 'https://github.com/ElMassimo/iles/tree/main/packages/pwa',
               },
               {
-                text: 'Documentation',
+                text: '文档',
                 link: 'https://iles-docs.netlify.app/guide/pwa',
               },
             ],
           },
           {
-            text: 'Integrations',
+            text: '集成',
             items: [
               {
                 text: 'SvelteKit',

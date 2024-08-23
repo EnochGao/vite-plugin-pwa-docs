@@ -1,6 +1,6 @@
 ---
 title: Remix | Frameworks
-next: Getting Started | Examples
+next: 开始 | Examples
 outline: deep
 ---
 

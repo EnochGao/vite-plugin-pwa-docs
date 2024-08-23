@@ -1,6 +1,6 @@
 ---
-title: Migrations | PWA Assets Generator
-next: Getting Started | Frameworks
+title: Migrations | PWA Assets 生成器
+next: 开始 | Frameworks
 outline: deep
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Periodic Service Worker Updates | Guide
+title: Periodic Service Worker Updates | 指南
 ---
 
 # Periodic Service Worker Updates

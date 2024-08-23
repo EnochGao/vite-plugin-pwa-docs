@@ -1,5 +1,5 @@
 ---
-title: Vite, Rollup, PWA and Workbox Cookbook | Guide
+title: Vite, Rollup, PWA and Workbox Cookbook | 指南
 outline: deep
 ---
 

@@ -1,9 +1,9 @@
 ---
-title: Getting Started | Frameworks
-prev: Migrations | PWA Assets Generator
+title: 开始 | Frameworks
+prev: Migrations | PWA Assets 生成器
 ---
 
-# Getting Started
+# 开始
 
 ::: tip
 If you use the default `registerType` which is `prompt`, and you want to prompt the users to reload, then you could use our framework modules.

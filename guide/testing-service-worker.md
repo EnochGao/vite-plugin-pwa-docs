@@ -1,5 +1,5 @@
 ---
-title: Testing Service Worker | Guide
+title: Testing Service Worker | 指南
 ---
 
 # Testing Service Worker

@@ -1,5 +1,5 @@
 ---
-title: Service Worker Strategies And Behaviors | Guide
+title: Service Worker Strategies And Behaviors | 指南
 ---
 
 # Service Worker Strategies And Behaviors

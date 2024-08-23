@@ -1,8 +1,8 @@
 ---
-title: Getting Started | Guide
+title: 开始 | 指南
 ---
 
-# Getting Started
+# 开始
 
 Progressive Web Apps (PWAs) are web applications built and enhanced with modern APIs to deliver enhanced capabilities, reliability, and installability while reaching anyone, anywhere, on any device&mdash;all with a single codebase.
 
@@ -28,7 +28,7 @@ The `vite-plugin-pwa` plugin can:
 - Generate the service worker using the `strategies` option (for more information, see ["Service Worker Strategies"](/guide/service-worker-strategies-and-behaviors#service-worker-strategies) section)
 - Generate a script to register the service worker in the browser (see the ["Register Service Worker"](/guide/register-service-worker) section)
 
-## Scaffolding Your First Vite PWA Project <Badge type="tip" text="New"/>
+## Scaffolding Your First Vite PWA Project <Badge type="tip" text="新"/>
 
 <ScaffoldingPWAProject />
 

@@ -57,7 +57,7 @@ You can disable this plugin by setting `pwa.client.registerPlugin` property to `
 This is the initial release of `@vite-pwa/nuxt` integration, we're working to improve it and add more features.
 :::
 
-### PWA Installation Status <Badge type="tip" text="from v0.3.5+" />
+### PWA 安装 Status <Badge type="tip" text="from v0.3.5+" />
 
 `@vite-pwa/nuxt` provides the new `$pwa?.isPWAInstalled` reactive property to check if your PWA application is installed.
 

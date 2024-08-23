@@ -1,5 +1,5 @@
 ---
-title: Integrations | PWA Assets Generator
+title: Integrations | PWA Assets 生成器
 outline: deep
 ---
 
@@ -24,7 +24,7 @@ You can find a working example in the [examples/assets-generator](https://github
 This feature is experimental and is subject to (potentially breaking) changes without notice. Please [file a GitHub Issue](https://github.com/vite-pwa/vite-plugin-pwa/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc) for any bugs you may find.
 :::
 
-## Installation
+## 安装
 
 To use the new feature, install the `@vite-pwa/assets-generator` package as a dev dependency:
 

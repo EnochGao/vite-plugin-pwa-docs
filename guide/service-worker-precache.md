@@ -1,5 +1,5 @@
 ---
-title: Service Worker Precache | Guide
+title: Service Worker Precache | 指南
 ---
 
 # Service Worker Precache
@@ -34,7 +34,7 @@ If you need to include another resource types, you will need to add them to the 
 
 You can find more information in the [Static assets handling](/guide/static-assets) section.
 
-For example, if you need to add `ico`, `png` and `svg` resources in the example from the [Configuring vite-plugin-pwa - Guide](/guide/#configuring-vite-plugin-pwa) section, you will need to add `globPatterns` under `workbox` entry, since we're using the default `vite-plugin-pwa` strategy (`generateSW`):
+For example, if you need to add `ico`, `png` and `svg` resources in the example from the [Configuring vite-plugin-pwa - 指南](/guide/#configuring-vite-plugin-pwa) section, you will need to add `globPatterns` under `workbox` entry, since we're using the default `vite-plugin-pwa` strategy (`generateSW`):
 ```ts
 import { VitePWA } from 'vite-plugin-pwa'
 

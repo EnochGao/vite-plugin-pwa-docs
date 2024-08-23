@@ -1,10 +1,10 @@
 ---
-title: Getting Started | PWA Assets Generator
-prev: FAQ | Guide
+title: 开始 | PWA Assets 生成器
+prev: 常见问题解答 | 指南
 outline: deep
 ---
 
-# Getting Started
+# 开始
 
 [@vite-pwa/assets-generator](https://github.com/vite-pwa/assets-generator) will generate all the icons required for your PWA application using [sharp](https://github.com/lovell/sharp/) and [sharp-ico](https://github.com/ssnangua/sharp-ico) packages.
 

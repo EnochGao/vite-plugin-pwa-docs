@@ -1,5 +1,5 @@
 ---
-title: Static assets handling | Guide
+title: Static assets handling | 指南
 ---
 
 # Static assets handling

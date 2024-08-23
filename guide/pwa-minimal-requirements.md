@@ -1,5 +1,5 @@
 ---
-title: PWA Minimal Requirements | Guide
+title: PWA Minimal Requirements | 指南
 ---
 
 # PWA Minimal Requirements
@@ -10,7 +10,7 @@ Your application **must** meet the PWA Minimal Requirements before deploying it 
 
 To make your PWA application installable (one of the requirements), you will need to modify your application entry point, add some minimal entries to your `Web App Manifest`, allow search engines to crawl all your application pages and configure your server properly (only for production, on local you can use `https-localhost` dependency and `node`).
 
-Check also the new [PWA Minimal Requirements](/assets-generator/#pwa-minimal-icons-requirements) page in the [PWA Assets Generator](/assets-generator/) section.
+Check also the new [PWA Minimal Requirements](/assets-generator/#pwa-minimal-icons-requirements) page in the [PWA Assets 生成器](/assets-generator/) section.
 
 ## Entry Point
 
@@ -92,7 +92,7 @@ The `vite-plugin-pwa` has the full definition of the `Web App Manifest` options,
 ## Icons / Images
 
 :::tip
-Check out the [PWA Assets Generator](/assets-generator/) to generate all the icons and images required for your PWA application.
+Check out the [PWA Assets 生成器](/assets-generator/) to generate all the icons and images required for your PWA application.
 
 You can also use [PWA Builder Image Generator](https://www.pwabuilder.com/imageGenerator) to generate all your PWA application's icons.
 :::
@@ -100,7 +100,7 @@ You can also use [PWA Builder Image Generator](https://www.pwabuilder.com/imageG
 For `manifest` icons entry, you will need to create `pwa-192x192.png`, and `pwa-512x512.png` icons. The icons specified above are the minimum required to meet PWA, that is, icons with `192x192` and `512x512` resolutions.
 
 We suggest creating a svg or png icon (if it is a png icon, with the maximum resolution possible) for your application and use it to generate your PWA icons:
-- [PWA Assets Generator](/assets-generator/) (recommended).
+- [PWA Assets 生成器](/assets-generator/) (recommended).
 - [Favicon InBrowser.App](https://favicon.inbrowser.app/tools/favicon-generator) (recommended).
 - [Favicon Generator](https://realfavicongenerator.net/).
 

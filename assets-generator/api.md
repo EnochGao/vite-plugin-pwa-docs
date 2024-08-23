@@ -1,15 +1,15 @@
 ---
-title: API | PWA Assets Generator
+title: API | PWA Assets 生成器
 outline: deep
 ---
 
-# PWA Assets Generator API
+# PWA Assets 生成器 API
 
 From `v0.2.0`, `@vite-pwa/assets-generator` is shipped with a CLI, an API (low-level api): refer to [API](#api) for more details.
 
 The API can be found in the [api folder](https://github.com/vite-pwa/assets-generator/tree/main/src/api).
 
-## Installation
+## 安装
 
 This package is shipped with the `@vite-pwa/assets-generator` package:
 

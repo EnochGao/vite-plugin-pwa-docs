@@ -1,9 +1,9 @@
 ---
-title: Getting Started | Examples
+title: 开始 | Examples
 prev: Remix | Frameworks
 ---
 
-# Getting Started
+# 开始
 
 You can find a set of examples projects on [Vite Plugin PWA GitHub repo](https://github.com/antfu/vite-plugin-pwa/tree/main/examples).
 
@@ -26,7 +26,7 @@ If you want to run any of the examples projects you will need to download/clone 
 You will need `node 14` (or newer) to be able to build the `Vite Plugin PWA`.
 
 ::: warning
-Before following the instructions below, read the [Contribution Guide](https://github.com/antfu/vite-plugin-pwa/blob/main/CONTRIBUTING.md).
+Before following the instructions below, read the [Contribution 指南](https://github.com/antfu/vite-plugin-pwa/blob/main/CONTRIBUTING.md).
 :::
 
 If you don't have installed `PNPM`, you must install it globally via `npm`:

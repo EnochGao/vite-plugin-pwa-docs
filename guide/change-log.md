@@ -1,9 +1,9 @@
 ---
-title: Change Log | Guide
+title: 更新日志 | 指南
 outline: deep
 ---
 
-# Change Log
+# 更新日志
 
 Please refer to the corresponding installation section:
 - [vite-plugin-pwa](https://github.com/vite-pwa/vite-plugin-pwa#-install)
@@ -33,7 +33,7 @@ From `v0.19.6`, `vite-plugin-pwa` adds `envOptions` option to `injectManifest` t
 
 From `v0.19.0`, `vite-plugin-pwa` adds experimental support for `@vite-pwa/assets-generator` to serve, generate and inject PWA assets on the fly.
 
-Check the [PWA Assets Generator Integrations](/assets-generator/integrations) section for more details.  
+Check the [PWA Assets 生成器 Integrations](/assets-generator/integrations) section for more details.  
 
 ## New Vite Build <Badge type="tip" text="from v0.18.0" />
 

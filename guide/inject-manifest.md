@@ -1,5 +1,5 @@
 ---
-title: Advanced (injectManifest) | Guide
+title: Advanced (injectManifest) | 指南
 outline: deep
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Service Worker without PWA capabilities | Guide
+title: Service Worker without PWA capabilities | 指南
 ---
 
 # Service Worker without PWA capabilities

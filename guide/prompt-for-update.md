@@ -1,5 +1,5 @@
 ---
-title: Prompt for new content refreshing | Guide
+title: Prompt for new content refreshing | 指南
 outline: deep
 ---
 

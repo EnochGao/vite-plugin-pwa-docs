@@ -1,5 +1,5 @@
 ---
-title: CLI | PWA Assets Generator
+title: CLI | PWA Assets 生成器
 outline: deep
 ---
 
@@ -9,7 +9,7 @@ The command line interface: `@vite-pwa/assets-generator`.
 - 💥 build your PWA assets from a single command, using only 2 options: preset and source
 - 🔌 supports custom configurations via `pwa-assets.config.js` or `pwa-assets.config.ts`
 
-## Installation
+## 安装
 
 This package is shipped with the `@vite-pwa/assets-generator` package:
 
@@ -25,7 +25,7 @@ This package is shipped with the `@vite-pwa/assets-generator` package:
   ```
 :::
 
-## Usage
+## 使用
 
 ```bash
 $ pwa-assets-generator [options] [sources]
@@ -68,7 +68,7 @@ All PWA assets will be generated in the same source folder.
 
 ## Presets
 
-PWA Assets Generator has 5 built-in presets, check out the [preset definition](https://github.com/vite-pwa/assets-generator/tree/main/src/preset.ts) and [types definition](https://github.com/vite-pwa/assets-generator/tree/main/src/types.ts):
+PWA Assets 生成器 has 5 built-in presets, check out the [preset definition](https://github.com/vite-pwa/assets-generator/tree/main/src/preset.ts) and [types definition](https://github.com/vite-pwa/assets-generator/tree/main/src/types.ts):
 - Minimal Preset 2023 (`minimal-2023`) <Badge type="tip" text="New from v0.1.0" />
 - Minimal Preset (`minimal`) <Badge type="danger" text="Deprecated from v0.1.0" />
 - iOS Preset (`ios`): (WIP)
@@ -208,7 +208,7 @@ export default defineConfig({
 
 ### PNG Padding
 
-When generating PNG files, PWA Assets Generator will apply the following padding:
+When generating PNG files, PWA Assets 生成器 will apply the following padding:
 - for `transparent` PNG files: `0.05`
 - for `maskable` and `apple` PNG files: `0.3`
 
@@ -269,7 +269,7 @@ export default defineConfig({
 
 ### Favicons
 
-PWA Assets Generator will generate favicons when explicitly defined in the preset. If you want to generate favicons, but not the corresponding PWA icons, add the favicons sizes you want to generate, PWA Assets Generator will generate the PWA icon to generate the corresponding favicon and once generated, the PWA icon will be removed.
+PWA Assets 生成器 will generate favicons when explicitly defined in the preset. If you want to generate favicons, but not the corresponding PWA icons, add the favicons sizes you want to generate, PWA Assets 生成器 will generate the PWA icon to generate the corresponding favicon and once generated, the PWA icon will be removed.
 
 For example, if you want to generate a `48x48` favicon using the default preset, you can use the following configuration:
 ```ts
@@ -296,7 +296,7 @@ export default defineConfig({
 })
 ```
 
-PWA Assets Generator will generate the `public/pwa-48x48.png` PWA icon, then generate the corresponding favicon (`public/favicon-48x48.ico`) and finally remove the PWA icon (`public/pwa-48x48.png`).
+PWA Assets 生成器 will generate the `public/pwa-48x48.png` PWA icon, then generate the corresponding favicon (`public/favicon-48x48.ico`) and finally remove the PWA icon (`public/pwa-48x48.png`).
 
 ### PWA Manifest Icons Entry <Badge type="tip" text="New from v0.2.0" />
 
@@ -306,13 +306,13 @@ If you have configured `logLevel: 'silent'` in your configuration file, the CLI 
 
 ### iOS/iPad Splash Screens
 
-PWA Assets Generator will generate iOS/iPad splash screens when explicitly defined in the preset: [iOS and iPadOS in web.dev](https://web.dev/learn/pwa/enhancements/#splash-screens).
+PWA Assets 生成器 will generate iOS/iPad splash screens when explicitly defined in the preset: [iOS and iPadOS in web.dev](https://web.dev/learn/pwa/enhancements/#splash-screens).
 
 You can use `createAppleSplashScreens` function to create the splash screens configuration using global configuration and the device names you want to generate the splash screens for.
 
-If the device names are not provided in the `createAppleSplashScreens` function, PWA Assets Generator will generate splash screens for all devices (defined in the [splash](https://github.com/vite-pwa/assets-generator/blob/main/src/splash.ts) module).
+If the device names are not provided in the `createAppleSplashScreens` function, PWA Assets 生成器 will generate splash screens for all devices (defined in the [splash](https://github.com/vite-pwa/assets-generator/blob/main/src/splash.ts) module).
 
-PWA Assets Generator will generate the landscape and portrait PNG files per device. If you also want to generate the dark splash screens, you will end up with four PNG files per device.
+PWA Assets 生成器 will generate the landscape and portrait PNG files per device. If you also want to generate the dark splash screens, you will end up with four PNG files per device.
 
 For example, if you want to generate splash screens for `iPad Air 9.7"` device, you can use the following configuration (the values in the example are the default ones if you don't provide any configuration):
 ```ts
@@ -434,7 +434,7 @@ export default defineConfig({
 
 #### Advanced Configuration
 
-We strongly suggest using the global configuration, providing `padding`, `resizeOptions`, `darkResizeOptions` and `png` options globally, PWA Assets Generator will configure any splash screen device options properly.
+We strongly suggest using the global configuration, providing `padding`, `resizeOptions`, `darkResizeOptions` and `png` options globally, PWA Assets 生成器 will configure any splash screen device options properly.
 
 If you still want to use a custom configuration per device, you can provide `padding`, `resizeOptions`, `darkResizeOptions` and `png` options per device, but you will need to configure them via some custom logic. You can use the following exports from the `config` module (check the [splash](https://github.com/vite-pwa/assets-generator/blob/main/src/splash.ts) module, all splash exports being exported also in the `@vite-pwa/assets-generator/config` module):
 - `AppleDeviceName`: all Apple device names

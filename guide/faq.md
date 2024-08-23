@@ -1,9 +1,9 @@
 ---
-title: FAQ | Guide
-next: Getting Started | PWA Assets Generator 
+title: 常见问题解答 | 指南
+next: 开始 | PWA Assets 生成器 
 ---
 
-# FAQ
+# 常见问题解答
 
 ## IDE errors 'Cannot find module' (ts2307)
 

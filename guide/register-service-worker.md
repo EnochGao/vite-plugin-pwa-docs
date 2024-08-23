@@ -1,5 +1,5 @@
 ---
-title: Register Service Worker | Guide
+title: Register Service Worker | 指南
 ---
 
 # Register Service Worker

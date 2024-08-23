@@ -1,5 +1,5 @@
 ---
-title: Automatic reload | Guide
+title: Automatic reload | 指南
 outline: deep
 ---
 
