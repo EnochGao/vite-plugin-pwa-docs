@@ -19,7 +19,7 @@ All the examples projects use `@rollup/plugin-replace` to configure a timestamp 
 We use the timestamp in the examples projects to avoid having to touch a file each time we need to test: for example, to test `Prompt for update`, we need to install the service worker first time (first build), then rebuild and restart the example project and finally refresh the browser to check the `Prompt for update` is shown.
 :::
 
-## How to run examples projects?
+## 如何运行案例项目?
 
 If you want to run any of the examples projects you will need to download/clone to your local machine the `Vite Plugin PWA GitHub repo`.
 
@@ -29,7 +29,8 @@ You will need `node 14` (or newer) to be able to build the `Vite Plugin PWA`.
 Before following the instructions below, read the [Contribution 指南](https://github.com/antfu/vite-plugin-pwa/blob/main/CONTRIBUTING.md).
 :::
 
-If you don't have installed `PNPM`, you must install it globally via `npm`:
+如果你还没有安装 `PNPM`, 你必须首先安装 `npm`:
+
 ```shell
 npm install -g pnpm
 ```

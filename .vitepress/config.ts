@@ -11,7 +11,7 @@ const Guide: DefaultTheme.SidebarItem[] = [
     link: '/guide/',
   },
   {
-    text: 'Register Service Worker',
+    text: '注册 Service Worker',
     link: '/guide/register-service-worker',
   },
   {
