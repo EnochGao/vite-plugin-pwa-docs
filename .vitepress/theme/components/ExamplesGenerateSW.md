@@ -1,3 +1,3 @@
-`generateSW` has the following behaviors:
+`generateSW` 具有以下行为:
 
 <ExamplesBehaviors />

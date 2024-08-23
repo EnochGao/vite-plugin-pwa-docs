@@ -1,5 +1,5 @@
 ---
-title: 开始 | Frameworks
+title: 开始 | 框架
 prev: 迁移 | PWA Assets 生成器
 ---
 
@@ -115,7 +115,7 @@ Or you can add the following reference in any of your `d.ts` files (for example,
 You only need to import the virtual modules exposed by `vite-plugin-pwa` plugin when you need to interact with the user, otherwise you don't need to import any of them, that is, when using `registerType: 'prompt'` or when using `registerType: 'autoUpdate'` and you want to inform the user that the application is ready to work offline.
 :::
 
-### Auto Update
+### 自动更新
 
 You must import the virtual module when you configure `registerType: 'autoUpdate'` and you want your application inform the user when the application is ready to work `offline`:
 
@@ -131,7 +131,7 @@ You need to show a ready to work offline message to the user with an OK button i
 
 When the user clicks the `OK` button, just hide the prompt shown on `onOfflineReady` method.
 
-### Prompt For Update
+### 更新提示
 
 When using `registerType: 'prompt'`, you **must** import the virtual module:
 
@@ -165,7 +165,7 @@ These custom virtual modules will expose a wrapper for  <code>virtual:pwa-regist
 
 **Note**: for [Vue 2](https://vuejs.org/) you need to use a custom `mixin` provided on [Vue 2](/frameworks/vue#vue-2) section.
 
-## Frameworks
+## 框架
 
 These custom virtual modules will expose a wrapper for <code>virtual:pwa-register</code> using framework <code>reactivity system</code>, that is:
 - [Vue](/frameworks/vue)

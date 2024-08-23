@@ -4,7 +4,6 @@ If your service worker code is being compiled with unexpected `exports` (for exa
 
 ```ts
 injectManifest: {
-  rollupFormat: 'iife'
+  rollupFormat: 'iife';
 }
 ```
-

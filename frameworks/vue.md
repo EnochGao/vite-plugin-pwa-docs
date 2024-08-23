@@ -1,90 +1,79 @@
 ---
-title: Vue | Frameworks
+title: Vue | 框架
 ---
 
 # Vue
 
 ## Vue 3
 
-You can use the built-in `Vite` virtual module `virtual:pwa-register/vue` for `Vue 3` which will return `composition api` references (`ref<boolean>`) for `offlineReady` and `needRefresh`.
+对于 `Vue 3`你可以使用`Vite`内置的虚拟模块 `virtual:pwa-register/vue` 它能返回 `composition api` 参照 (`ref<boolean>`) `offlineReady` 和 `needRefresh`.
 
-### Type declarations
+### 类型声明
 
 ::: tip
 <TypeScriptError2307 />
-From version `0.14.5` you can also use types definition for vue instead of `vite-plugin-pwa/client`:
+
+从`0.14.5`版本开始，你还可以为 vue 使用类型定义，而不是`vite-plugin-pwa/client`:
+
 ```json
 {
   "compilerOptions": {
-    "types": [
-      "vite-plugin-pwa/vue"
-    ]
+    "types": ["vite-plugin-pwa/vue"]
   }
 }
 ```
 
-Or you can add the following reference in any of your `d.ts` files (for example, in `vite-env.d.ts` or `global.d.ts`):
+或者你可以添加以下引用在任何的 `d.ts` 文件中（例如，在 `vite-env.d.ts` 或 `global.d.ts` 中）：
+
 ```ts
 /// <reference types="vite-plugin-pwa/vue" />
 ```
+
 :::
 
 ```ts
 declare module 'virtual:pwa-register/vue' {
-  import type { Ref } from 'vue'
-  import type { RegisterSWOptions } from 'vite-plugin-pwa/types'
+  import type { Ref } from 'vue';
+  import type { RegisterSWOptions } from 'vite-plugin-pwa/types';
 
-  export type { RegisterSWOptions }
+  export type { RegisterSWOptions };
 
   export function useRegisterSW(options?: RegisterSWOptions): {
-    needRefresh: Ref<boolean>
-    offlineReady: Ref<boolean>
-    updateServiceWorker: (reloadPage?: boolean) => Promise<void>
-  }
+    needRefresh: Ref<boolean>;
+    offlineReady: Ref<boolean>;
+    updateServiceWorker: (reloadPage?: boolean) => Promise<void>;
+  };
 }
 ```
 
-### Prompt for update
+### 更新提示
 
-You can use this `ReloadPrompt.vue` component:
+你可以使用 `ReloadPrompt.vue` 组件:
 
 ::: details ReloadPrompt.vue
+
 ```vue
 <script setup lang="ts">
-import { useRegisterSW } from 'virtual:pwa-register/vue'
+import { useRegisterSW } from 'virtual:pwa-register/vue';
 
-const {
-  offlineReady,
-  needRefresh,
-  updateServiceWorker,
-} = useRegisterSW()
+const { offlineReady, needRefresh, updateServiceWorker } = useRegisterSW();
 
 async function close() {
-  offlineReady.value = false
-  needRefresh.value = false
+  offlineReady.value = false;
+  needRefresh.value = false;
 }
 </script>
 
 <template>
-  <div
-    v-if="offlineReady || needRefresh"
-    class="pwa-toast"
-    role="alert"
-  >
+  <div v-if="offlineReady || needRefresh" class="pwa-toast" role="alert">
     <div class="message">
-      <span v-if="offlineReady">
-        App ready to work offline
-      </span>
+      <span v-if="offlineReady"> App ready to work offline </span>
       <span v-else>
         New content available, click on reload button to update.
       </span>
     </div>
-    <button v-if="needRefresh" @click="updateServiceWorker()">
-      Reload
-    </button>
-    <button @click="close">
-      Close
-    </button>
+    <button v-if="needRefresh" @click="updateServiceWorker()">Reload</button>
+    <button @click="close">Close</button>
   </div>
 </template>
 
@@ -114,37 +103,40 @@ async function close() {
 }
 </style>
 ```
+
 :::
 
-### Periodic SW Updates
+### 定期 SW 更新
 
-As explained in [Periodic Service Worker Updates](/guide/periodic-sw-updates), you can use this code to configure this  behavior on your application with the virtual module `virtual:pwa-register/vue`:
+正如[定期更新 Service Worker](/guide/periodic-sw-updates)解释，你可以在你的应用中使用虚拟模块`virtual:pwa-register/vue`来配置此行为:
 
 ```ts
-import { useRegisterSW } from 'virtual:pwa-register/vue'
+import { useRegisterSW } from 'virtual:pwa-register/vue';
 
-const intervalMS = 60 * 60 * 1000
+const intervalMS = 60 * 60 * 1000;
 
 const updateServiceWorker = useRegisterSW({
   onRegistered(r) {
-    r && setInterval(() => {
-      r.update()
-    }, intervalMS)
-  }
-})
+    r &&
+      setInterval(() => {
+        r.update();
+      }, intervalMS);
+  },
+});
 ```
 
-The interval must be in milliseconds, in the example above it is configured to check the service worker every hour.
+间隔必须以毫秒为单位，在上面的例子中，它被配置为每小时检查一次service worker。
 
 <HeuristicWorkboxWindow />
 
 ## Vue 2
 
-Since this plugin only supports `Vue 3`, you cannot use the virtual module `virtual:pwa-register/vue`.
+因为这个插件只支持`Vue 3`，所以你不能使用虚拟模块 `virtual:pwa-register/vue`。
 
-You can copy `useRegisterSW.js` `mixin` to your `@/mixins/` directory in your application to make it working:
+你可以把`useRegisterSW.js` `mixin`拷贝到你的`@/mixins/`目录下，让它工作:
 
 ::: details useRegisterSW.js
+
 ```js
 export default {
   name: 'useRegisterSW',
@@ -152,91 +144,82 @@ export default {
     return {
       updateSW: undefined,
       offlineReady: false,
-      needRefresh: false
-    }
+      needRefresh: false,
+    };
   },
   async mounted() {
     try {
-      const { registerSW } = await import('virtual:pwa-register')
-      const vm = this
+      const { registerSW } = await import('virtual:pwa-register');
+      const vm = this;
       this.updateSW = registerSW({
         immediate: true,
         onOfflineReady() {
-          vm.offlineReady = true
-          vm.onOfflineReadyFn()
+          vm.offlineReady = true;
+          vm.onOfflineReadyFn();
         },
         onNeedRefresh() {
-          vm.needRefresh = true
-          vm.onNeedRefreshFn()
+          vm.needRefresh = true;
+          vm.onNeedRefreshFn();
         },
         onRegistered(swRegistration) {
-          swRegistration && vm.handleSWManualUpdates(swRegistration)
+          swRegistration && vm.handleSWManualUpdates(swRegistration);
         },
         onRegisterError(e) {
-          vm.handleSWRegisterError(e)
-        }
-      })
-    }
-    catch {
-      console.log('PWA disabled.')
+          vm.handleSWRegisterError(e);
+        },
+      });
+    } catch {
+      console.log('PWA disabled.');
     }
   },
   methods: {
     async closePromptUpdateSW() {
-      this.offlineReady = false
-      this.needRefresh = false
+      this.offlineReady = false;
+      this.needRefresh = false;
     },
     onOfflineReadyFn() {
-      console.log('onOfflineReady')
+      console.log('onOfflineReady');
     },
     onNeedRefreshFn() {
-      console.log('onNeedRefresh')
+      console.log('onNeedRefresh');
     },
     updateServiceWorker() {
-      this.updateSW && this.updateSW(true)
+      this.updateSW && this.updateSW(true);
     },
     handleSWManualUpdates(swRegistration) {},
-    handleSWRegisterError(error) {}
-  }
-}
+    handleSWRegisterError(error) {},
+  },
+};
 ```
+
 :::
 
-### Prompt for update
+### 更新提示
 
-You can use this `ReloadPrompt.vue` component:
+你可以使用 `ReloadPrompt.vue` 组件:
 
 ::: details ReloadPrompt.vue
+
 ```vue
 <script>
-import useRegisterSW from '@/mixins/useRegisterSW'
+import useRegisterSW from '@/mixins/useRegisterSW';
 
 export default {
   name: 'ReloadPrompt',
-  mixins: [useRegisterSW]
-}
+  mixins: [useRegisterSW],
+};
 </script>
 
 <template>
-  <div
-    v-if="offlineReady || needRefresh"
-    class="pwa-toast"
-    role="alert"
-  >
+  <div v-if="offlineReady || needRefresh" class="pwa-toast" role="alert">
     <div class="message">
-      <span v-if="offlineReady">
-        App ready to work offline
-      </span>
+      <span v-if="offlineReady"> App ready to work offline </span>
       <span v-else>
         New content available, click on reload button to update.
       </span>
     </div>
-    <button v-if="needRefresh" @click="updateServiceWorker()">
-      Reload
-    </button>
-    <button @click="close">
-      Close
-    </button>
+    <button v-if="needRefresh" @click="updateServiceWorker()">Reload</button>
+    <button @click="close">Close</button>
   </div>
 </template>
 
@@ -265,32 +248,34 @@ export default {
 }
 </style>
 ```
+
 :::
 
-### Periodic SW Updates
+### 定期 SW 更新
 
-As explained in [Periodic Service Worker Updates](/guide/periodic-sw-updates), you can use this code to configure this behavior on your application with the `useRegisterSW.js` `mixin`:
+正如 [定期更新 Service Worker](/guide/periodic-sw-updates)中解释，你可以在你的应用中使用`useRegisterSW.js` `mixin`用这段代码来配置此行为:
 
 ```vue
 <script>
-import useRegisterSW from '@/mixins/useRegisterSW'
+import useRegisterSW from '@/mixins/useRegisterSW';
 
-const intervalMS = 60 * 60 * 1000
+const intervalMS = 60 * 60 * 1000;
 
 export default {
   name: 'ReloadPrompt',
   mixins: [useRegisterSW],
   methods: {
     handleSWManualUpdates(r) {
-      r && setInterval(() => {
-        r.update()
-      }, intervalMS)
-    }
-  }
-}
+      r &&
+        setInterval(() => {
+          r.update();
+        }, intervalMS);
+    },
+  },
+};
 </script>
 ```
 
-The interval must be in milliseconds, in the example above it is configured to check the service worker every hour.
+间隔必须以毫秒为单位，在上面的例子中，它被配置为每小时检查一次 service worker。
 
 <HeuristicWorkboxWindow />

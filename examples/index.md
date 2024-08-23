@@ -1,6 +1,6 @@
 ---
-title: 开始 | Examples
-prev: Remix | Frameworks
+title: 开始 | 案例
+prev: Remix | 框架
 ---
 
 # 开始

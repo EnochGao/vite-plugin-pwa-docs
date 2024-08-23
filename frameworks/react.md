@@ -1,5 +1,5 @@
 ---
-title: React | Frameworks
+title: React | 框架
 ---
 
 # React

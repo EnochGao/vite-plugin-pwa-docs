@@ -1,6 +1,6 @@
 ---
 title: 迁移 | PWA Assets 生成器
-next: 开始 | Frameworks
+next: 开始 | 框架
 outline: deep
 ---
 

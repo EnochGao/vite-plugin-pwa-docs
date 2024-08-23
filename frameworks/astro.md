@@ -1,5 +1,5 @@
 ---
-title: Astro | Frameworks
+title: Astro | 框架
 outline: deep
 ---
 
@@ -53,7 +53,7 @@ Since Astro will not inject any script in your application when using Astro comp
 
 You can also enable [Development Support](/guide/development) to test your PWA webmanifest and debug your custom service worker logic as you develop your Astro application.
 
-### Auto Update
+### 自动更新
 
 The best place to use/import the PWA virtual module will be in the main layout of the application (you should register it in any layout):
 

@@ -1,6 +1,6 @@
 ---
-title: Remix | Frameworks
-next: 开始 | Examples
+title: Remix | 框架
+next: 开始 | 案例
 outline: deep
 ---
 

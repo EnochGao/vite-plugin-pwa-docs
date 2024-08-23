@@ -1,5 +1,5 @@
 ---
-title: SolidJS | Frameworks
+title: SolidJS | 框架
 ---
 
 # SolidJS

@@ -1,5 +1,5 @@
 ---
-title: Nuxt 3 | Frameworks
+title: Nuxt 3 | 框架
 outline: deep
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: VitePress | Frameworks
+title: VitePress | 框架
 outline: deep
 ---
 
@@ -49,7 +49,7 @@ export default withPwa(defineConfig({
 
 Since VitePress uses SSR/SSG, we need to call the `vite-plugin-pwa` virtual module using a dynamic `import`. This can be done in the [theme](https://vitepress.vuejs.org/guide/theme-introduction). You can either configure the plugin to auto update or prompt for update. Refer below for examples.
 
-### Auto Update
+### 自动更新
 
 ::: details .vitepress/theme/index.ts
 ```ts

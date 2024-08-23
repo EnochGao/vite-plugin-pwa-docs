@@ -1,5 +1,5 @@
 ---
-title: Preact | Frameworks
+title: Preact | 框架
 ---
 
 # Preact

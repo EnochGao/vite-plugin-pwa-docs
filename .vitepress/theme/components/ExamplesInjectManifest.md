@@ -1,3 +1,3 @@
-`injectManifest` has the following behavior:
+`injectManifest` 具有以下行为:
 
 <ExamplesBehaviors />

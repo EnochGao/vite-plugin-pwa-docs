@@ -1,5 +1,5 @@
 ---
-title: SvelteKit | Frameworks
+title: SvelteKit | 框架
 outline: deep
 ---
 
@@ -201,7 +201,7 @@ export interface SvelteKitPWAOptions extends Partial<VitePWAOptions> {
 
 If you want your application to work offline, you should ensure you have not set `csr: false` on any of your pages since it will prevent injecting JavaScript into the layout for offline support.
 
-### Auto Update
+### 自动更新
 
 Since SvelteKit uses SSR/SSG, we need to call the `vite-plugin-pwa` virtual module using a dynamic `import`.
 

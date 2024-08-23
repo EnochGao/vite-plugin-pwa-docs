@@ -1,5 +1,5 @@
 ---
-title: Svelte | Frameworks
+title: Svelte | 框架
 ---
 
 # Svelte

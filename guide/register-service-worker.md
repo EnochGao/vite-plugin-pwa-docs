@@ -28,11 +28,11 @@ export default defineConfig({
 - `null` (手动): 什么都不会做，您需要自己注册 Service Worker，或者导入插件公开的虚拟模块
 - **`auto` (默认值)**: 取决于你是否使用插件公开的任何虚拟模块，它将什么都不做或者切换到 `script` 模式
 
-您可以在[Frameworks](/frameworks/)章节找到有关插件暴露虚拟模块的更多信息。
+您可以在[框架](/frameworks/)章节找到有关插件暴露虚拟模块的更多信息。
 
 ## 内联注册
 
-When configuring `injectRegister: 'inline'` in the plugin configuration, the plugin will inline a head script adding in to your application entry point:
+当在插件配置选项中配置 `injectRegister: 'inline'`, 插件将会在 head 中内联脚本并添加到应用入口处:
 ::: details **内联头部脚本**
 
 ```html
@@ -51,7 +51,7 @@ When configuring `injectRegister: 'inline'` in the plugin configuration, the plu
 
 ## 脚本注册
 
-When configuring `injectRegister: 'script' | 'script-defer'` in the plugin configuration, the plugin will generate a `registerSW.js` script adding it to your application entry point:
+当在插件配置选项中配置 `injectRegister: 'script' | 'script-defer'` , 插件将会生成一个 `registerSW.js` 脚本添加到你的应用程序入口处:
 ::: details **头部脚本**
 
 ```html
@@ -76,12 +76,12 @@ if ('serviceWorker' in navigator) {
 
 ## 手动注册
 
-When configuring `injectRegister: null` in the plugin configuration, the plugin will do nothing, you must register the service workbox manually yourself.
+当在插件配置选项中配置 `injectRegister: null`, 插件将什么也不会做, 你必须自己手动注册一个 service workbox。
 
-Or you can import any of the virtual modules exposed by the plugin.
+或者你可以导入插件公开的任何虚拟模块。
 
-If you're using `injectManifest` strategy in development with `devOptions` enabled, you should check [injectManifest development section](/guide/development#injectmanifest-strategy) to get details on getting the right ServiceWorker URL for your development setup.
+如果你在开发环境中使用 `injectManifest` 策略，并且`devOptions`是启用的，你应该查看 [injectManifest 开发章节](/guide/development#injectmanifest-strategy) 以获取开发设置正确的 ServiceWorker URL 详细信息。
 
 ## 自动注册
 
-If your application code base is not importing any of the virtual modules exposed by the plugin, the plugin will fallback to [Script Registration](/guide/register-service-worker#script-registration), otherwise, the imported virtual module will register the service worker for you.
+如果你的应用代码库没有导入任何由插件公开的虚拟模块，那么插件将回退到[脚本注册](/guide/register-service-worker#script-registration)，否则，导入的虚拟模块将为你注册 service worker。
