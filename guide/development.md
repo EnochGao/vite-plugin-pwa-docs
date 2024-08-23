@@ -6,13 +6,13 @@ title: 开发 | 指南
 
 从`v0.11.13`版本你可以在开发环境使用 service worker.
 
-The PWA will not be registered, only the service worker logic, check the details for each strategy below.
+PWA 不会被注册，只会注册 Service Worker 逻辑，请查看下面每个策略的详细信息。
 
-::: warning
+::: warning 警告
 There will be only one single registration on the service worker precache manifest (`self.__WB_MANIFEST`) when necessary: `navigateFallback`.
 :::
 
-The service worker on development will be only available if `disabled` plugin option is not `true` and the `enable` development option is `true`.
+在开发过程中，service worker 仅在插件`disabled` 选项不是`true`且`enable`选项被设置为`true`的情况下才可用。
 
 ## 插件配置
 
@@ -38,12 +38,14 @@ export default defineConfig({
 ## 类型声明
 
 ::: warning 警告
-Since version `0.12.4+`, the `webManifestUrl` has been deprecated, the plugin will use `navigateFallbackAllowlist` instead.
+
+自版本`0.12.4+` 起， `webManifestUrl` 已被弃用，该插件将使用 `navigateFallbackAllowlist` 替代
+
 :::
 
 ```ts
 /**
- * 开发 options.
+ * 开发选项
  */
 export interface DevOptions {
   /**
@@ -104,7 +106,7 @@ export interface DevOptions {
 
 ## manifest.webmanifest
 
-Since version `0.12.1` the `manifest.webmanifest` is also served on development mode: you can now check it on `dev tools`.
+由于`0.12.1` 版本`manifest.webmanifest` 也服务于开发模式:你现在可以在`dev tools`上检查它。
 
 ## generateSW 策略
 
@@ -116,7 +118,7 @@ The PWA plugin will force `type: 'classic'` on service worker registration to av
 Uncaught (in promise) TypeError: Failed to execute 'importScripts' on 'WorkerGlobalScope': Module scripts don't support importScripts().
 ```
 
-::: warning
+::: warning 警告
 If your pages/routes other than the entry point are being intercepted by the service worker, use `navigateFallbackAllowlist` to include only the entry point: by default, the plugin will use `[/^\/$/]`.
 
 You **ONLY** need to add the `navigateFallbackAllowlist` option to the `devOptions` entry in `vite-plugin-pwa` configuration if your pages/routes are being intercepting by the service worker and preventing to work as expected:
@@ -139,7 +141,7 @@ export default defineConfig({
 
 ## injectManifest 策略
 
-You can use `type: 'module'` when registering the service worker (right now only supported on latest versions of `Chromium` based browsers: `Chromium/Chrome/Edge`):
+你可以使用`type: 'module'`来注册 service worker (目前仅支持最新的基于 `Chromium` 的浏览器: Chromium/Chrome/Edge):
 
 <!--eslint-skip-->
 
@@ -151,11 +153,12 @@ devOptions: {
 }
 ```
 
-::: warning
-When building the application, the `vite-plugin-pwa` plugin will always register your service worker with `type: 'classic'` for compatibility with all browsers.
+::: warning 警告
+
+在构建应用程序时，`vite-plugin-pwa`插件将始终将您的 service worker 注册为`type: 'classic'` ，以确保与所有浏览器的兼容性。
 :::
 
-::: tip
+::: tip 提示
 You should only intercept the entry point of your application, if you don't include the `allowlist` option in the `NavigationRoute`, all your pages/routes might not work as they are being intercepted by the service worker (which will return by default the content of the entry point by not including your pages/routes in its precache manifest):
 
 ```ts
@@ -201,16 +204,15 @@ When you change your service worker source code, `Vite` will force a full reload
 
 <HeuristicWorkboxWindow />
 
-## Example
+## 示例
 
-You can find an example here: [vue-router](https://github.com/antfu/vite-plugin-pwa/tree/main/examples/vue-router).
+您可以在这找到示例: [vue-router](https://github.com/antfu/vite-plugin-pwa/tree/main/examples/vue-router).
 
-To run the example, you must build the PWA plugin (`pnpm run build` from root folder), change to `vue-router` directory
-(`cd examples/vue-router`) and run it:
+要运行这个示例，您必须从根目录构建 PWA 插件（ `pnpm run build` ），切换到 `vue-router` 目录（`cd examples/vue-router` ）并运行它:
 
-- `generateSW` strategy: `pnpm run dev`
-- `injectManifest` strategy: `pnpm run dev-claims`
+- `generateSW` 策略: `pnpm run dev`
+- `injectManifest` 策略: `pnpm run dev-claims`
 
-Since version `0.12.1`, you also have the development scripts for all other frameworks as well.
+从版本 `0.12.1` 开始，您还可以获得所有其他框架的开发脚本
 
-The instructions for running the `dev` or `dev-claims` scripts are the same as for `vue-router` but running them in the corresponding framework directory.
+运行 `dev` 或 `dev-claims` 脚本的步骤与运行 `vue-router` 的步骤相同，但需要在相应的框架目录中运行它们。

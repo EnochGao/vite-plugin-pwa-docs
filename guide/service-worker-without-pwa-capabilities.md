@@ -4,13 +4,13 @@ title: 没有PWA功能的Service Worker | 指南
 
 # 没有 PWA 功能的 Service Worker
 
-Sometimes you don't need the full blown PWA functionality like **offline cache** and **manifest file**, but need simple custom Service Worker.
+有时候你不需要完整的 PWA 功能，比如**离线缓**存和**manifest 文件**，而只需要简单的自定义 Service Worker
 
-You can disable all `vite-plugin-pwa` supported features, and use it just to manage your Service Worker file.
+你可以禁用所有 `vite-plugin-pwa` 支持的功能，仅使用它来管理你的 Service Worker 文件
 
 ## Service Worker 代码
 
-Suppose you want to have a Service Worker file that captures browser `fetch`:
+假设你想创建一个 Service Worker 文件，用于捕获浏览器的 `fetch`:
 
 ```js
 // src/service-worker.js or src/service-worker.ts
@@ -19,14 +19,14 @@ self.addEventListener('fetch', (event) => {
 });
 ```
 
-You would like to have this service worker reloaded on each change in **development** and prepared for **production**.
+你希望在**开发**过程中每次更改时都能重新加载 service worker，并为**生产**做好准备
 
 ## 插件配置
 
-You should configure `vite-plugin-pwa` plugin options in your Vite configuration file with the following options:
+你应该在你的 Vite 配置文件中使用以下选项配置 `vite-plugin-pwa` 插件
 
 ```js
-// vite.config.js or vite.config.ts
+// vite.config.js 或者 vite.config.ts
 VitePWA({
   srcDir: 'src',
   filename: 'service-worker.js',
@@ -41,7 +41,7 @@ VitePWA({
 
 ## 开发
 
-If you would like the service worker to run in development, make sure to enable it in the [devOptions](/guide/development#plugin-configuration) and to set the type to [module](/guide/development#injectmanifest-strategy) if required.
+如果你想让 service worker 在开发环境中运行，请确保在[devOptions](/guide/development#plugin-configuration)中启用它，如果需要，设置 type 类型为[module](/guide/development#injectmanifest-策略)
 
 ## 在你的应用中注册 Service Worker
 

@@ -14,17 +14,17 @@ Check also the new [PWA 最低要求](/assets-generator/#pwa-minimal-icons-requi
 
 ## 入口点
 
-Your application entry point (usually `index.html`) **must** have the following entries in the `<head>` section:
+您的应用程序入口点(通常是`index.html`)**必须**在 `<head>` 部分中具有以下条目:
 
-- mobile viewport configuration
-- a title
-- a description
-- a favicon, check the following pages: https://dev.to/masakudamatsu/favicon-nightmare-how-to-maintain-sanity-3al7 and this old one https://www.leereamsnyder.com/blog/favicons-in-2021
-- a link for `apple-touch-icon`
-- a link for `mask-icon` (right now there is no need to provide a `mask-icon`)
-- a meta entry for `theme-color`
+- 移动视口配置
+- 一个标题
+- 一段描述
+- 一个图标, 查看以下界面: https://dev.to/masakudamatsu/favicon-nightmare-how-to-maintain-sanity-3al7 还有一个老的 https://www.leereamsnyder.com/blog/favicons-in-2021
+- 一个 `apple-touch-icon`链接
+- 一个`mask-icon`链接 (现在不需要提供 `mask-icon`)
+- 一个 `theme-color`元数据项
 
-For example, a minimal configuration (you must provide all the icons and images):
+例如，一个最小的配置(你必须提供所有的 icons 和 images):
 
 ```html
 <head>
@@ -40,15 +40,15 @@ For example, a minimal configuration (you must provide all the icons and images)
 
 ## Web App Manifest
 
-Your application [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) **must** have the following entries:
+您的应用[Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest)**必须**包含以下条目:
 
-- a scope: omitted here for simplicity, the `vite-plugin-pwa` plugin will use the `Vite` base option to configure it (default is `/`)
-- a name
-- a short description
-- a description
-- a `theme_color`: **must match** the configured one on `Entry Point theme-color`
-- an icon with `192x192` size
-- an icon with `512x512` size
+- 一个范围: 为了简单起见, `vite-plugin-pwa` 会使用 `Vite` base 配置选项来配置 (默认是 `/`)
+- 一个名字
+- 一段简单描述
+- 一段描述
+- 一个`theme_color`: **必须匹配** `Entry Point theme-color`
+- 一个大小 `192x192` 图标
+- 一个大小 `512x512` 图标
 
 To configure the [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest), add the `manifest` entry to the `vite-plugin-pwa` plugin options.
 
