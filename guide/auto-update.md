@@ -5,77 +5,80 @@ outline: deep
 
 # 自动重新加载
 
-With this behavior, once the browser detects a new version of your application, then, it will update the caches and will reload any browser windows/tabs with the application opened automatically to take the control.
+有了这种行为，一旦浏览器检测到您的应用程序的新版本，那么，它将更新缓存，并将重新加载所有浏览器窗口/选项卡，并自动打开应用程序以获得控制权
 
-::: warning
-In order to reload all client tab/window, you will need to import any virtual module provided by the plugin: if you're not using any virtual, there is no way to interact with the application ui, and so, any client tab/window will not be reloaded (the old service worker will be still controlling the application).
+::: warning 警告
 
-Automatic reload is not automatic page reload, you will need to use the following code in your application entry point if you want **automatic page reload**:
+为了重新加载所有客户端选项卡/窗口，你需要导入插件提供的虚拟模块:如果你没有使用任何虚拟，就没有办法与应用程序 ui 交互，因此，任何客户端选项卡/窗口都不会重新加载(旧的 service worker 仍将控制应用程序)。
+
+自动重载不是自动页面重载，如果你想**自动页面重载**，你需要在应用程序入口点中使用以下代码：
 
 ```js
-import { registerSW } from 'virtual:pwa-register'
+import { registerSW } from 'virtual:pwa-register';
 
-registerSW({ immediate: true })
+registerSW({ immediate: true });
 ```
+
 :::
 
-The disadvantage of using this behavior is that the user can lose data in any browser windows/tabs in which the application is open and is filling in a form.
+使用这种行为的缺点是，用户可能会在一些浏览器窗口/选项卡中丢失数据，那些应用程序是打开的，和那些正在填写表单的。
 
-If your application has forms, we recommend you to change the behavior to use default `prompt` option to allow the user decide when to update the content of the application.
+如果您的应用程序有表单，我们建议您更改行为，使用默认 `prompt` 选项，以允许用户决定何时更新应用程序的内容
 
-::: danger
-Before you put your application into production, you need to be sure of the behavior you want for the service worker. Changing the behavior of the service worker from `autoUpdate` to `prompt` can be a pain.
+::: danger 危险
+
+在您将应用程序投入生产之前，您需要确定您希望 service worker 的行为。将 service worker 的行为从 `autoUpdate` 更改为 `prompt` 可能会很痛苦。
+
 :::
 
 ## 插件配置
 
-With this option, the plugin will force `workbox.clientsClaim` and `workbox.skipWaiting` to `true` on the plugin options.
+使用此选项，插件将强制 `workbox.clientsClaim` 和 `workbox.skipWaiting` 在插件选项上为 `true。`
 
-You must add `registerType: 'autoUpdate'` to `vite-plugin-pwa` plugin options in your `vite.config.ts` file:
+您必须在您的 `vite.config.ts` 文件中添加 `registerType: 'autoUpdate'` 到 `vite-plugin-pwa`插件选项:
 
 ```ts
 VitePWA({
-  registerType: 'autoUpdate'
-})
+  registerType: 'autoUpdate',
+});
 ```
 
-### Cleanup Outdated Caches
+### 清除过期缓存
 
 <CleanupOutdatedCaches />
 
 <GenerateSWCleanupOutdatedCaches />
 
-### Inject Manifest Source Map <Badge type="tip" text="new options from v0.18.0+" />
+### Inject Manifest Source Map <Badge type="tip" text="自v0.18.0+新选项" />
 
 <InjectManifestSourceMap />
 
-### Generate SW Source Map
+### 生成 SW 源码映射
 
 <GenerateSWSourceMap />
 
 ## 导入虚拟模块
 
-With this behavior, you **must** import one of the virtual modules exposed by `vite-plugin-pwa` plugin **only** if you need to prompt a dialog to the user when the application is ready to work offline, otherwise you can import or just omit it.
+使用此行为时，如果您需要在应用程序准备离线工作时向用户提示对话框，则**必须**导入 `vite-plugin-pwa` 插件暴露的其中一个虚拟模块。否则，您可以导入或忽略它。
 
-If you don't import one of the virtual modules, the automatic reload will still work.
+如果你没有导入任何一个虚拟模块，自动重新加载仍然会工作
 
-### Ready To Work Offline
+### 准备离线工作
 
-You must include the following code on your `main.ts` or `main.js` file:
+您必须在 `main.ts` 或 `main.js` 文件中包含以下代码
 
 ```ts
-import { registerSW } from 'virtual:pwa-register'
+import { registerSW } from 'virtual:pwa-register';
 
 const updateSW = registerSW({
   onOfflineReady() {},
-})
+});
 ```
 
-You will need to show a ready to work offline dialog to the user with an `OK` button inside `onOfflineReady` callback.
+您需要在`onOfflineReady`回调中使用`OK`按钮向用户显示一个准备好脱机工作的对话框。
 
-When the user clicks the `OK` button, just hide the prompt shown on `onOfflineReady` method.
+当用户点击 `OK` 按钮时，只需隐藏提示展示在 `onOfflineReady` 方法中。
 
 ### SSR/SSG
 
 <SsrSsg />
-

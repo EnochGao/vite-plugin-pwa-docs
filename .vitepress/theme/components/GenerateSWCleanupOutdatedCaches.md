@@ -1,19 +1,19 @@
-When the browser detects and installs the new version of your application, it will have in the cache storage all new assets and also the old ones. To delete old assets (from previous versions that are no longer necessary), you have to configure an option in the `workbox` entry of the plugin configuration.
+当浏览器检测并安装新版本的应用程序时，它将在缓存中存储所有新资产和旧资产。要删除旧的资产(先前不再需要的版本)，您必须在插件配置的`workbox`条目中配置一个选项。
 
-When using the `generateSW` strategy, it is not necessary to configure it, the plugin will activate it by default.
+当使用 `generateSW` 策略时，无需配置，插件会默认激活
 
-We strongly recommend you to **NOT** deactivate the option. If you are curious, you can deactivate it using the following code in your plugin configuration:
+我们强烈建议您**不要**停用该选项。如果你却是想要禁用，可以在插件配置中使用以下代码来禁用它:
 
 ```ts
-import { VitePWA } from 'vite-plugin-pwa'
+import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
   plugins: [
     VitePWA({
       workbox: {
-        cleanupOutdatedCaches: false
-      }
-    })
-  ]
-})
+        cleanupOutdatedCaches: false,
+      },
+    }),
+  ],
+});
 ```

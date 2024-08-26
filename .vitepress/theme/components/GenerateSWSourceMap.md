@@ -1,19 +1,19 @@
-Since plugin version `0.11.2`, your service worker's source map will not be generated as it uses the `build.sourcemap` option from the Vite config, which by default is `false`.
+从插件版本 `0.11.2` 开始，service worker 的源映射将不会被生成，因为它使用了 vite 配置选项`build.sourcemap`来构建，默认情况下为 `false`
 
-Your service worker source map will be generated when Vite's `build.sourcemap` configuration option has the value `true`,  `'inline'` or `'hidden'`, and you have not configured the `workbox.sourcemap` option in the plugin configuration.  If you configure the `workbox.sourcemap` option, the plugin will not change that value.
+当 vite 的`build.sourcemap`配置选项为`true`、`'inline'`或`'hidden'`时，并且你没有配置`workbox.sourcemap`选项，service worker 的源映射将被生成。如果你配置了`workbox.sourcemap`选项，插件将不会改变该值。
 
-If you want to generate the source map of your service worker, you can use this code:
+如果你想生成 service worker 的 source map，你可以使用以下代码
 
 ```ts
-import { VitePWA } from 'vite-plugin-pwa'
+import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
   plugins: [
     VitePWA({
       workbox: {
-        sourcemap: true
-      }
-    })
-  ]
-})
+        sourcemap: true,
+      },
+    }),
+  ],
+});
 ```

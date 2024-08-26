@@ -1,5 +1,6 @@
-The service worker will store all your application assets in a browser cache (or set of caches). Every time you make changes to your application and rebuild it, the `service worker` will also be rebuilt, including in its precache manifest all new modified assets, which will have their revision changed (all assets that have been modified will have a new version). Assets that have not been modified will also be included in the service worker precache manifest, but their revision will not change from the previous one.
+service worker 会把你所有的应用资源存储在浏览器缓存(或一组缓存)中。每次你对应用进行修改并重新构建时，service worker 也会被重新构建，包括在它的预缓存清单中所有新修改的资产，这些资产的版本也会发生变化(所有被修改的资产都会有一个新版本)。没有被修改过的资产也会被包含在 service worker 的预缓存清单中，但它们的修订版本不会改变。
 
-::: tip Precache Manifest Entry Revision
-The precache manifest entry revision is just a `MD5` hash of the asset content, if an asset is not modified, the calculated hash will be always the same.
+::: tip 预缓存清单条目修改
+
+预缓存清单条目的修订只是资产内容的哈希 `MD5` ，如果资产没有被修改，那么计算出来的哈希将始终相同
 :::

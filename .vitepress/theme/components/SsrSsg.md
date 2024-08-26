@@ -10,7 +10,7 @@ registerSW({
 });
 ```
 
-and then import it from your `main.ts`:
+然后从 `main.ts` 中导入它:
 
 ```ts
 if (typeof window !== 'undefined') import('./pwa');
