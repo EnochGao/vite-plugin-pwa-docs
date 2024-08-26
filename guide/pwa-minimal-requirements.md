@@ -4,13 +4,13 @@ title: PWA最低要求 | 指南
 
 # PWA 最低要求
 
-Previous steps in this guide, are the minimal requirements and configuration to create the [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest) and the service worker when you build your application, but you'll need to include more options to meet PWA Minimal Requirements.
+本指南中的前面步骤是在构建应用程序时创建 [Web App Manifest](https://developer.mozilla.org/zh_CN/docs/Web/Manifest)和 service worker 的最低要求和配置，然而您需要包含更多选项以满足 PWA 最低要求。
 
-Your application **must** meet the PWA Minimal Requirements before deploying it to production or when testing your build on local: for example, when testing your PWA application on local using `LightHouse`.
+在将应用程序部署到生产环境之前或在本地测试构建时，您的应用程序**必须**满足 PWA 最低要求:例如，在本地使用 `LightHouse` 测试您的 PWA 应用程序时
 
-To make your PWA application installable (one of the requirements), you will need to modify your application entry point, add some minimal entries to your `Web App Manifest`, allow search engines to crawl all your application pages and configure your server properly (only for production, on local you can use `https-localhost` dependency and `node`).
+要使您的 PWA 应用程序可安装(其中一个要求)，您将需要修改应用程序入口点，向 `Web App Manifest` 添加一些最小条目，允许搜索引擎爬取您应用程序的所有页面并正确配置您的服务器(仅用于生产，在本地您可以使用 `https-localhost` 依赖项和 `node` )
 
-Check also the new [PWA 最低要求](/assets-generator/#pwa-minimal-icons-requirements) page in the [PWA Assets 生成器](/assets-generator/) section.
+还可以查看[PWA 资产生成器](/assets-generator/)中 [PWA 最低要求](/assets-generator/#pwa-minimal-icons-requirements) 部分
 
 ## 入口点
 
@@ -50,9 +50,9 @@ Check also the new [PWA 最低要求](/assets-generator/#pwa-minimal-icons-requi
 - 一个大小 `192x192` 图标
 - 一个大小 `512x512` 图标
 
-To configure the [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest), add the `manifest` entry to the `vite-plugin-pwa` plugin options.
+要配置 [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest)，请将 `manifest` 条目添加到 `vite-plugin-pwa` 插件选项中
 
-Following with the example, here a minimal configuration (you must provide all the icons and images):
+下面是一个简单的配置示例（您必须提供所有 icons 和 images）:
 
 ```ts
 import { VitePWA } from 'vite-plugin-pwa';
@@ -84,9 +84,9 @@ export default defineConfig({
 });
 ```
 
-You can also specify `manifest: false` to disable the `Web App Manifest` generation adding your own `manifest.webmanifest/manifest.json` file to the `public` folder on your application.
+你也可以通过指定 `manifest: false` 来禁用 `Web App Manifest` 的生成，并将自己的 `manifest.webmanifest/manifest.json` 文件添加到你应用程序的 `public` 文件夹中。
 
-The `vite-plugin-pwa` has the full definition of the `Web App Manifest` options, if you want to have DX support when using your own web manifest, add the following entry to your custom web manifest (VSCode and JetBrains IDEs will use it to provide DX support):
+`vite-plugin-pwa` 具有 `Web App Manifest`选项的完整定义，如果您希望在使用自己的`Web App Manifest`时获得 DX 支持，请将以下条目添加到您的自定义 `Web App Manifest`中（VSCode 和 JetBrains IDE 将使用它来提供 DX 支持）：
 
 ```json
 {
@@ -96,30 +96,30 @@ The `vite-plugin-pwa` has the full definition of the `Web App Manifest` options,
 
 ## Icons / Images
 
-:::tip
-Check out the [PWA Assets 生成器](/assets-generator/) to generate all the icons and images required for your PWA application.
+:::tip 提示
+查看 [PWA 资产生成器](/assets-generator/)以生成 PWA 应用程序所需的所有 icons 和 images。
 
-You can also use [PWA Builder Image Generator](https://www.pwabuilder.com/imageGenerator) to generate all your PWA application's icons.
+您还可以使用 [PWA Builder Image Generator](https://www.pwabuilder.com/imageGenerator) 生成所有 PWA 应用程序的图标。
 :::
 
-For `manifest` icons entry, you will need to create `pwa-192x192.png`, and `pwa-512x512.png` icons. The icons specified above are the minimum required to meet PWA, that is, icons with `192x192` and `512x512` resolutions.
+对于`manifest`中 icons 条目，您需要创建 `pwa-192x192.png` 图标和 `pwa-512x512.png` 图标。上面指定的图标是满足 PWA 的最低要求，即分辨率为 `192x192` 和 `512x512` 的图标。
 
-We suggest creating a svg or png icon (if it is a png icon, with the maximum resolution possible) for your application and use it to generate your PWA icons:
+我们建议为您的应用程序创建一个 svg 或 png 图标（如果它是 png 图标，则具有可能的最大分辨率），并使用它们来生成 PWA 图标：
 
-- [PWA Assets 生成器](/assets-generator/) (recommended).
-- [Favicon InBrowser.App](https://favicon.inbrowser.app/tools/favicon-generator) (recommended).
+- [PWA 资产生成器](/assets-generator/) (建议).
+- [Favicon InBrowser.App](https://favicon.inbrowser.app/tools/favicon-generator) (建议).
 - [Favicon Generator](https://realfavicongenerator.net/).
 
-For `mask-icon` in the entry point, use the svg or the png used to generate the favicon package.
+对于入口点中的`mask-icon`，请使用用于生成 favicon 包的 svg 或 png。
 
-Once generated, download the ZIP and use `android-*` icons for `pwa-*`:
+生成后，下载 ZIP 并使用 `android-*` 图标替换 `pwa-*` 图标:
 
-- use `android-chrome-192x192.png` for `pwa-192x192.png`
-- use `android-chrome-512x512.png` for `pwa-512x512.png`
-- `apple-touch-icon.png` is `apple-touch-icon.png`
-- `favicon.ico` is `favicon.ico`
+- `android-chrome-192x192.png` 用于 `pwa-192x192.png`
+- `android-chrome-512x512.png` 用于 `pwa-512x512.png`
+- `apple-touch-icon.png` 用于 `apple-touch-icon.png`
+- `favicon.ico` 用于 `favicon.ico`
 
-If you want you can add the `purpose: 'any maskable'` icon to the Web App Manifest, but it is better to add 2 icons with `any` and `maskable` purposes:
+如果需要，可以将用`purpose: 'any maskable'`添加到应用程序清单中，但最好添加 2 个具有`any`和`maskable`的图标：
 
 ```ts
 icons: [
@@ -150,15 +150,15 @@ icons: [
 
 ## 搜索引擎
 
-You **must** add a `robots.txt` file to allow search engines to crawl all your application pages, just add `robots.txt` to the `public` folder on your application:
+你**必须**添加一个名为`robots.txt`的文件，以便搜索引擎能够爬取你的应用程序的所有页面。只需将`robots.txt`文件添加到你的应用程序的 `public` 文件夹中即可:
 
 ```txt
 User-agent: *
 Allow: /
 ```
 
-:::warning
-`public` folder must be on the root folder of your application, not inside the `src` folder.
+:::warning 警告
+`public` 文件夹必须位于应用程序的根目录，而不是位于 `src` 文件夹中
 :::
 
 ## 服务器配置
