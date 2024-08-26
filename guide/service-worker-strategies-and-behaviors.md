@@ -4,26 +4,27 @@ title: Service Worker 策略和行为 | 指南
 
 # Service Worker 策略和行为
 
-A service worker strategy is related to how the `vite-plugin-pwa` plugin will generate your service worker, while the behavior of a service worker is related to how the service worker will work in the browser once the browser detects a new version of your application.
+service worker 策略与 `vite-plugin-pwa`插件将如何生成你的 service worker 有关，而 service worker 的行为与浏览器检测到应用程序的新版本后 service worker 将如何在浏览器中工作有关
 
 ## Service Worker 策略
 
-As we mention in [Configuring vite-plugin-pwa](/guide/#configuring-vite-plugin-pwa) section, `vite-plugin-pwa` plugin will use `workbox-build` node library to generate your service worker. There are 2 available strategies, `generateSW` and `injectManifest`:
-- `generateSW`: the `vite-plugin-pwa` will generate the service worker for you, you don't need to write the code for the service worker
-- `injectManifest`: the `vite-plugin-pwa` plugin will compile your custom service worker and inject its precache manifest
+正如我们在 [配置 vite-plugin-pwa](/guide/#配置-vite-plugin-pwa) 部分提到, `vite-plugin-pwa` 插件会使用 `workbox-build` node 库 来生成你的 service worker.这有两种可用的策略, `generateSW` 和 `injectManifest`:
 
-To configure the service worker strategy, use the `strategies`' plugin option with `generateSW` (**default strategy**) or `injectManifest` value.
+- `generateSW`: `vite-plugin-pwa`将为你生成 service worker，你不需要为 service worker 编写代码
+- `injectManifest`: `vite-plugin-pwa` 插件将编译你的自定义 service worker 并注入它的预缓存清单
 
-You can find more information about the strategies in the [generateSW](/workbox/generate-sw) or [injectManifest](/workbox/inject-manifest) `Workbox` sections.
+要配置 service worker 策略，请使用带有`generateSW` (**默认策略**)或 `injectManifest`值的`strategies` 插件选项
+
+您可以在 [generateSW](/workbox/generate-sw) 或 [injectManifest](/workbox/inject-manifest) `Workbox` 部分中找到有关策略的更多信息。
 
 ## Service Worker 行为
 
-The behavior of the service worker will help you to update the application in the browser, that is, when the browser detects a new version of your application, you can control how the browser updates it.
+service worker 的行为将帮助您在浏览器中更新应用程序，即当浏览器检测到应用程序的新版本时，您可以控制浏览器如何更新它
 
-You may want to not bother users and just have the browser update the application when there is a new version: the user will only see a reload of the page they are on.
+你可能不想打扰用户，只是让浏览器在有新版本时更新应用程序:用户只会看到他们所在页面的重新加载
 
-Or you may want to inform the user that there is a new version of the application, and let the user decide when to update it: simply because you want it to behave that way or because your application requires it (for example, to prevent data loss if the user is filling out a form).
+或者你可能想通知用户应用程序有一个新版本，让用户决定何时更新它:只是因为你希望它有那样的行为，或者因为你的应用程序需要这样做(例如，防止用户在填写表单时丢失数据)。
 
-To configure the service worker behavior, use the `registerType` plugin option with `autoUpdate` or `prompt` (**default strategy**) value.
+要配置 service worker 的行为，使用带有`autoUpdate` 或 `prompt` (**默认策略**)值`registerType` 插件选项
 
-You can find more information about the behaviors in the [auto-update](/guide/auto-update) or [prompt-for-update](/guide/prompt-for-update) sections for `generateSW` strategy or in [inject-manifest](/guide/inject-manifest) section for `injectManifest` strategy.
+你可以在 `generateSW` 策略的[auto-update](/guide/auto-update)或[prompt-for-update](/guide/prompt-for-update)部分，或 `injectManifest` 策略的[inject-manifest](/guide/inject-manifest)部分中找到有关行为的更多信息。
