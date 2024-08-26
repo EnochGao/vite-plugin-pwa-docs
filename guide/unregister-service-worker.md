@@ -4,7 +4,7 @@ title: 注销 Service Worker | 指南
 
 # 注销 Service Worker
 
-If you want to unregister the service worker from your PWA application, you only need to add `selfDestroying: true` to the plugin configuration.
+如果您想从 PWA 应用程序中注销 Service Worker，你只需要在插件配置中添加 `selfDestroying: true` 即可.
 
 `vite-plugin-pwa` plugin will create a new special service worker and replace the existing one in your application once deployed in production: it has to be put in the place of the previous broken/unwanted service worker, with the same name.
 
@@ -21,6 +21,7 @@ In a future, if you want to add the PWA again to your application, you only need
 ## Custom `selfDestroying` Service Worker
 
 If you want to remove the current deployed service worker but installing a new one, don't use `selfDestroying`:
+
 - create a new JavaScript file with the current deployed service worker name in the `public` folder, check the example below
 - change `filename` in the PWA configuration (this will generate a new service worker with the new name)
 
@@ -32,12 +33,12 @@ self.addEventListener('install', (e) => {
   self.skipWaiting();
 });
 self.addEventListener('activate', (e) => {
-  self.registration.unregister()
+  self.registration
+    .unregister()
     .then(() => self.clients.matchAll())
     .then((clients) => {
       clients.forEach((client) => {
-        if (client instanceof WindowClient)
-          client.navigate(client.url);
+        if (client instanceof WindowClient) client.navigate(client.url);
       });
       return Promise.resolve();
     })
@@ -48,7 +49,7 @@ self.addEventListener('activate', (e) => {
             return self.caches.delete(cacheName);
           })
         );
-      })
+      });
     });
 });
 ```
