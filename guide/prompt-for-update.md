@@ -9,7 +9,7 @@ outline: deep
 
 ## 插件配置
 
-Since this is the default behavior for the `registerType` plugin option, you don't need to configure it.
+因为这是 `registerType` 插件选项的默认行为，你不需要配置它
 
 ### 清理过期缓存
 
@@ -27,25 +27,26 @@ Since this is the default behavior for the `registerType` plugin option, you don
 
 ## 导入虚拟模块
 
-You must include the following code on your `main.ts` or `main.js` file:
+您必须在 `main.ts` 或 `main.js` 文件中包含以下代码:
+
 ```ts
-import { registerSW } from 'virtual:pwa-register'
+import { registerSW } from 'virtual:pwa-register';
 
 const updateSW = registerSW({
   onNeedRefresh() {},
   onOfflineReady() {},
-})
+});
 ```
 
-You will need to:
-- show a prompt to the user with refresh and cancel buttons inside `onNeedRefresh` method.
-- show a ready to work offline message to the user with an OK button inside `onOfflineReady` method.
+你需要:
 
-When the user clicks the "refresh" button when `onNeedRefresh` called, then call `updateSW()` function; the page will reload and the up-to-date content will be served.
+- 在`onNeedRefresh`方法中向用户显示带有刷新和取消按钮的提示。
+- 在`onOfflineReady` 方法中展示一个准备好离线工作带有点击 OK 按钮消息给用户。
 
-In any case, when the user clicks the `Cancel` or `OK` buttons in case `onNeedRefresh` or `onOfflineReady` respectively, close the corresponding showed prompt.
+当用户在 `onNeedRefresh` 调用时点击刷新按钮，然后调用 `updateSW（` 函数;页面将重新加载，并提供最新内容。
+
+无论如何，当用户分别在`onNeedRefresh`或`onOfflineReady`情况下单击`Cancel`或`OK`按钮时，关闭相应的显示提示。
 
 ### SSR/SSG
 
 <SsrSsg />
-
