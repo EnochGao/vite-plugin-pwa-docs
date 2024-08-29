@@ -43,7 +43,7 @@ const Guide: DefaultTheme.SidebarItem[] = [
     link: '/guide/static-assets',
   },
   {
-    text: '定期 SW 更新',
+    text: '定期更新 Service Worker',
     link: '/guide/periodic-sw-updates',
   },
   {
