@@ -1,36 +1,38 @@
 ---
-title: Static assets handling | 指南
+title: 静态资产处理 | 指南
 ---
 
-# Static assets handling
+# 静态资产处理
 
-By default, all icons on `PWA Web App Manifest` option found under Vite's `publicDir` option directory, will be included in the service worker *precache*. You can disable this option using `includeManifestIcons: false`.
+默认情况下，`PWA Web App Manifest` 选项中的所有图标，都可以在 Vite 的 `publicDir` 选项目录中找到，他们都会被包含在 service worker 预缓存中。您可以使用 `includeManifestIcons: false` 选项来禁用。
 
-You can also add other static assets such as `favicon`, `svg` and `font` files using `includeAssets` option. The `includeAssets` option will be resolved using [tinyglobby](https://github.com/SuperchupuDev/tinyglobby) found under Vite's `publicDir` option directory, and so you can use regular expressions to include those assets, for example: `includeAssets: ['fonts/*.ttf', 'images/*.png']`. You don't need to configure `PWA Manifest icons` on `includeAssets` option.
+你还可以使用 `includeAssets` 选项添加其他静态资产，如 `favicon` 、 `svg` 和 `font` 文件。 `includeAssets` 选项将通过 Vite 的 `publicDir` 选项目录中的 [tinyglobby](https://github.com/SuperchupuDev/tinyglobby) 进行解析，因此你可以使用正则表达式来包含这些资产，例如： `includeAssets: ['fonts/*.ttf', 'images/*.png']` 。你不需要在 `includeAssets` 选项中配置 `PWA Manifest icons`
 
-## Reusing src/assets images
+## 重用 src/assets images
 
-::: warning
-This feature is not yet available.
+::: warning 警告
+
+该功能尚未可用
 :::
 
-If you are using images in your application via `src/assets` directory (or any other directory), and you want to reuse those images in your `PWA Manifest` icons, you can use them with these 3 limitations:
-- any image under `src/assets` directory (or any other directory) must be used in your application via static import or directly on the `src` attribute
-- you must reference the images in the `PWA Manifest` icons using the assets directory path relative to the root folder: `./src/assets/logo.png` or `src/assets/logo.png`
-- inlined icons cannot be used, in that case you will need to copy/move those images to the Vite's `publicDir` option directory: refer to [Importing Asset as URL](https://vitejs.dev/guide/assets.html#importing-asset-as-url) and [Vite's assetsInlineLimit option](https://vitejs.dev/config/build-options.html#build-assetsinlinelimit)
+如果你在应用程序中通过 `src/assets` 目录（或其他任何目录）使用图像，并且你想在 `PWA Manifest` 图标中重用这些图像，可以使用它们，但有以下三个限制：
 
+- 位于 `src/assets` 目录（或任何其他目录）下的任何图像都必须通过静态导入或直接在 `src` 属性上使用，才能在您的应用程序中使用
+- 你必须使用相对于根文件夹的资产目录路径来引用 `PWA Manifest` 图标中的图片： `./src/assets/logo.png` 或 `src/assets/logo.png`
+- 如果无法使用内联图标，则需要将这些图像复制或移动到 Vite 的 `publicDir` 选项目录中：请参阅[将资源引入为 URL](https://cn.vitejs.dev/guide/assets#importing-asset-as-url)和 [Vite 的 assetsInlineLimit 项](https://cn.vitejs.dev/config/build-options#build-assetsinlinelimit)。
 
-::: warning
-If you're using `PWA Manifest` icons from any asset folder, but you are not using those images in your application (via static import or in src attribute), Vite will not emit those assets, and so missing from the build output:
+::: warning 警告
+
+如果你从任何资源文件夹中使用了 PWA Manifest 图标，但没有在应用程序中使用这些图像（通过静态导入或 src 属性），Vite 将不会生成这些资产，因此在构建输出中将缺失：
 
 ```shell
 Error while trying to use the following icon from the Manifest: https://localhost/src/assets/pwa-192x192.png (Download error or resource isn't a valid image)
 ```
 
-In that case, you need to copy or move those images to the Vite's `publicDir` option directory (defaults to `public`) and configure the icons properly.
+如果出现这种情况，您需要将这些图像复制或移动到 Vite 的 `publicDir` 选项目录（默认为 `public`）中，并正确配置图标
 :::
 
-For example, if you have the following image `src/assets/logo-192x192.png` you can add it to your `PWA Manifest` icon using:
+例如，如果您有以下图像`src/assets/logo-192x192.png` ，您可以在您的 `PWA Manifest` 图标中添加它：
 
 ```json
 {
@@ -40,56 +42,59 @@ For example, if you have the following image `src/assets/logo-192x192.png` you c
 }
 ```
 
-then, in your codebase, you must use it via static import:
+然后，在您的代码库中，必须通过静态导入使用它：
 
 ```js
 // src/main.js or src/main.ts
-// can be any js/ts/jsx/tsx module or single file component
-import logo from './assets/logo-192x192.png'
+// 可以是任何 js/ts/jsx/tsx 模块或者单文件组件
+import logo from './assets/logo-192x192.png';
 
-document.getElementById('logo-img').src = logo
+document.getElementById('logo-img').src = logo;
 ```
 
-or using the `src` attribute:
+或者使用 `src` 属性：
 
 ```js
 // src/main.js or src/main.ts
-// can be any js/ts/jsx/tsx module or single file component
+// 可以是任何 js/ts/jsx/tsx 模块或者单文件组件
 document.getElementById('#app').innerHTML = `
   <img src="./assets/logo-192x192.png" alt="Logo" width="192" height="192" />
-`
+`;
 ```
 
 ## globPatterns
 
-If you need to include other assets that are not under Vite's `publicDir` option directory, you can use the `globPatterns` parameter of [workbox](https://developer.chrome.com/docs/workbox/modules/workbox-build#generatesw) or [injectManifest](https://developer.chrome.com/docs/workbox/modules/workbox-build#injectmanifest) plugin options.
+如果你需要包含不在 Vite 的 `publicDir` 选项目录中的其他资产，你可以使用[workbox](https://developer.chrome.com/docs/workbox/modules/workbox-build#generatesw)或[injectManifest](https://developer.chrome.com/docs/workbox/modules/workbox-build#injectmanifest) 插件选项中的 `globPatterns` 参数。
 
-::: warning
-If you configure `globPatterns` on `workbox` or `injectManifest` plugin option, you **MUST** include all your assets patterns: `globPatterns` will be used by `workbox-build` to match files on `dist` folder.
+::: warning 警告
 
-By default, `globPatterns` will be `**/*.{js,css,html}`: `workbox` will use [glob primer](https://github.com/isaacs/node-glob#glob-primer) to match files using `globPatterns` as filter.
+如果你配置 `globPatterns`在 `workbox` 或 `injectManifest` 插件选项，你**必须**包含你所有的资产模式: `globPatterns` 将被 `workbox-build` 用于匹配 `dist` 文件夹中的文件。
 
-A common pitfall is to only include some assets and forget to add `css`, `js` and `html` assets pattern, and then your service worker will complain about missing resources.
+默认情况下， `globPatterns` 将被设置为 `**/*.{js,css,html}` ： `workbox` 将使用[glob primer](https://github.com/isaacs/node-glob#glob-primer)来匹配文件，使用 `globPatterns` 作为过滤器。
 
-For example, if you don't include `html` assets pattern, you will get this error from your service worker:  **WorkboxError non-precached-url index.html**.
+一个常见的陷阱是只包含某些资产，却忘记添加 `css` 、 `js` 和 `html` 资产模式，然后您的服务工作器会抱怨缺少资源
+
+例如，如果您没有包含 `html` 资产模式，您的 service worker 将出现以下错误:**WorkboxError non-precached-url index.html**.
 :::
 
-To configure `globPatterns` you need to use `workbox` or `injectManifest` plugin option for`generateSW` and `injectManifest` strategies respectively:
+要配置 `globPatterns` ，您需要使用 `workbox` 或 `injectManifest` 插件选项，分别用于 `generateSW` 和 `injectManifest` 策略:
 
 ::: code-group
-  ```ts [generateSW]
-  VitePWA({
-    workbox: {
-      globPatterns: ['**/*.{js,css,html}'],
-    }
-  })
-  ```
-  ```ts [injectManifest]
-  VitePWA({
-    injectManifest: {
-      globPatterns: ['**/*.{js,css,html}'],
-    }
-  })
-  ```
-:::
 
+```ts [generateSW]
+VitePWA({
+  workbox: {
+    globPatterns: ['**/*.{js,css,html}'],
+  },
+});
+```
+
+```ts [injectManifest]
+VitePWA({
+  injectManifest: {
+    globPatterns: ['**/*.{js,css,html}'],
+  },
+});
+```
+
+:::
