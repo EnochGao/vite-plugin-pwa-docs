@@ -45,7 +45,7 @@ VitePWA({
 
 ## 在你的应用中注册 Service Worker
 
-Use the code below in your entry point module:
+在您的入口模块中使用以下代码:
 
 ```js
 // src/main.js or src/main.ts
@@ -58,7 +58,7 @@ if ('serviceWorker' in navigator) {
 }
 ```
 
-If you're using import statements inside your service worker (will work only on chromium based browsers) check [injectManifest](/guide/development.html#injectmanifest-strategy) section for more info:
+如果你在服务端脚本中使用了导入语句（仅在基于 Chromium 的浏览器中生效），请检查 [injectManifest](/guide/development.html#injectmanifest-策略) 部分以获取更多信息：
 
 ```js
 // src/main.js or src/main.ts

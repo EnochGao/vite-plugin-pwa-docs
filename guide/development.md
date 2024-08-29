@@ -9,7 +9,8 @@ title: 开发 | 指南
 PWA 不会被注册，只会注册 Service Worker 逻辑，请查看下面每个策略的详细信息。
 
 ::: warning 警告
-There will be only one single registration on the service worker precache manifest (`self.__WB_MANIFEST`) when necessary: `navigateFallback`.
+
+必要时，service worker 的预缓存清单(`self.__WB_MANIFEST`)中只会有一个注册:`navigatfallback`
 :::
 
 在开发过程中，service worker 仅在插件`disabled` 选项不是`true`且`enable`选项被设置为`true`的情况下才可用。
@@ -24,11 +25,11 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig({
   plugins: [
     VitePWA({
-      /* other options */
-      /* enable sw on development */
+      /* 其他选项 */
+      /* 开发环境启用 sw */
       devOptions: {
         enabled: true,
-        /* other options */
+        /* 其他选项 */
       },
     }),
   ],
@@ -49,13 +50,13 @@ export default defineConfig({
  */
 export interface DevOptions {
   /**
-   * Should the service worker be available on development?.
+   * 开发环境sw 是否启用?.
    *
    * @default false
    */
   enabled?: boolean;
   /**
-   * The service worker type.
+   *  service worker 类型.
    *
    * @default 'classic'
    */
@@ -63,41 +64,41 @@ export interface DevOptions {
   /**
    * This option will enable you to not use the `runtimeConfig` configured on `workbox.runtimeConfig` plugin option.
    *
-   * **WARNING**: this option will only be used when using `generateSW` strategy.
+   * **警告**: 这个选项仅用在 `generateSW` 策略.
    *
    * @default false
    */
   disableRuntimeConfig?: boolean;
   /**
-   * This option will allow you to configure the `navigateFallback` when using `registerRoute` for `offline` support:
+   * 这个选项将允许你配置 `navigateFallback` 当使用 `registerRoute` 为了支持 `offline`:
    * configure here the corresponding `url`, for example `navigateFallback: 'index.html'`.
    *
-   * **WARNING**: this option will only be used when using `injectManifest` strategy.
+   * **警告**:  这个选项仅用在 `injectManifest` 策略.
    */
   navigateFallback?: string;
 
   /**
-   * This option will allow you to configure the `navigateFallbackAllowlist`: new option from version `v0.12.4`.
+   * 这个选项将允许你配置 `navigateFallbackAllowlist`: 新选项子版本 `v0.12.4`.
    *
    * Since we need at least the entry point in the service worker's precache manifest, we don't want the rest of the assets to be intercepted by the service worker.
    *
-   * If you configure this option, the plugin will use it instead the default.
+   * 如果你配置了这个选项，插件将使用它代替默认值。
    *
-   * **WARNING**: this option will only be used when using `generateSW` strategy.
+   * **警告**: 这个选项仅用在 `generateSW` 策略.
    *
    * @default [/^\/$/]
    */
   navigateFallbackAllowlist?: RegExp[];
 
   /**
-   * On dev mode the `manifest.webmanifest` file can be on other path.
+   * 在开发模式 `manifest.webmanifest` 在其他路径.
    *
-   * For example, **SvelteKit** will request `/_app/manifest.webmanifest`, when `webmanifest` added to the output bundle, **SvelteKit** will copy it to the `/_app/` folder.
+   * 例如, **SvelteKit** 将会请求 `/_app/manifest.webmanifest`, when `webmanifest` added to the output bundle, **SvelteKit** will copy it to the `/_app/` folder.
    *
-   * **WARNING**: this option will only be used when using `generateSW` strategy.
+   * **警告**: 这个选项仅用在 `generateSW` 策略.
    *
    * @default `${vite.base}${pwaOptions.manifestFilename}`
-   * @deprecated This option has been deprecated from version `v0.12.4`, the plugin will use navigateFallbackAllowlist instead.
+   * @deprecated 这个选项自 `v0.12.4`废弃, 插件将使用 navigateFallbackAllowlist 代替.
    * @see navigateFallbackAllowlist
    */
   webManifestUrl?: string;
@@ -110,27 +111,28 @@ export interface DevOptions {
 
 ## generateSW 策略
 
-When using this strategy, the `navigateFallback` on development options will be ignored. The PWA plugin will check if `workbox.navigateFallback` is configured and will only register it on `additionalManifestEntries`.
+在使用此策略时，开发选项中的 `navigateFallback` 将被忽略。PWA 插件将检查是否已配置 `workbox.navigateFallback` ，并仅在 `additionalManifestEntries` 上注册它
 
-The PWA plugin will force `type: 'classic'` on service worker registration to avoid errors on client side (not yet supported):
+PWA 插件将强制 service worker 注册时使用`type: 'classic'`，以避免客户端出现错误（尚未支持）：
 
 ```shell
 Uncaught (in promise) TypeError: Failed to execute 'importScripts' on 'WorkerGlobalScope': Module scripts don't support importScripts().
 ```
 
 ::: warning 警告
-If your pages/routes other than the entry point are being intercepted by the service worker, use `navigateFallbackAllowlist` to include only the entry point: by default, the plugin will use `[/^\/$/]`.
 
-You **ONLY** need to add the `navigateFallbackAllowlist` option to the `devOptions` entry in `vite-plugin-pwa` configuration if your pages/routes are being intercepting by the service worker and preventing to work as expected:
+如果你的页面/路由被 service worker 截获了，使用 `navigateFallbackAllowlist` 只包含入口点:默认情况下，插件会使用`[/^\/$/]`。
+
+如果你的页面/路由被 service worker 拦截，导致无法正常工作，你只需要在 `vite-plugin-pwa` 配置文件中的 `devOptions` 入口处添加 `navigateFallbackAllowlist` 选项即可。
 
 ```ts
 export default defineConfig({
   plugins: [
     VitePWA({
-      /* other options */
+      /* 其他选项 */
       devOptions: {
         navigateFallbackAllowlist: [/^index.html$/],
-        /* other options */
+        /* 其他选项 */
       },
     }),
   ],
@@ -149,7 +151,7 @@ export default defineConfig({
 devOptions: {
   enabled: true,
   type: 'module',
-  /* other options */
+  /* 其他选项*/
 }
 ```
 
@@ -159,13 +161,14 @@ devOptions: {
 :::
 
 ::: tip 提示
-You should only intercept the entry point of your application, if you don't include the `allowlist` option in the `NavigationRoute`, all your pages/routes might not work as they are being intercepted by the service worker (which will return by default the content of the entry point by not including your pages/routes in its precache manifest):
+
+如果你没有在 `NavigationRoute` 中包含 `allowlist` 选项，你应该只拦截你的应用的入口点。否则，你的所有页面/路由可能无法正常工作，因为它们会被 service worker 拦截（它会默认返回不包含你的页面/路由的预缓存清单的内容）
 
 ```ts
 let allowlist: undefined | RegExp[];
 if (import.meta.env.DEV) allowlist = [/^\/$/];
 
-// to allow work offline
+// 允许离线工作
 registerRoute(
   new NavigationRoute(createHandlerBoundToURL('index.html'), { allowlist })
 );
@@ -173,13 +176,13 @@ registerRoute(
 
 :::
 
-When using this strategy, the `vite-plugin-pwa` plugin will delegate the service worker compilation to `Vite`, so if you're using `import` statements instead `importScripts` in your custom service worker, you **must** configure `type: 'module'` on development options.
+在使用此策略时， `vite-plugin-pwa` 插件将把 service worker 的编译任务委托给 `Vite`，因此，如果您在自定义 service worker 中使用了 `import` 语句而不是 `importScripts` ，则必须在开发选项中配置`type: 'module'`。
 
-If you are using `registerRoute` in your custom service worker you should add `navigateFallback` on development options, the `vite-plugin-pwa` plugin will include it in the injection point (`self.__WB_MANIFEST`).
+如果你在自定义 service worker 中使用了 `registerRoute` ，那么在开发选项中添加 `navigateFallback` ， `vite-plugin-pwa` 插件将会将其包含在注入点（`self.__WB_MANIFEST`）中。
 
-You **must** not use `HMR (Hot Module Replacement)` in your custom service worker, since we cannot use yet dynamic imports in service workers: `import.meta.hot`.
+在自定义 service worker 中，您**不能**使用 `HMR (Hot Module Replacement)`，因为目前 service worker 还不能使用动态导入： `import.meta.hot`
 
-If you register your custom service worker (not using `vite-plugin-pwa` virtual module and configuring `injectRegister: false` or `injectRegister: null`), use the following code (remember also to add `scope` option if necessary):
+如果你注册了自定义 service worker（未使用 `vite-plugin-pwa` 虚拟模块并配置了 `injectRegister: false` 或 `injectRegister: null` ），请使用以下代码（如有必要，请记得添加 `scope` 选项）
 
 ```js
 if ('serviceWorker' in navigator) {
@@ -189,7 +192,7 @@ if ('serviceWorker' in navigator) {
 }
 ```
 
-If you are also using `import` statements instead `importScripts`, use the following code (remember also to add the `scope` option if necessary):
+如果你也使用 `import` 代替 `importScripts`， 请使用以下代码 (如果需要， 请记得添加 `scope` 选项):
 
 ```ts
 if ('serviceWorker' in navigator) {
@@ -200,7 +203,7 @@ if ('serviceWorker' in navigator) {
 }
 ```
 
-When you change your service worker source code, `Vite` will force a full reload, since we're using `workbox-window` to register it (by default, you can register it manually) you may have some problems with the service worker events.
+当您更改 service worker 的代码时， Vite 会强制进行完全加载，因为我们使用 `workbox-window` 来注册它（默认情况下，您可以手动注册它），因此您可能会遇到一些 service worker 事件问题
 
 <HeuristicWorkboxWindow />
 
