@@ -1,22 +1,22 @@
 ---
-title: Advanced (injectManifest) | 指南
+title: 高级 (injectManifest) | 指南
 outline: deep
 ---
 
-# Advanced (injectManifest)
+# 高级 (injectManifest)
 
 使用 service worker `strategy` ，你可以构建自己的 service worker
 
-The `vite-plugin-pwa` plugin will compile your custom service worker and inject its service worker's precache manifest.
+`vite-plugin-pwa` 插件将编译你的自定义 service worker 并注入 service worker 的预缓存清单
 
-By default, the plugin will assume the `service worker` source code is located at the `Vite's public` folder with the name `sw.js`, that's, it will search in the following file: `/public/sw.js`.
+默认情况下，插件将假定 `service worker` 源代码位于 `Vite的public` 文件夹，名为 `sw.js` ，也就是说，它将在以下文件中搜索: `/public/sw.js` 。
 
-If you want to change the location and/or the service worker name, you will need to change the following plugin options:
+如果要更改位置或 service worker 名称，则需要更改以下插件选项:
 
-- `srcDir`: **must** be relative to the project root folder
-- `filename`: including the file extension and **must** be relative to the `srcDir` folder
+- `srcDir`: **必须**是相对于项目根目录的
+- `filename`: 包括文件扩展名，**必须**相对于 **srcDir** 文件夹
 
-For example, if your service worker is located at `/src/my-sw.js` you must configure it using:
+例如，如果你的 service worker 位于 `/src/my-sw.js` ，你必须使用以下方式配置它:
 
 ```ts
 import { VitePWA } from 'vite-plugin-pwa';
@@ -34,11 +34,11 @@ export default defineConfig({
 
 ## 自定义 Service worker
 
-We recommend you to use [Workbox](https://developer.chrome.com/docs/workbox/) to build your service worker instead using `importScripts`, you will need to include `workbox-*` dependencies as `dev dependencies` to your project.
+我们建议您使用 [Workbox](https://developer.chrome.com/docs/workbox/) 来构建您的 service worker，而不是使用 `importScripts` ，您需要包含 `workbox-\*` 依赖项作为 `dev dependencies` 到您的项目中。
 
 ### 插件配置
 
-You **must** configure `strategies: 'injectManifest'` in `vite-plugin-pwa` plugin options in your `vite.config.ts` file:
+在您的 `vite.config.ts` ,vite-plugin-pwa 插件选项中，您**必须**配置 `strategies: 'injectManifest'`
 
 ```ts
 VitePWA({
@@ -48,11 +48,11 @@ VitePWA({
 
 ### 开发
 
-If you would like the service worker to run in development, make sure to enable it in the [devOptions](/guide/development#plugin-configuration) and to set the type to [module](/guide/development#injectmanifest-strategy) if required.
+如果您希望 service worker 在开发环境中运行，请确保在 [devOptions](/guide/development#插件配置) 中启用它，并在需要时将 type 设置为 [module](/guide/development#injectmanifest-策略)
 
-### Service Worker Code
+### Service Worker 代码
 
-Your custom service worker (`public/sw.js`) should have at least this code (you also need to install `workbox-precaching` as `dev dependency` to your project):
+自定义 service worker ( `public/sw.js` )至少应该有以下代码(你还需要将 `workbox-precaching` 作为 `dev dependency` 安装到你的项目中):
 
 ```js
 import { precacheAndRoute } from 'workbox-precaching';
@@ -60,7 +60,7 @@ import { precacheAndRoute } from 'workbox-precaching';
 precacheAndRoute(self.__WB_MANIFEST);
 ```
 
-If you're not using `precaching` (`self.__WB_MANIFEST`), you need to disable `injection point` to avoid compilation errors (available only from version `^0.14.0`), add the following option to your pwa configuration:
+如果你没有使用 `precaching` ( `self.__WB_MANIFEST` )，你需要禁用 `injection point` 以避免编译错误(仅从版本 `^0.14.0` 开始)，将以下选项添加到你的 pwa 配置中:
 
 ```ts
 injectManifest: {
@@ -68,32 +68,33 @@ injectManifest: {
 }
 ```
 
-### Service worker errors on browser
+### Service worker 浏览器中的错误
 
 <ServiceWorkerClientErrors />
 
-### Cleanup Outdated Caches
+### 清理过期缓存
 
 <CleanupOutdatedCaches />
 
 <InjectManifestCleanupOutdatedCaches />
 
-### Inject Manifest Source Map <Badge type="tip" text="new options from v0.18.0+" />
+### Inject Manifest Source Map <Badge type="tip" text="新选项自 v0.18.0+" />
 
 <InjectManifestSourceMap />
 
-### Custom Rollup and Vite Plugins <Badge type="tip" text="from v0.18.0+" />
+### 自定义 Rollup 和 Vite 插件<Badge type="tip" text="从 v0.18.0+" />
 
-From `v0.18.0`, you can add custom Rollup and/or Vite plugins to the service worker build, using `rollup` and `vite` options in the new `buildPlugins` option.
+从 `v0.18.0` ，您可以在新的 `buildPlugins` 选项中使用 `rollup` 和 `vite` 添加自定义 Rollup 和 Vite 插件来构建 service worker。
 
-::: warning
-The old `plugins` option has been deprecated, use `buildPlugins.rollup` instead:
+::: warning 警告
 
-- if `buildPlugins.rollup` is configured then `plugins` will be ignored
-- if `buildPlugins.rollup` is not configured then `plugins` will be used
+旧的 `plugins` 已被弃用，使用 `buildPlugins.rollup` 代替:
+
+- 如果配置了 `buildPlugins.rollup` ，则忽略 `plugins`
+- 如果没有配置 `buildPlugins.rollup` ，则使用 `plugins`
   :::
 
-You can check the [vue-router example](https://github.com/vite-pwa/vite-plugin-pwa/tree/main/examples/vue-router) using a custom Vite plugin with a simple virtual module consumed by both custom service workers.
+你可以查看[vue-router example](https://github.com/vite-pwa/vite-plugin-pwa/tree/main/examples/vue-router)使用一个自定义 Vite 插件，该插件使用简单的虚拟模块都是由 service workers 消费。
 
 ## 自动更新行为
 

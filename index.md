@@ -9,8 +9,8 @@ hero:
   text: Vite Plugin
   tagline: |
     为 Vite 及其生态系统提供 PWA 集成
-    零配置和框架无关
-    Vite 的 PWA 插件
+    零配置与框架无关
+    Vite PWA 插件
   image:
     light:
       src: /icon_light.svg
