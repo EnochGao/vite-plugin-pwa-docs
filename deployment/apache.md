@@ -1,13 +1,13 @@
 ---
-title: Apache Http Server 2.4+ | Deployment
+title: Apache Http Server 2.4+ | 部署
 next: 开始 | Workbox
 ---
 
 # Apache Http Server 2.4+
 
-## Configure `manifest.webmanifest` mime type
+## 配置 `manifest.webmanifest` mime 类型
 
-You need to configure the following mime type (see basic configuration below):
+您需要配置以下 mime 类型(参见下面的基本配置)：
 
 ```ini
 <IfModule mod_mime.c>
@@ -16,9 +16,9 @@ You need to configure the following mime type (see basic configuration below):
 </IfModule>
 ```
 
-## Basic configuration with http to https redirection
+## 基本配置 http 重定向到 https
 
-Update your `httpd.conf` configuration file with:
+更新 `httpd.conf` 配置文件：
 
 ```ini
 # httpd.conf
@@ -49,18 +49,18 @@ Include conf/extra/https-www.yourdomain.com.conf
 
 <VirtualHost www.yourdomain.com:80>
     ServerName www.yourdomain.com
-    
+
     RewriteEngine On
-    
+
     # disable TRACE and TRACK methods
     RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
     RewriteRule .* - [F]
-    
+
     Options +FollowSymlinks
     RewriteCond %{SERVER_PORT} !443
-    
+
     RewriteRule (.*) https://www.yourdomain.com/ [L,R]
-    
+
     ErrorLog logs/www.yourdomain.com-error_log
     CustomLog logs/www.yourdomain.com-access_log combined
 </VirtualHost>

@@ -1,12 +1,12 @@
 ---
-title: Netlify | Deployment
+title: Netlify | 部署
 ---
 
 # Netlify
 
-## Configure `manifest.webmanifest` mime type
+## 配置 `manifest.webmanifest` mime 类型
 
-You need to register the correct MIME type for the web manifest by adding a headers table to your `netlify.toml` file (see basic deployment below):
+你需要注册正确的 web 清单的 MIME 类型，通过添加一个 headers 表到你的 `netlify.toml` 文件(见下面的基本部署):
 
 ```toml
 [[headers]]
@@ -17,9 +17,9 @@ You need to register the correct MIME type for the web manifest by adding a head
 
 ## Cache-Control
 
-As a general rule, files in `/assets/` can have a very long cache time, as everything in there should contain a hash in the filename.
+一般来说， `/assets/`中的文件会有很长的缓存时间，其中的所有内容都应该在文件名中包含一个哈希值
 
-Add another headers table to your `netlify.toml` file (see basic deployment below):
+添加另一个 headers 表到你的 `netlify.toml` 文件(见下面的基本部署):
 
 ```toml
 [[headers]]
@@ -31,13 +31,13 @@ Add another headers table to your `netlify.toml` file (see basic deployment belo
     '''
 ```
 
-## Configure http to https redirection
+## 配置 http 重定向到 https
 
-Netlify will redirect automatically, so you don't worry about it.
+Netlify 会自动重定向，所以你不用担心。
 
-## Basic deployment example
+## 基本部署示例
 
-Add `netlify.toml` file to the root directory with the content:
+添加 `netlify.toml` 文件到根目录，内容如下：
 
 ```toml
 [build]

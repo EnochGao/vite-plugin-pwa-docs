@@ -1,5 +1,5 @@
 ---
-title: NGINX | 开发
+title: NGINX | 部署
 ---
 
 # NGINX

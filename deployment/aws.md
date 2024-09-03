@@ -1,9 +1,9 @@
 ---
-title: AWS Amplify | Deployment
+title: AWS Amplify | 部署
 ---
 
 # AWS Amplify
 
 ::: info WIP
-Will coming soon.
+即将到来
 :::
