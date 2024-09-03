@@ -341,7 +341,7 @@ export default withPwa(defineConfig({
   },
   locales: {
     root: { label: '中文简体' },
-    en: { label: '英文', link: 'https://vite-pwa-org.netlify.app' },
+    en: { label: 'English', link: 'https://vite-pwa-org.netlify.app' },
   },
   themeConfig: {
     // logo: '/favicon.svg',
