@@ -87,30 +87,30 @@ outline: deep
 
 1. **登录进 Vercel**: 创建一个账户或登录 [Vercel](https://vercel.com).
 2. **部署您的项目**: 点击 **New Project**, 然后选择您的 Vite PWA 所在的 Git 存储库.
-3. **配置部署**:Vercel 会自动检测该项目是否为 Vite 项目，并提供默认配置建议。根据需要进行相应的调整. Adjust these settings as needed.
+3. **配置部署**:Vercel 会自动检测该项目是否为 Vite 项目，并提供默认配置建议。根据需要进行相应的调整.
 4. **部署**:确认配置后，单击**Deploy**开始部署过程
 
 ### 步骤 4: 验证部署
 
-Once deployment is complete, Vercel will provide a URL to access your deployed application. Check that everything works as expected, especially that the HTTP headers are applied correctly by inspecting the server responses using your browser's developer tools.
+一旦部署完成，Vercel 将提供一个 URL 来访问已部署的应用程序。通过使用浏览器的开发人员工具检查服务器响应，检查一切是否按预期工作，特别是 HTTP 头是否正确应用。
 
 ### 清除 Vercel 管理中的数据缓存 <Badge text="可选" type="tip"/>
 
-It might be useful to clear the data cache in Vercel's administration panel, especially if you are experiencing issues with stale content or deployment errors that seem unrelated to your current build. Clearing the cache ensures that all previous build settings, dependencies, and stored data are removed, allowing a fresh start for a new deployment. This can help in resolving unexpected behavior and improving the reliability of deployment processes.
+清除 Vercel 管理面板中的数据缓存可能很有用，特别是如果您遇到陈旧内容的问题或与当前构建无关的部署错误。清除缓存可确保删除所有以前的构建设置、依赖项和存储的数据，从而允许重新开始新的部署。这有助于解决意外行为并提高部署流程的可靠性
 
-Here is an explanation of the `vercel.json` configuration file, suitable for adding to your documentation:
+下面是对 `vercel.json` 配置文件的解释，适合添加到您的文档中:
 
 ## 理解 Vercel 部署的 `vercel.json`配置文件
 
-The `vercel.json` file is a crucial component for configuring deployments on Vercel. It allows you to customize how Vercel serves your application, including how it handles HTTP headers, redirects, rewrites, caching, and more. This file should be placed in the root directory of your project.
+`vercel.json` 文件是在 Vercel 上配置部署的关键组件。它允许您自定义 Vercel 如何为您的应用程序服务，包括如何处理 HTTP 头，重定向，重写，缓存等。该文件应该放在项目的根目录中。
 
-[Vercel docs](https://vercel.com/docs/projects/project-configuration)
+[Vercel 文档](https://vercel.com/docs/projects/project-configuration)
 
-Below is a detailed explanation of each part of the `vercel.json` file provided in the setup instructions:
+下面是对`vercel.json` 每个部分的详细说明：
 
 ### HTTP Headers 配置
 
-The `headers` section of the `vercel.json` file allows you to specify HTTP response headers that should be added to responses serving files from specified paths:
+`vercel.json` 文件的 `headers` 部分允许你指定 HTTP 响应头，这些头应该被添加到从指定路径服务文件的响应中:
 
 - **HTML 文件**:
 
