@@ -7,7 +7,7 @@ outline: deep
 
 <ChangeLog />
 
-::: tip
+::: tip 提示
 From version `^0.1.0`, `SvelteKitPWA` has SvelteKit `^1.0.0` as peer dependency.
 :::
 
@@ -15,11 +15,11 @@ From version `^0.1.0`, `SvelteKitPWA` has SvelteKit `^1.0.0` as peer dependency.
 For `类型声明`, `Prompt for update` and `Periodic SW Updates` go to [Svelte](/frameworks/svelte) entry.
 :::
 
-::: tip
+::: tip 提示
 If you're using `0.1.*` version of `SvelteKitPWA`, you should remove all references to [SvelteKit service worker module](https://kit.svelte.dev/docs/service-workers) to disable it on your application.
 :::
 
-## Installing @vite-pwa/sveltekit
+## 安装 @vite-pwa/sveltekit
 
 To install the `@vite-pwa/sveltekit` plugin, just add it to your project as a `dev dependency`:
 ::: code-group
@@ -34,7 +34,7 @@ To install the `@vite-pwa/sveltekit` plugin, just add it to your project as a `d
   ```
 :::
 
-## Workbox Configuration
+## Workbox 配置
 
 ### globPatterns
 
@@ -104,7 +104,7 @@ const config = {
 export default config;
 ```
 
-::: warning
+::: warning 警告
 If your custom service working is importing any `workbox-*` module (`workbox-routing`, `workbox-strategies`, etc), you will need to hack Vite build process in order to remove non `ESM` special replacements from the build process (if you don't include `process.env.NODE_ENV`, the service worker will not be registered). You only need to add this entry in your Vite config file:
 ```js
 // vite.config.js or vite.config.ts
@@ -361,7 +361,7 @@ If you set certain SvelteKit options, you should also configure the PWA plugin p
 - [adapterFallback](https://github.com/sveltejs/kit/tree/master/packages/adapter-static#fallback)
 - [trailingSlash](https://kit.svelte.dev/docs/configuration#trailingslash)
 
-::: warning
+::: warning 警告
 Some kit options may have been moved/deprecated, review the SvelteKit documentation site:
 - [trailingSlash](https://kit.svelte.dev/docs/page-options#trailingslash): now it should be configured in the page options, and so, we cannot control it in the plugin.
 :::

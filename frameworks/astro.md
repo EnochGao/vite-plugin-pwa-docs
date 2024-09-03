@@ -7,7 +7,7 @@ outline: deep
 
 <ChangeLog />
 
-::: warning
+::: warning 警告
 You will need to update your application to use Vite ^3.1.0 and latest `vite-plugin-pwa` 0.13.1+.
 :::
 
@@ -47,7 +47,7 @@ export default defineConfig({
 
 ## 导入虚拟模块
 
-::: warning
+::: warning 警告
 Since Astro will not inject any script in your application when using Astro components, you will need to use/import a PWA virtual module.
 :::
 

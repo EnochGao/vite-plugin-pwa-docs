@@ -5,7 +5,7 @@ prev: 迁移 | PWA Assets 生成器
 
 # 开始
 
-::: tip
+::: tip 提示
 If you use the default `registerType` which is `prompt`, and you want to prompt the users to reload, then you could use our framework modules.
 
 But if you:
@@ -22,7 +22,7 @@ This plugin is Framework-agnostic and so you can use it with Vanilla JavaScript,
 
 You can find all the `vite-plugin-pwa` virtual modules declarations in the following [types.ts module](https://github.com/antfu/vite-plugin-pwa/blob/main/client.d.ts).
 
-::: tip
+::: tip 提示
 <TypeScriptError2307 />
 From version `0.14.5` you can also use types definition for each framework, instead of using `vite-plugin-pwa/client`, include only one of the following types:
 ```json
@@ -111,7 +111,7 @@ Or you can add the following reference in any of your `d.ts` files (for example,
 
 `vite-plugin-pwa` plugin exposes a `Vite` virtual module to interact with the service worker.
 
-::: tip
+::: tip 提示
 You only need to import the virtual modules exposed by `vite-plugin-pwa` plugin when you need to interact with the user, otherwise you don't need to import any of them, that is, when using `registerType: 'prompt'` or when using `registerType: 'autoUpdate'` and you want to inform the user that the application is ready to work offline.
 :::
 

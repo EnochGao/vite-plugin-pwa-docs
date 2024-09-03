@@ -25,7 +25,7 @@ If you want to run any of the examples projects you will need to download/clone 
 
 You will need `node 14` (or newer) to be able to build the `Vite Plugin PWA`.
 
-::: warning
+::: warning 警告
 Before following the instructions below, read the [Contribution 指南](https://github.com/antfu/vite-plugin-pwa/blob/main/CONTRIBUTING.md).
 :::
 

@@ -6,43 +6,44 @@ title: Svelte | 框架
 
 You can use the built-in `Vite` virtual module `virtual:pwa-register/svelte` for `Svelte` which will return `writable` stores (`Writable<boolean>`) for `offlineReady` and `needRefresh`.
 
-::: warning
-You will need to add `workbox-window` as a `dev` dependency to your `Vite` project.
+::: warning 警告
+你需要将 `workbox-window` 作为 `dev` 依赖添加到你的 `Vite` 项目中
 :::
 
 ## 类型声明
 
-::: tip
+::: tip 提示
 <TypeScriptError2307 />
 From version `0.14.5` you can also use types definition for svelte instead of `vite-plugin-pwa/client`:
+
 ```json
 {
   "compilerOptions": {
-    "types": [
-      "vite-plugin-pwa/svelte"
-    ]
+    "types": ["vite-plugin-pwa/svelte"]
   }
 }
 ```
 
 Or you can add the following reference in any of your `d.ts` files (for example, in `vite-env.d.ts` or `global.d.ts`):
+
 ```ts
 /// <reference types="vite-plugin-pwa/svelte" />
 ```
+
 :::
 
 ```ts
 declare module 'virtual:pwa-register/svelte' {
-  import type { Writable } from 'svelte/store'
-  import type { RegisterSWOptions } from 'vite-plugin-pwa/types'
+  import type { Writable } from 'svelte/store';
+  import type { RegisterSWOptions } from 'vite-plugin-pwa/types';
 
-  export type { RegisterSWOptions }
+  export type { RegisterSWOptions };
 
   export function useRegisterSW(options?: RegisterSWOptions): {
-    needRefresh: Writable<boolean>
-    offlineReady: Writable<boolean>
-    updateServiceWorker: (reloadPage?: boolean) => Promise<void>
-  }
+    needRefresh: Writable<boolean>;
+    offlineReady: Writable<boolean>;
+    updateServiceWorker: (reloadPage?: boolean) => Promise<void>;
+  };
 }
 ```
 
@@ -51,6 +52,7 @@ declare module 'virtual:pwa-register/svelte' {
 You can use this `ReloadPrompt.svelte` component:
 
 ::: details ReloadPrompt.svelte
+
 ```html
 <script lang="ts">
   import { useRegisterSW } from 'virtual:pwa-register/svelte';
@@ -125,6 +127,7 @@ You can use this `ReloadPrompt.svelte` component:
     }
 </style>
 ```
+
 :::
 
 ## Periodic SW Updates
@@ -132,20 +135,20 @@ You can use this `ReloadPrompt.svelte` component:
 As explained in [定期更新 Service Worker ](/guide/periodic-sw-updates), you can use this code to configure this behavior on your application with the virtual module `virtual:pwa-register/svelte`:
 
 ```ts
-import { useRegisterSW } from 'virtual:pwa-register/svelte'
+import { useRegisterSW } from 'virtual:pwa-register/svelte';
 
-const intervalMS = 60 * 60 * 1000
+const intervalMS = 60 * 60 * 1000;
 
 const updateServiceWorker = useRegisterSW({
   onRegistered(r) {
-    r && setInterval(() => {
-      r.update()
-    }, intervalMS)
-  }
-})
+    r &&
+      setInterval(() => {
+        r.update();
+      }, intervalMS);
+  },
+});
 ```
 
 The interval must be in milliseconds, in the example above it is configured to check the service worker every hour.
 
 <HeuristicWorkboxWindow />
-

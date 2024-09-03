@@ -48,7 +48,7 @@ We're working to expose the new api in `vite-plugin-pwa` plugin and the integrat
 From `v0.19.0`, `vite-plugin-pwa` includes a new experimental feature, check [Integrations](/assets-generator/integrations) section.
 :::
 
-### v0.1.0 <Badge text="deprecated" type="warning" />
+### v0.1.0 <Badge text="已弃用" type="warning" />
 
 As mentioned previously, the API is low-level, it means that you have to handle the default values yourself: you can check the default values in the [defaults.ts](https://github.com/vite-pwa/assets-generator/tree/main/src/api/defaults.ts) module.
 

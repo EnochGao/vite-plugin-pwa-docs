@@ -8,7 +8,7 @@ outline: deep
 
 <ChangeLog />
 
-::: warning
+::: warning 警告
 This PWA module can only be used with Vite.
 :::
 

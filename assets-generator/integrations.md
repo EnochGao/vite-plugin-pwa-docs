@@ -40,7 +40,7 @@ npm install -D @vite-pwa/assets-generator
 ```
 :::
 
-## Configuration
+## 配置
 
 We recommend using an external `pwa-assets.config.js` or `pwa-assets.config.ts` file.
 The `vite-plugin-pwa` plugin will watch it for changes to avoid dev server restarts.

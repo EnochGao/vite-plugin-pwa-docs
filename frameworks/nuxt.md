@@ -7,7 +7,7 @@ outline: deep
 
 <ChangeLog />
 
-::: warning
+::: warning 警告
 This PWA module can only be used with Vite.
 :::
 
@@ -67,7 +67,7 @@ This is the initial release of `@vite-pwa/nuxt` integration, we're working to im
 
 To register the PWA web manifest in your Nuxt 3 application, `@vite-pwa/nuxt` provides the functional components `VitePwaManifest` and `NuxtPwaManifest`, you should add one of them to your `app.vue` or to all of your layouts (add only `VitePwaManifest` or `NuxtPwaManifest`).
 
-::: tip
+::: tip 提示
 You can enable `registerWebManifestInRouteRules` property in PWA configuration to register the web manifest in Nitro `routeRules` property: useful for example if your application is deployed to Netlify.
 :::
 

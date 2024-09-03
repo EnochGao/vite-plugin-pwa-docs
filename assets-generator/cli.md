@@ -53,7 +53,7 @@ or using package configuration:
 All PWA assets will be generated in the same source folder.
 :::
 
-## Options
+## 选项
 
 | Options                      |                                                                                                                                                         |
 |------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -66,11 +66,11 @@ All PWA assets will be generated in the same source folder.
 | `--html [options]`           | Available options: `--html.basePath <path>`, `--html.preset <default\|2023>`, `--html.xhtml <false\|true>` and `--html.includeId <false\|true>` |
 | `-h, --help`                 | Display available CLI options                                                                                                                           |
 
-## Presets
+## 预设
 
 PWA Assets 生成器 has 5 built-in presets, check out the [preset definition](https://github.com/vite-pwa/assets-generator/tree/main/src/preset.ts) and [types definition](https://github.com/vite-pwa/assets-generator/tree/main/src/types.ts):
-- Minimal Preset 2023 (`minimal-2023`) <Badge type="tip" text="New from v0.1.0" />
-- Minimal Preset (`minimal`) <Badge type="danger" text="Deprecated from v0.1.0" />
+- Minimal Preset 2023 (`minimal-2023`) <Badge type="tip" text="新 从 v0.1.0" />
+- Minimal Preset (`minimal`) <Badge type="danger" text="已弃用 从 v0.1.0" />
 - iOS Preset (`ios`): (WIP)
 - Windows Preset (`windows`): (WIP)
 - Android Preset (`android`): (WIP)
@@ -134,7 +134,7 @@ or configure it in your `package.json` and run it via your package manager from 
 }
 ```
 
-### Favicon and Apple Touch Icon Links <Badge type="tip" text="New from v0.1.0" />
+### Favicon and Apple Touch Icon Links <Badge type="tip" text="新 从 v0.1.0" />
 
 From version `v0.1.0`, the `@vite-pwa/assets-generator` CLI will generate the favicon and apple touch icon links.
 
@@ -298,7 +298,7 @@ export default defineConfig({
 
 PWA Assets 生成器 will generate the `public/pwa-48x48.png` PWA icon, then generate the corresponding favicon (`public/favicon-48x48.ico`) and finally remove the PWA icon (`public/pwa-48x48.png`).
 
-### PWA Manifest Icons Entry <Badge type="tip" text="New from v0.2.0" />
+### PWA Manifest Icons Entry <Badge type="tip" text="新 从 v0.2.0" />
 
 By default, the CLI will show the PWA manifest icons' entry in the terminal. You can disable it using `-m=false` or `--manifest=false` option from CLI or using `manifestIconsEntry: false` in the file configuration.
 
@@ -432,7 +432,7 @@ export default defineConfig({
 })
 ```
 
-#### Advanced Configuration
+#### 高级配置
 
 We strongly suggest using the global configuration, providing `padding`, `resizeOptions`, `darkResizeOptions` and `png` options globally, PWA Assets 生成器 will configure any splash screen device options properly.
 
@@ -518,7 +518,7 @@ export default defineConfig({
 })
 ```
 
-#### Custom Dark Splash Screens Image Source <Badge type="tip" text="New from v0.2.2" />
+#### Custom Dark Splash Screens Image Source <Badge type="tip" text="新 从 v0.2.2" />
 
 From version `v0.2.2`, you can provide a custom dark splash screens image source using `darkImageResolver` option in the `createAppleSplashScreens` and `combinePresetAndAppleSplashScreens` functions options:
 - if you're using multiple images, you will need to return the proper dark image using the `imageName` parameter in the `darkImageResolver` function: check the [playground](https://github.com/vite-pwa/assets-generator/blob/main/playground/pwa-assets.config.mts) for an example.

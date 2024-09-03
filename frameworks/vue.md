@@ -10,7 +10,7 @@ title: Vue | 框架
 
 ### 类型声明
 
-::: tip
+::: tip 提示
 <TypeScriptError2307 />
 
 从`0.14.5`版本开始，你还可以为 vue 使用类型定义，而不是`vite-plugin-pwa/client`:

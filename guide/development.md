@@ -98,7 +98,7 @@ export interface DevOptions {
    * **警告**: 这个选项仅用在 `generateSW` 策略.
    *
    * @default `${vite.base}${pwaOptions.manifestFilename}`
-   * @deprecated 这个选项自 `v0.12.4`废弃, 插件将使用 navigateFallbackAllowlist 代替.
+   * @deprecated 这个选项自 `v0.12.4`已弃用, 插件将使用 navigateFallbackAllowlist 代替.
    * @see navigateFallbackAllowlist
    */
   webManifestUrl?: string;

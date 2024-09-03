@@ -6,13 +6,13 @@ title: React | 框架
 
 You can use the built-in `Vite` virtual module `virtual:pwa-register/react` for `React` which will return `useState` stateful values (`useState<boolean>`) for `offlineReady` and `needRefresh`.
 
-::: warning
-You will need to add `workbox-window` as a `dev` dependency to your `Vite` project.
+::: warning 警告
+你需要将 `workbox-window` 作为 `dev` 依赖添加到你的 `Vite` 项目中
 :::
 
 ## 类型声明
 
-::: tip
+::: tip 提示
 <TypeScriptError2307 />
 From version `0.14.5` you can also use types definition for react instead of `vite-plugin-pwa/client`, you can use:
 ```json
