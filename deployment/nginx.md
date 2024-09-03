@@ -34,7 +34,7 @@ curl -s -I -X GET https://yourserver/manifest.webmanifest | grep content-type -i
 
 检查结果是否为 `content-type: application/manifest+json`.
 
-## 从HTTP重定向到HTTPS的基本配置
+## 从 HTTP 重定向到 HTTPS 的基本配置
 
 使用以下配置文件更新您的 `server.conf`:
 
@@ -48,20 +48,20 @@ server {
 
 ## Cache-Control
 
-Ensure you have a very restrictive setup for your `Cache-Control` headers in place.
+确保你对 `Cache-Control` 标头有一个非常严格的设置
 
-Double check that **you do not** have caching features enabled, especially `immutable`, on locations like:
+仔细检查你**没有**启用缓存功能，特别是 `immutable` ，在如下位置:
 
 - `/`
 - `/sw.js`
 - `/index.html`
 - `/manifest.webmanifest`
 
-NGINX will add `E-Tag`-headers itself, so there is not much to in that regard.
+NGINX 会自己添加 `E-Tag`-headers，所以在这方面没有太多的问题。
 
-As a general rule, files in `/assets/` can have a very long cache time, as everything in there should contain a hash in the filename.
+一般情况下，`/assets/` 中的文件可以具有很长的缓存时间，因为其中的所有内容都应该在文件名中包含哈希值。
 
-An example configuration inside your `server` block could be:
+在你的`server`块中，可以像这样配置：
 
 ```nginx
 # all assets contain hash in filename, cache forever
@@ -88,8 +88,9 @@ location / {
 }
 ```
 
-Be aware that this is a very simplistic approach and you must test every change, as the NGINX match precedences for locations are not very intuitive and error prone if you do not know the [exact rules](https://docs.nginx.com/nginx/admin-guide/web-server/web-server/#location_priority).
+请注意，这是一种非常简单的方法，如果你不知道确切的[规则](https://docs.nginx.com/nginx/admin-guide/web-server/web-server/#location_priority)，你必须测试每一个更改，NGINX 的位置匹配优先级不是很直观，而且容易出错。
 
-::: danger
-**Always re-test and re-assure** that the caching for mission critical files is **as low** as possible if not hashed files or you might invalidate clients for a long time.
+::: danger 危险
+
+如果没有进行文件哈希，一定要**重新测试**和**确保**关键任务文件的缓存**尽可能低**，否则可能会使客户端长时间失效。
 :::

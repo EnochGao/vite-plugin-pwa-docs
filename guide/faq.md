@@ -15,11 +15,11 @@ next: 开始 | PWA 资产生成器
 
 你可以在下面的[client.d.ts](https://github.com/antfu/vite-plugin-pwa/blob/main/client.d.ts)中找到所有 `vite-plugin-pwa` 虚拟模块声明。
 
-## Web app manifest and 401 status code (Unauthorized)
+## Web 应用清单和 401 状态码(未授权)
 
-[Browsers send requests for the web manifest without credentials](https://web.dev/articles/add-manifest#link-manifest), so if your site sits behind auth, the request will fail with a 401 Unauthorized error – even if the user is logged in.
+[浏览器发送的 web 清单请求没有凭据](https://web.dev/articles/add-manifest#link-manifest)，如果你的网站在认证后 ，请求将失败，返回一个 401 Unauthorized error —— 即使用户已经登录了
 
-To send the request with credentials, the `<link rel="manifest">` needs a `crossorigin="use-credentials"` attribute, which you can enable via `useCredentials` in the [plugin options](https://github.com/antfu/vite-plugin-pwa/blob/main/src/types.ts#L79):
+要发送带有凭据的请求， `<link rel="manifest">` 需要 `crossorigin="use-credentials"` 属性，你可以通过[插件选项](https://github.com/antfu/vite-plugin-pwa/blob/main/src/types.ts#L79)中的 `useCredentials` 来启用该属性:
 
 ```ts
 useCredentials: true;

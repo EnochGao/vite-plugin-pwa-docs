@@ -1,20 +1,20 @@
-- `Prompt for update`:
+- `更新提示`:
 
-  - Show `Ready to work offline` on first visit and once the `service worker` ready.
-  - Show `Prompt for update` when new `service worker` available.
+  - 一旦`service worker`准备好了,在第一次访问时显示`准备离线工作`
+  - 当有新版本`service worker`可用时,显示`更新提示`
 
-- `Auto update`:
+- `自动更新`:
 
-  - Show `Ready to work offline` on first visit and once the `service worker` ready.
-  - When new content available, the service worker will be updated automatically.
+  - 一旦`service worker`准备好了,在第一次访问时显示`准备离线工作`
+  - 当有新内容可用时, service worker 将会自动更新.
 
-- `Prompt for update` with `Periodic service worker updates`:
+- `定期 service worker 更新`下的`更新提示`:
 
-  - Show `Ready to work offline` on first visit and once the `service worker` ready.
-  - Show `Prompt for update` when new `service worker` available.
-  - The example project will register a `Periodic service worker updates`
+  - 一旦`service worker`准备好了,在第一次访问时显示`准备离线工作`
+  - 当有新版本`service worker`可用时,显示`更新提示`
+  - 示例项目将注册一个`定期 service worker 更新`
 
-- `Auto update` with `Periodic service worker updates`:
-  - Show `Ready to work offline` on first visit and once the `service worker` ready.
-  - The example project will register a `Periodic service worker updates`
-  - When new content available, the service worker will be updated automatically.
+- `定期 service worker 更新`下的`自动更新`:
+  - 一旦`service worker`准备好了,在第一次访问时显示`准备离线工作`
+  - 示例项目将注册一个`定期 service worker 更新`
+  - 当有新内容可用时, service worker 将会自动更新.
