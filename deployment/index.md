@@ -35,21 +35,21 @@ prev: Remix | 示例
 - [NGINX](/deployment/nginx)
 - [Apache Http Server 2.4+](/deployment/apache)
 
-## Testing your application on production
+## 在生产环境中测试应用程序
 
-Once you deploy your application to your server, you can test it using [WebPageTest](https://www.webpagetest.org/).
+一旦将应用程序部署到服务器上，就可以使用[WebPageTest](https://www.webpagetest.org/) 对其进行测试
 
-There are many test sites, but we suggest you use `WebPageTest` as this is the most comprehensive in terms of test:
+有很多测试站点，但我们建议您使用`WebPageTest`作为测试站点，因为它具有最全面的测试：
 
-- Security.
-- First byte time.
-- Keep alive enabled.
-- Compress transfer.
-- Cache static content.
-- Effective use of CDN.
-- Lighthouse: Core Web Vitals, Performance, Images size optimization...
-- And more...
+- 安全.
+- 第一字节时间.
+- 保持激活状态.
+- 压缩传输.
+- 缓存静态内容.
+- 有效使用 CDN.
+- Lighthouse: 核心 Web 指标、性能、图片尺寸优化...
+- 更多...
 
-Enter the url of your application, click `Start Test` button, wait for the test to finish, the `WebPageTest` result will hint you what things on your application must be fixed/changed. The `WebPageTest` result will also score your application, it will also test your site with `Lighthouse`.
+输入您的应用程序的链接，单击 `Start Test` 按钮，等待测试完成， `WebPageTest` 结果将提示您应用程序中必须修复/更改的内容。 `WebPageTest` 结果也将对您的应用程序进行评分，它还将以 `Lighthouse` 测试您的网站
 
-For example, go to [WebPageTest](https://www.webpagetest.org/), enter `https://vite-pwa-org.netlify.app/`, click `Start Test` button, wait a few seconds for the test to finish, and see the results for this site.
+例如，进入 [WebPageTest](https://www.webpagetest.org/)，输入 `https://vite-pwa-org.netlify.app/` ，点击` Start Test` 按钮，等待几秒钟测试完成，然后查看此站点的结果

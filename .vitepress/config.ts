@@ -362,7 +362,7 @@ export default withPwa(defineConfig({
     lightModeSwitchTitle: '切换到浅色模式',
     darkModeSwitchTitle: '切换到深色模式',
     editLink: {
-      pattern: 'https://github.com/vite-pwa/docs/edit/main/:path',
+      pattern: 'https://github.com/EnochGao/vite-plugin-pwa-zh-docs/edit/main/:path',
       text: '在 GitHub 上编辑此页面',
     },
     search: {
@@ -396,7 +396,7 @@ export default withPwa(defineConfig({
       { icon: 'github', link: 'https://github.com/vite-pwa/vite-plugin-pwa' },
     ],
     footer: {
-      message: 'Released under the MIT License.',
+      message: '在MIT许可下发布.',
       copyright: 'Copyright © 2021-PRESENT Anthony Fu',
     },
     nav: [
@@ -409,7 +409,7 @@ export default withPwa(defineConfig({
             activeMatch: '^/guide/',
           },
           {
-            text: 'PWA 资源生成器',
+            text: 'PWA 资产生成器',
             link: '/assets-generator/',
             activeMatch: '^/assets-generator/',
           },
