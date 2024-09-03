@@ -31,7 +31,7 @@ useCredentials: true;
 
 ## Error: Unable to find a place to inject the manifest
 
-If you're using a custom service worker without `precaching` (`self.__WB_MANIFEST`) and you're getting this error on build process, you need to disable `injection point` in your pwa plugin configuration (available only from version `^0.14.0`):
+如果你没有 `precaching` (`self.__WB_MANIFEST`)来自定义 service worker，并且在构建过程中出现此错误，你需要在 pwa 插件配置中禁用 `injection point` (仅从版本 `^0.14.0` 中可用):
 
 ```ts
 injectManifest: {
@@ -41,8 +41,7 @@ injectManifest: {
 
 ## Service Worker Registration Errors
 
-You can handle Service Worker registration errors if you want to notify the user with following code on your `main.ts`
-or `main.js`:
+如果你想通知用户处理 Service Worker 注册错误，可以在 `main.ts` 或 `main.js` 中使用以下代码：
 
 ```ts
 import { registerSW } from 'virtual:pwa-register';
@@ -52,19 +51,20 @@ const updateSW = registerSW({
 });
 ```
 
-and then inside `onRegisterError`, just notify the user that there was an error registering the service worker.
+然后在 `onRegisterError` 内部，只需通知用户注册 service worker 时出现了错误。
 
 ## Missing assets from SW precache manifest
 
-:::tip
-From version `0.20.2`, the plugin will throw an error if the `maximumFileSizeToCacheInBytes` warning is present when building the service worker.
+:::tip 提示
+
+从版本 `0.20.2` 开始，如果在构建服务工人时出现 `maximumFileSizeToCacheInBytes` 警告，该插件将抛出错误。
 :::
 
-If you find any assets are missing from the service worker's precache manifest, you should check if they exceed the `maximumFileSizeToCacheInBytes`, the default value is **2 MiB**.
+如果你发现 service worker 的预缓存清单中缺少任何资产，你应该检查一下它们是否超过了 `maximumFileSizeToCacheInBytes` ，默认值为 **2 MiB**
 
-You can increase the value to your needs, for example to allow assets up to **3 MiB**:
+你可以根据自己的需要增加这个值，例如将资产限制在 **3MiB** 以内
 
-- when using `generateSW` strategy:
+- 在使用 `generateSW` 策略时:
 
 ```ts
 workbox: {
@@ -72,7 +72,7 @@ workbox: {
 }
 ```
 
-- when using `injectManifest` strategy:
+- 在使用 `injectManifest` 策略时:
 
 ```ts
 injectManifest: {
@@ -80,36 +80,36 @@ injectManifest: {
 }
 ```
 
-## Exclude routes
+## 排除路由
 
-If you need to exclude some routes from service worker interception:
+如果你需要将某些路由排除在 service worker 拦截之外:
 
-- [for `generateSW` strategy](/workbox/generate-sw#exclude-routes)
-- [for `injectManifest` strategy](/workbox/inject-manifest#exclude-routes)
+- [for `generateSW` strategy](/workbox/generate-sw#排除路由)
+- [for `injectManifest` strategy](/workbox/inject-manifest#排除路由)
 
 ## `navigator / window` is `undefined`
 
-If you are getting `navigator is undefined` or `window is undefined` errors when building your application, you have configured your application in an `SSR / SSG` environment.
+如果你在构建应用程序时遇到了 `navigator is undefined` 或 `window is undefined` 错误，那么你的应用程序是在 `SSR / SSG` 环境下配置的
 
-The error could be due to using this plugin or another library not aware of `SSR / SSG`: your code will be called on the client but also on the server side on build process, so when building the application your server logic will be invoked, and there is no `navigator / window` on the server, it is `undefined`.
+这种错误可能是由于使用了不支持`SSR/SSG`的插件或库导致的：您的代码将在客户端和构建过程中的服务器端被调用，因此在构建应用程序时，服务器端的逻辑将被调用，但是在服务器端没有`navigator/window`，所以它是`undefined`。
 
-### Third party libraries
+### 第三方库
 
-If the cause of the error is a third party library that is not aware of the `SSR / SSG` environment, the way to work around the error is to import it with a dynamic import when `window` is defined:
+如果错误的原因是第三方库不知道 `SSR / SSG` 环境，解决错误的方法是在定义 `window` 时使用动态导入来导入它:
 
 ```ts
 if (typeof window !== 'undefined') import('./library-not-ssr-ssg-aware');
 ```
 
-Alternatively, if your framework supports component `onMount / onMounted` lifecycle hook, you can import the third party library on the callback, since the frameworks should call this lifecycle hook only on client side, you should check your framework documentation.
+或者，如果你的框架支持组件 `onMount / onMounted` 生命周期钩子，你可以在回调中导入第三方库，因为框架应该只在客户端调用这个生命周期钩子，你应该检查你的框架文档
 
 ### Vite PWA Virtual Module
 
-If the cause of the error is the virtual module of this plugin, you can work around this problem following [SSR/SSG: Prompt for update](/guide/prompt-for-update#ssr-ssg) or [SSR/SSG: Automatic reload](/guide/auto-update#ssr-ssg) entries.
+如果错误是由此插件的虚拟模块引起的，您可以按照 [SSR/SSG: Prompt for update](/guide/prompt-for-update#ssr-ssg) [SSR/SSG: Automatic reload](/guide/auto-update#ssr-ssg)方式来解决此问题。
 
-If you are using `autoUpdate` strategy and a `router` with `isReady` support (that is, the router allow register a callback to be called when the current component route finish loading), you can delay the service worker registration to be on the router callback.
+如果您使用的是 `autoUpdate` 策略和支持 `isReady` 的`router`（即路由器允许在当前组件路由完成加载时注册一个回调），您可以延迟 service worker 注册到路由器回调上。
 
-For example, using `vue-router`, you can register the service worker for `autoUpdate` strategy using this code:
+例如，使用 `vue-router`，您可以使用以下代码为 `autoUpdate` 策略注册 service worker
 
 ```ts
 import type { Router } from 'vue-router';
@@ -122,9 +122,9 @@ export function registerPWA(router: Router) {
 }
 ```
 
-You can see an example for `autoUpdate` strategy on a `SSR / SSG` environment ([vite-ssg](https://github.com/antfu/vite-ssg)) on [Vitesse Template](https://github.com/antfu/vitesse/blob/main/src/modules/pwa.ts).
+在 [Vitesse Template](https://github.com/antfu/vitesse/blob/main/src/modules/pwa.ts) 中可以看到一个`SSR / SSG` 环境([vite-ssg](https://github.com/antfu/vite-ssg))的`autoUpdate`策略示例。
 
-If you are using `prompt` strategy, you will need to load the `ReloadPrompt` component using dynamic import with async fashion, for example, using `vue 3`:
+如果你正在使用`prompt`策略，你将需要使用异步的方式来动态导入来加载 `ReloadPrompt` 组件，例如，使用 `vue 3`:
 
 ```vue
 // src/App.vue
@@ -145,7 +145,7 @@ const ClientReloadPrompt =
 </template>
 ```
 
-or using `svelte`:
+或者使用 `svelte`:
 
 ```html
 <!-- App.svelte -->
@@ -161,7 +161,7 @@ or using `svelte`:
 {/if}
 ```
 
-You can check your `SSR / SSG` environment to see if it provides some way to register components only on client side. Following with `vite-ssg` on `Vitesse Template`, it provides `ClientOnly` functional component, that will prevent registering components on server side, and so you can use the original code but enclosing `ReloadPrompt` component with it:
+您可以检查 `SSR / SSG` 环境，看看它是否提供了一些仅在客户端注册组件的方法。接下来是 `Vitesse Template`上的 `vite-ssg`，它提供了 `ClientOnly` 功能组件，这将防止在服务器端注册组件，所以你可以使用原始代码，包含 `ReloadPrompt` 组件:
 
 ```vue
 // src/App.vue
@@ -175,7 +175,7 @@ You can check your `SSR / SSG` environment to see if it provides some way to reg
 
 ### VitePress
 
-You can check the [ReloadPrompt](https://github.com/antfu/vite-plugin-pwa/blob/main/docs/.vitepress/theme/components/ReloadPrompt.vue) component of this site to call the PWA virtual module:
+你可以查看这个网站的 [ReloadPrompt](https://github.com/antfu/vite-plugin-pwa/blob/main/docs/.vitepress/theme/components/ReloadPrompt.vue) 组件来调用 PWA 虚拟模块:
 
 ```vue
 <script setup lang="ts">
@@ -202,18 +202,18 @@ onBeforeMount(async () => {
 </script>
 ```
 
-## Monorepo with multiple projects and frameworks
+## 多项目和框架的 Monorepo
 
-From version `0.14.5`, `vite-plugin-pwa` includes types for each framework, and so you can import proper virtual module in your monorepo project. Instead using [client.d.ts](https://github.com/vite-pwa/vite-plugin-pwa/blob/main/client.d.ts) via `vite-plugin-pwa/client` (tsconfig.json file or TypeScript reference), use one of the following virtual modules:
+从版本 `0.14.5` 开始， `vite-plugin-pwa` 为每个框架提供了类型，因此您可以在单个代码库项目中导入适当的虚拟模块。不要通过 `vite-plugin-pwa/client`（tsconfig.json 文件或 TypeScript 引用）使用 [client.d.ts](https://github.com/vite-pwa/vite-plugin-pwa/blob/main/client.d.ts)，而是使用以下任意一个虚拟模块
 
-- `virtual:pwa-register/react`: configure `vite-plugin-pwa/react`.
-- `virtual:pwa-register/preact`: configure `vite-plugin-pwa/preact`.
-- `virtual:pwa-register/solid`: configure `vite-plugin-pwa/solid`.
-- `virtual:pwa-register/svelte`: configure `vite-plugin-pwa/svelte`.
-- `virtual:pwa-register/vanillajs`: configure `vite-plugin-pwa/vanillajs`.
-- `virtual:pwa-register/vue`: configure `vite-plugin-pwa/vue`.
+- `virtual:pwa-register/react`: 配置 `vite-plugin-pwa/react`.
+- `virtual:pwa-register/preact`: 配置 `vite-plugin-pwa/preact`.
+- `virtual:pwa-register/solid`: 配置 `vite-plugin-pwa/solid`.
+- `virtual:pwa-register/svelte`: 配置 `vite-plugin-pwa/svelte`.
+- `virtual:pwa-register/vanillajs`: 配置 `vite-plugin-pwa/vanillajs`.
+- `virtual:pwa-register/vue`: 配置 `vite-plugin-pwa/vue`.
 
-You can find some examples for `preact`, `solid` and `svelte` in the examples folder in the [vite-plugin-pwa repo](https://github.com/vite-pwa/vite-plugin-pwa/tree/main/examples).
+在 [vite-plugin-pwa repo](https://github.com/vite-pwa/vite-plugin-pwa/tree/main/examples) 的示例文件夹中，您可以找到 `preact` 、 `solid` 和 `svelte` 的一些示例。
 
 ## 在开发环境中屏蔽 workbox-build 警告
 
