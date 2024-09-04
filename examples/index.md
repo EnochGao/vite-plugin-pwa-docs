@@ -5,12 +5,12 @@ prev: Remix | 框架
 
 # 开始
 
-You can find a set of examples projects on [Vite Plugin PWA GitHub repo](https://github.com/antfu/vite-plugin-pwa/tree/main/examples).
+在 [Vite Plugin PWA GitHub repo](https://github.com/antfu/vite-plugin-pwa/tree/main/examples)你可以找到一系列示例项目.
 
-All the examples projects are under `examples` package/directory of the repo root directory.
+所有的示例项目都在仓库根目录的 `examples` 包/目录中.
 
-::: info
-The main purpose of these examples projects is to test the service worker and not to meet the [PWA最低要求](/guide/pwa-minimal-requirements), that is, if you use any of these examples for your projects, you will need to modify the code supplied and then test that it meets the [PWA最低要求](/guide/pwa-minimal-requirements). Almost all the examples projects should meet [PWA最低要求](/guide/pwa-minimal-requirements), but you must check it on your target project.
+::: info 信息
+The main purpose of these examples projects is to test the service worker and not to meet the [PWA 最低要求](/guide/pwa-minimal-requirements), that is, if you use any of these examples for your projects, you will need to modify the code supplied and then test that it meets the [PWA 最低要求](/guide/pwa-minimal-requirements). Almost all the examples projects should meet [PWA 最低要求](/guide/pwa-minimal-requirements), but you must check it on your target project.
 
 All the examples projects use `@rollup/plugin-replace` to configure a timestamp initialized to `now` on each build, and so, the service worker will be regenerated/versioned on each build: this timestamp will help us since the service worker won't be regenerated/versioned if none source code changed (on your project you shouldn't want this behavior, you should want to only regenerate/version the service worker when your source code change).
 :::
