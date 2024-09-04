@@ -17,7 +17,7 @@ outline: deep
 
 <GenerateSWCleanupOutdatedCaches />
 
-### Inject Manifest Source Map <Badge type="tip" text="new options from v0.18.0+" />
+### Inject Manifest Source Map <Badge type="tip" text="新选项 自 v0.18.0+" />
 
 <InjectManifestSourceMap />
 
@@ -40,12 +40,12 @@ const updateSW = registerSW({
 
 你需要:
 
-- 在`onNeedRefresh`方法中向用户显示带有刷新和取消按钮的提示。
-- 在`onOfflineReady` 方法中展示一个准备好离线工作带有 OK 按钮提示给用户。
+- 在`onNeedRefresh`方法中向用户显示带有 刷新 和 取消 按钮的提示。
+- 在`onOfflineReady` 方法中展示一个准备好离线工作带有 确认 按钮提示给用户。
 
 当 `onNeedRefresh` 被调用，用户点击刷新按钮，然后会调用 `updateSW（）` 函数;页面将重新加载，并提供最新内容。
 
-无论如何，当用户分别在`onNeedRefresh`或`onOfflineReady`情况下单击`Cancel`或`OK`按钮时，关闭相应的显示提示。
+无论如何，当用户分别在`onNeedRefresh`或`onOfflineReady`情况下单击`取消`或`确认`按钮时，关闭相应的显示提示。
 
 ### SSR/SSG
 

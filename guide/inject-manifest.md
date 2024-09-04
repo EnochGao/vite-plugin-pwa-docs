@@ -5,7 +5,7 @@ outline: deep
 
 # 高级 (injectManifest)
 
-使用 service worker `strategy` ，你可以构建自己的 service worker
+使用 service worker `策略` ，你可以构建自己的 service worker
 
 `vite-plugin-pwa` 插件将编译你的自定义 service worker 并注入 service worker 的预缓存清单
 
@@ -34,7 +34,7 @@ export default defineConfig({
 
 ## 自定义 Service worker
 
-我们建议您使用 [Workbox](https://developer.chrome.com/docs/workbox/) 来构建您的 service worker，而不是使用 `importScripts` ，您需要包含 `workbox-\*` 依赖项作为 `dev dependencies` 到您的项目中。
+我们建议您使用 [Workbox](https://developer.chrome.com/docs/workbox/) 来构建您的 service worker，而不是使用 `importScripts` ，您需要包含 `workbox-*` 依赖项作为 `dev dependencies` 到您的项目中。
 
 ### 插件配置
 
