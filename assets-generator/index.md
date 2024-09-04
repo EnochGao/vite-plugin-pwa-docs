@@ -6,27 +6,29 @@ outline: deep
 
 # 开始
 
-[@vite-pwa/assets-generator](https://github.com/vite-pwa/assets-generator) will generate all the icons required for your PWA application using [sharp](https://github.com/lovell/sharp/) and [sharp-ico](https://github.com/ssnangua/sharp-ico) packages.
+通过使用[sharp](https://github.com/lovell/sharp/) 和 [sharp-ico](https://github.com/ssnangua/sharp-ico)包，[@vite-pwa/assets-generator](https://github.com/vite-pwa/assets-generator)将会为您的 PWA 应用程序生成所有必需的图标。
 
-This package has been developed based on the work done in [Elk PWA Icon Generator Script](https://github.com/elk-zone/elk/blob/main/scripts/generate-pwa-icons.ts).
+该软件包是在[Elk PWA Icon Generator Script](https://github.com/elk-zone/elk/blob/main/scripts/generate-pwa-icons.ts)的基础上开发的
 
-With a single image source you can generate all the required icons for your PWA application, via `@vite-pwa/assets-generator` [CLI](/assets-generator/cli) or [API](/assets-generator/api).
+使用一个源图像，您可以通过 `@vite-pwa/assets-generator` [CLI](/assets-generator/cli) 或 [API](/assets-generator/api) 为 PWA 应用生成所需的所有图标
 
-## Source images
+## 源图像
 
-We strongly recommend using SVG images as source images, as they will be resized to the required sizes without losing quality, but should also work with any image type.
+我们强烈建议使用 SVG 图像作为源图像，因为它们可以在不损失质量的情况下缩放到所需的大小，并且应该可以与任何图像类型一起使用。
 
-The svg sources can also be used in for the favicon html head link.
+SVG 源文件还可以用于在 HTML 头部链接中设置网站的图标
 
-## PWA Minimal Icons Requirements
+## PWA 最小图标要求
 
-As pointed out in [PWA最低要求](/guide/pwa-minimal-requirements), you will need:
-- a 192x192 icon (PWA Manifest icon)
-- a 512x512 icon (PWA Manifest icon)
-- a 180x180 icon for iOS/MacOS (html head link: `<link rel="apple-touch-icon" href="/apple-touch-icon.png">`)
+正如 [PWA 最低要求](/guide/pwa-minimal-requirements) 指出, 你需要:
 
-We also suggest you to include:
-- A 64x64 icon for Windows (Edge) (PWA Manifest icon)
+- 一个 192x192 像素的图标（PWA Manifest 图标）
+- 一个 512x512 像素的图标（PWA Manifest 图标）
+- 一个适用于 iOS/MacOS 的 180x180 图标（HTML 头部链接： `<link rel="apple-touch-icon" href="/apple-touch-icon.png">` ）
+
+我们还建议您添加以下内容:
+
+- 一个适用于 Windows（Edge）的 64x64 图标（PWA Manifest 图标）
 - A 512x512 icon for Android with `purpose: 'any'` (PWA Manifest icon)
 - Avoid using `purpose: 'any maskable'` icon, as it is not supported by all browsers
 - An `favicon.ico` and `favicon.svg`, check [Preset Minimal 2023](#preset-minimal-2023) for more details
@@ -36,6 +38,7 @@ We also suggest you to include:
 Refer to [Definitive edition of "How to Favicon" in 2023](https://dev.to/masakudamatsu/favicon-nightmare-how-to-maintain-sanity-3al7) for more details.
 
 Our minimal recommendation is:
+
 - transparent 48x48 ico: register it in the html head: `<link rel="icon" href="/favicon.ico" sizes="48x48">`
 - Use SVG image as source image: register it in the html head: `<link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">`
 - transparent 64x64 icon (PWA Manifest icon)
@@ -47,6 +50,7 @@ Our minimal recommendation is:
 ### Preset Minimal <Badge type="danger" text="已弃用 从 v0.1.0" />
 
 Our minimal recommendation is:
+
 - transparent 64x64 ico: register it in the html head: `<link rel="icon" href="/favicon.ico" sizes="any">`
 - Use SVG image as source image: register it in the html head: `<link rel="icon" href="/favicon.svg" type="image/svg+xml">`
 - transparent 64x64 icon (PWA Manifest icon)
@@ -60,31 +64,32 @@ Our minimal recommendation is:
 You can generate icons using the `minimal-2023` preset included in [@vite-pwa/assets-generator](https://github.com/vite-pwa/assets-generator) package via a source image, check out the [CLI](/assets-generator/cli) and [API](/assets-generator/api) documentation for more details.
 
 Update your PWA manifest icons entry with:
+
 ```ts
 icons: [
   {
     src: 'pwa-64x64.png',
     sizes: '64x64',
-    type: 'image/png'
+    type: 'image/png',
   },
   {
     src: 'pwa-192x192.png',
     sizes: '192x192',
-    type: 'image/png'
+    type: 'image/png',
   },
   {
     src: 'pwa-512x512.png',
     sizes: '512x512',
     type: 'image/png',
-    purpose: 'any'  
+    purpose: 'any',
   },
   {
     src: 'maskable-icon-512x512.png',
     sizes: '512x512',
     type: 'image/png',
-    purpose: 'maskable'
-  }
-]
+    purpose: 'maskable',
+  },
+];
 ```
 
 and use the following HTML head entries in your entry point:
@@ -93,9 +98,9 @@ and use the following HTML head entries in your entry point:
 
 ```html
 <head>
-  <link rel="icon" href="/favicon.ico" sizes="48x48">
-  <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png">
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
 </head>
 ```
 
@@ -103,8 +108,8 @@ and use the following HTML head entries in your entry point:
 
 ```html
 <head>
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png">
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
 </head>
 ```

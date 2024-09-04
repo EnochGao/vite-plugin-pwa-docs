@@ -6,25 +6,28 @@ prev: 迁移 | PWA Assets 生成器
 # 开始
 
 ::: tip 提示
-If you use the default `registerType` which is `prompt`, and you want to prompt the users to reload, then you could use our framework modules.
+如果你使用的是默认的 `registerType` （即 `prompt` ），并且想要提示用户重新加载，那么你可以使用我们的框架模块
 
-But if you:
-1. use `autoUpdate`
-2. don't like `autoUpdate`, but also don't feel it's necessary to prompt
-3. use `injectManifest`
+但是如果你:
 
-Then, you **don't need** to learn the framework stuff.
+1. 使用 `autoUpdate`
+2. 不喜欢 `autoUpdate` ，也觉得没有必要提示
+3. 使用 `injectManifest`
+
+那么，你就**不需要**学习框架相关的知识了
 :::
 
-This plugin is Framework-agnostic and so you can use it with Vanilla JavaScript, TypeScript and with any framework.
+这个插件与框架无关，所以你可以在原生 JavaScript、TypeScript 和任何框架中使用它。
 
 ## 类型声明
 
-You can find all the `vite-plugin-pwa` virtual modules declarations in the following [types.ts module](https://github.com/antfu/vite-plugin-pwa/blob/main/client.d.ts).
+你可以在以下类型[types.ts module](https://github.com/antfu/vite-plugin-pwa/blob/main/client.d.ts)中找到所有的 `vite-plugin-pwa` 虚拟模块声明。
 
 ::: tip 提示
 <TypeScriptError2307 />
-From version `0.14.5` you can also use types definition for each framework, instead of using `vite-plugin-pwa/client`, include only one of the following types:
+
+从版本 `0.14.5` 开始，你还可以为每个框架使用类型定义，而不是使用 `vite-plugin-pwa/client` ，只包括以下类型之一:
+
 ```json
 {
   "compilerOptions": {
@@ -40,7 +43,8 @@ From version `0.14.5` you can also use types definition for each framework, inst
 }
 ```
 
-Or you can add one of following references in any of your `d.ts` files (for example, in `vite-env.d.ts` or `global.d.ts`):
+或者你可以在 `d.ts` 文件中添加以下引用之一(例如，在 `vite-env.d.ts` 或 `global.d.ts` 中):
+
 ```ts
 /// <reference types="vite-plugin-pwa/react" />
 /// <reference types="vite-plugin-pwa/preact" />
@@ -49,125 +53,135 @@ Or you can add one of following references in any of your `d.ts` files (for exam
 /// <reference types="vite-plugin-pwa/vanillajs" />
 /// <reference types="vite-plugin-pwa/vue" />
 ```
+
 :::
 
 ```ts
 declare module 'virtual:pwa-register' {
-  import type { RegisterSWOptions } from 'vite-plugin-pwa/types'
+  import type { RegisterSWOptions } from 'vite-plugin-pwa/types';
 
-  export type { RegisterSWOptions }
+  export type { RegisterSWOptions };
 
-  export function registerSW(options?: RegisterSWOptions): (reloadPage?: boolean) => Promise<void>
+  export function registerSW(
+    options?: RegisterSWOptions
+  ): (reloadPage?: boolean) => Promise<void>;
 }
 ```
 
-where `vite-plugin-pwa/types` is:
+其中 `vite-plugin-pwa/types` 为:
 
 ```ts
 export interface RegisterSWOptions {
-  immediate?: boolean
-  onNeedRefresh?: () => void
-  onOfflineReady?: () => void
+  immediate?: boolean;
+  onNeedRefresh?: () => void;
+  onOfflineReady?: () => void;
   /**
    * Called only if `onRegisteredSW` is not provided.
    *
    * @deprecated Use `onRegisteredSW` instead.
    * @param registration The service worker registration if available.
    */
-  onRegistered?: (registration: ServiceWorkerRegistration | undefined) => void
+  onRegistered?: (registration: ServiceWorkerRegistration | undefined) => void;
   /**
    * Called once the service worker is registered (requires version `0.12.8+`).
    *
    * @param swScriptUrl The service worker script url.
    * @param registration The service worker registration if available.
    */
-  onRegisteredSW?: (swScriptUrl: string, registration: ServiceWorkerRegistration | undefined) => void
-  onRegisterError?: (error: any) => void
+  onRegisteredSW?: (
+    swScriptUrl: string,
+    registration: ServiceWorkerRegistration | undefined
+  ) => void;
+  onRegisterError?: (error: any) => void;
 }
 ```
 
-## Accessing PWA Info
+## 访问 PWA 信息
 
-From version `0.12.8`, `vite-plugin-pwa` exposes a new Vite virtual module to access the PWA info: [virtual:pwa-info](https://github.com/vite-pwa/vite-plugin-pwa/blob/main/info.d.ts).
+从版本 `0.12.8` ， `vite-plugin-pwa` 暴露了一个新的 Vite 虚拟模块来访问 PWA 信息: [virtual:pwa-info](https://github.com/vite-pwa/vite-plugin-pwa/blob/main/info.d.ts).
 
-If your **TypeScript** build step or **IDE** complain about not being able to find modules or type definitions on imports, add the following to the `compilerOptions.types` array of your `tsconfig.json`:
+如果你的 **TypeScript** 在构建过程中或 **IDE** 抱怨无法在导入中找到模块或类型定义，请将以下内容添加到 `tsconfig.json` 的`compilerOptions.types` 数组中:
 
 ```json
 {
   "compilerOptions": {
-    "types": [
-      "vite-plugin-pwa/info"
-    ]
+    "types": ["vite-plugin-pwa/info"]
   }
 }
 ```
 
-Or you can add the following reference in any of your `d.ts` files (for example, in `vite-env.d.ts` or `global.d.ts`):
+或者你可以在任何 `d.ts` 文件中添加以下引用(例如，在 `vite-env.d.ts` 或 `global.d.ts` 中):
+
 ```ts
 /// <reference types="vite-plugin-pwa/info" />
 ```
 
-## Import Virtual Modules
+## 导入虚拟模块
 
-`vite-plugin-pwa` plugin exposes a `Vite` virtual module to interact with the service worker.
+`vite-plugin-pwa` 插件暴露了一个 `Vite` 虚拟模块与 service worker 交互
 
 ::: tip 提示
-You only need to import the virtual modules exposed by `vite-plugin-pwa` plugin when you need to interact with the user, otherwise you don't need to import any of them, that is, when using `registerType: 'prompt'` or when using `registerType: 'autoUpdate'` and you want to inform the user that the application is ready to work offline.
+
+当需要与用户交互时，需要导入 `vite-plugin-pwa` 插件公开的虚拟模块，否则，不需要导入任何虚拟模块，也就是说，当使用 `registerType: 'prompt'` 或使用 `registerType: 'autoUpdate'` 时，需要通知用户应用程序准备离线工作时
 :::
 
 ### 自动更新
 
-You must import the virtual module when you configure `registerType: 'autoUpdate'` and you want your application inform the user when the application is ready to work `offline`:
+当你配置 `registerType: 'autoUpdate'` 时，你必须导入虚拟模块，并且你希望你的应用程序在应用程序准备好`离线`工作时通知用户 :
 
 ```ts
-import { registerSW } from 'virtual:pwa-register'
+import { registerSW } from 'virtual:pwa-register';
 
 const updateSW = registerSW({
-  onOfflineReady() {}
-})
+  onOfflineReady() {},
+});
 ```
 
-You need to show a ready to work offline message to the user with an OK button inside `onOfflineReady` method.
+Y
+你需要在 `onOfflineReady` 方法中向用户展示一个准备离线工作的提示信息，并包含一个`确定`按钮。
 
-When the user clicks the `OK` button, just hide the prompt shown on `onOfflineReady` method.
+当用户点击 `确定` 按钮时，请将 `onOfflineReady` 方法中显示的提示隐藏
 
 ### 更新提示
 
-When using `registerType: 'prompt'`, you **must** import the virtual module:
+在使用 `registerType: 'prompt'` 时，您**必须**导入虚拟模块：
 
 ```ts
-import { registerSW } from 'virtual:pwa-register'
+import { registerSW } from 'virtual:pwa-register';
 
 const updateSW = registerSW({
   onNeedRefresh() {},
-  onOfflineReady() {}
-})
+  onOfflineReady() {},
+});
 ```
 
-You will need to:
-- show a prompt to the user with refresh and cancel buttons inside `onNeedRefresh` method.
-- show a ready to work offline message to the user with an OK button inside `onOfflineReady` method.
+你需要:
 
-When the user clicks the "refresh" button when `onNeedRefresh` called, then call `updateSW()` function; the page will reload and the up-to-date content will be served.
+- 在 `onNeedRefresh` 方法中向用户显示带有刷新和取消按钮的提示框
+- 在 `onOfflineReady` 方法中向用户显示一个准备离线工作的提示信息，并包含一个`确认`按钮
 
-In any case, when the user clicks the `Cancel` or `OK` buttons in case `onNeedRefresh` or `onOfflineReady` respectively, close the corresponding showed prompt.
+当 `onNeedRefresh`被调用，用户点击 `刷新` 按钮时，然后会调用 `updateSW()` 函数；页面将重新加载，并提供最新的内容
 
-## Custom Vite Virtual Modules
+无论如何，当用户点击 `取消` 或 `确认` 按钮时，分别关闭与 `onNeedRefresh` 或 `onOfflineReady` 相对应显示的提示框。
 
-`vite-plugin-pwa` plugin also exposes a set of virtual modules for [Vue 3](https://v3.vuejs.org/), [React](https://reactjs.org/), [Svelte](https://svelte.dev/docs), [SolidJS](https://www.solidjs.com/) and [Preact](https://preactjs.com/).  
+## 自定义 Vite 虚拟模块
 
-These custom virtual modules will expose a wrapper for  <code>virtual:pwa-register</code> using framework <code>reactivity system</code>, that is:
-- <code>virtual:pwa-register/vue</code>: [ref](https://v3.vuejs.org/api/refs-api.html#ref) for <code>Vue 3</code>
-- <code>virtual:pwa-register/react</code>: [useState](https://reactjs.org/docs/hooks-reference.html#usestate) for <code>React</code>
-- <code>virtual:pwa-register/svelte</code>: [writable](https://svelte.dev/docs#writable) for <code>Svelte</code>
-- <code>virtual:pwa-register/solid</code>: [createSignal](https://www.solidjs.com/docs/latest/api#createsignal) for <code>SolidJS</code>
-- <code>virtual:pwa-register/preact</code>: [useState](https://preactjs.com/guide/v10/hooks#usestate) for <code>Preact</code>
+`vite-plugin-pwa` 插件也为 [Vue 3](https://v3.vuejs.org/), [React](https://reactjs.org/), [Svelte](https://svelte.dev/docs), [SolidJS](https://www.solidjs.com/) 和 [Preact](https://preactjs.com/)提供了一套虚拟模块.
 
-**Note**: for [Vue 2](https://vuejs.org/) you need to use a custom `mixin` provided on [Vue 2](/frameworks/vue#vue-2) section.
+这些自定义虚拟模块将使用框架<code>响应式系统</code>为 <code>virtual:pwa-register</code> 提供一个封装器，即：
+
+- <code>virtual:pwa-register/vue</code>: [ref](https://v3.vuejs.org/api/refs-api.html#ref) 给 <code>Vue 3</code>
+- <code>virtual:pwa-register/react</code>: [useState](https://reactjs.org/docs/hooks-reference.html#usestate) 给 <code>React</code>
+- <code>virtual:pwa-register/svelte</code>: [writable](https://svelte.dev/docs#writable) 给 <code>Svelte</code>
+- <code>virtual:pwa-register/solid</code>: [createSignal](https://www.solidjs.com/docs/latest/api#createsignal) 给 <code>SolidJS</code>
+- <code>virtual:pwa-register/preact</code>: [useState](https://preactjs.com/guide/v10/hooks#usestate) 给 <code>Preact</code>
+
+**注意**: 对于 [Vue 2](https://vuejs.org/) 你需要使用[Vue 2](/frameworks/vue#vue-2)提供的自定义 `mixin` 部分.
 
 ## 框架
 
-These custom virtual modules will expose a wrapper for <code>virtual:pwa-register</code> using framework <code>reactivity system</code>, that is:
+这些自定义虚拟模块将使用框架<code>响应式系统</code>为 <code>virtual:pwa-register</code> 提供一个封装器，即：
+
 - [Vue](/frameworks/vue)
 - [React](/frameworks/react)
 - [Svelte](/frameworks/svelte)
