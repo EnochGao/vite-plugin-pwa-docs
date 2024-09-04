@@ -4,13 +4,13 @@ title: PWA最低要求 | 指南
 
 # PWA 最低要求
 
-本指南中的前面步骤是在构建应用程序时创建 [Web App Manifest](https://developer.mozilla.org/zh_CN/docs/Web/Manifest)和 service worker 的最低要求和配置，然而您需要包含更多选项以满足 PWA 最低要求。
+本指南中前面的步骤是在构建应用程序时，创建 [Web App Manifest](https://developer.mozilla.org/zh_CN/docs/Web/Manifest)和 service worker 的最低要求和配置，然而您需要包含更多选项以满足 PWA 最低要求。
 
 在将应用程序部署到生产环境之前或在本地测试构建时，您的应用程序**必须**满足 PWA 最低要求:例如，在本地使用 `LightHouse` 测试您的 PWA 应用程序时
 
 要使您的 PWA 应用程序可安装(其中一个要求)，您将需要修改应用程序入口点，向 `Web App Manifest` 添加一些最小条目，允许搜索引擎爬取您应用程序的所有页面并正确配置您的服务器(仅用于生产，在本地您可以使用 `https-localhost` 依赖项和 `node` )
 
-还可以查看[PWA 资产生成器](/assets-generator/)中 [PWA 最低要求](/assets-generator/#pwa-minimal-icons-requirements) 部分
+还可以查看[PWA 资产生成器](/assets-generator/)中 [PWA 最低要求](/assets-generator/#pwa-最小图标要求) 部分
 
 ## 入口点
 
@@ -104,7 +104,7 @@ export default defineConfig({
 
 对于`manifest`中 icons 条目，您需要创建 `pwa-192x192.png` 图标和 `pwa-512x512.png` 图标。上面指定的图标是满足 PWA 的最低要求，即分辨率为 `192x192` 和 `512x512` 的图标。
 
-我们建议为您的应用程序创建一个 svg 或 png 图标（如果它是 png 图标，则具有可能的最大分辨率），并使用它们来生成 PWA 图标：
+我们建议为您的应用程序创建一个 svg 或 png 图标（如果它是 png 图标，则尽可能最大分辨率），并使用它们来生成 PWA 图标：
 
 - [PWA 资产生成器](/assets-generator/) (建议).
 - [Favicon InBrowser.App](https://favicon.inbrowser.app/tools/favicon-generator) (建议).
@@ -112,14 +112,14 @@ export default defineConfig({
 
 对于入口点中的`mask-icon`，请使用用于生成 favicon 包的 svg 或 png。
 
-生成后，下载 ZIP 并使用 `android-*` 图标替换 `pwa-*` 图标:
+生成后，下载 ZIP 并使用 `android-*` 图标替换为 `pwa-*` 图标:
 
 - `android-chrome-192x192.png` 用于 `pwa-192x192.png`
 - `android-chrome-512x512.png` 用于 `pwa-512x512.png`
 - `apple-touch-icon.png` 用于 `apple-touch-icon.png`
 - `favicon.ico` 用于 `favicon.ico`
 
-如果需要，可以将用`purpose: 'any maskable'`添加到应用程序清单中，但最好添加 2 个具有`any`和`maskable`的图标：
+如果需要，可以将`purpose: 'any maskable'`添加到应用程序清单中，但最好添加 2 个具有`any`和`maskable`的图标：
 
 ```ts
 icons: [
@@ -150,7 +150,7 @@ icons: [
 
 ## 搜索引擎
 
-你**必须**添加一个名为`robots.txt`的文件，以便搜索引擎能够爬取你的应用程序的所有页面。只需将`robots.txt`文件添加到你的应用程序的 `public` 文件夹中即可:
+你**必须**添加一个名为`robots.txt`的文件，以便搜索引擎能够爬取你应用程序的所有页面。只需将`robots.txt`文件添加到你应用程序的 `public` 文件夹中即可:
 
 ```txt
 User-agent: *

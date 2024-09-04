@@ -27,15 +27,15 @@ title: Service Worker 简介 | 指南
 
 ## Precache Manifest
 
-由于 `vite-plugin-pwa` 插件使用[workbox-build](https://developer.chrome.com/docs/workbox/modules/workbox-build/)node 库来构建 service worker，它将只在 manifest 预缓存中包含`css` 、 `js`和 `html` 资源(检查 `GlobPartial` 中的 [GlobPartial](https://developer.chrome.com/docs/workbox/modules/workbox-build#type-GlobPartial)条目)。
+由于 `vite-plugin-pwa` 插件使用[workbox-build](https://developer.chrome.com/docs/workbox/modules/workbox-build/) node 库来构建 service worker，在 manifest 预缓存中它只包含`css` 、`js`和 `html` 资源(查看 `GlobPartial` 中的 [GlobPartial](https://developer.chrome.com/docs/workbox/modules/workbox-build#type-GlobPartial)条目)。
 
-`workbox-build` 节点库是基于文件的，也就是说，它将遍历您的应用程序的构建输出文件夹。 `Vite` 将在 `dist` 文件夹中生成你的构建，因此， `workbox-build` 将遍历 `dist` 文件夹，将其中找到的所有资源添加到 service worker 的预缓存清单中
+`workbox-build` node 库是基于文件的，也就是说，它将遍历您应用程序的构建输出文件夹。 `Vite` 将在 `dist` 文件夹中生成你的构建，因此， `workbox-build` 将遍历 `dist` 文件夹，将其中找到的所有资源添加到 service worker 的预缓存清单中
 
 如果需要包含其他资源类型，则需要将它们添加到 `globPatterns` 项中。根据 `vite-plugin-pwa` 插件配置中配置的 `strategy` ，您需要将其添加到 `workbox` 或 `injectManifest` 配置选项中
 
 您可以在[静态资产处理](/guide/static-assets)部分中找到更多信息
 
-例如，如果您需要在[配置 vite-plugin-pwa 指南](/guide/#configuring-vite-plugin-pwa)部分的示例中添加 `ico` 、 `png` 和 `svg` 资源，则需要在 `workbox` 条目下添加 `globPatterns` ，因为我们使用的是默认的 `vite-plugin-pwa` 策略( `generateSW` )
+例如，如果您需要在[配置 vite-plugin-pwa 指南](/guide/#配置-vite-plugin-pwa)部分的示例中添加 `ico` 、 `png` 和 `svg` 资源，则需要在 `workbox` 条目下添加 `globPatterns` ，因为我们使用的是默认的 `vite-plugin-pwa` 策略( `generateSW` )
 
 ```ts
 import { VitePWA } from 'vite-plugin-pwa';
