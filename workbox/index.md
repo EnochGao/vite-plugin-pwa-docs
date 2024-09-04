@@ -41,6 +41,6 @@ prev:
 
 当`strategies` 选项分别设置为 `generateSW` 和 `injectManifest` 时，`vite-plugin-pwa` 在内部使用 Workbox 的 `generateSW` 和 `injectManifest` 方法。
 
-当你在 `vite.config.*`文件中配置 `strategies: 'generateSW'` 选项(默认值)时，插件会调用 `workbox` 的 `generateSW` 方法。传递给 `workbox-build`方法的选项将是通过插件配置的 `workbox` 选项提的。
+当你在 `vite.config.*`文件中配置 `strategies: 'generateSW'` 选项(默认值)时，插件会调用 `workbox` 的 `generateSW` 方法。传递给 `workbox-build`方法的选项将是通过插件配置的 `workbox` 选项提供的。
 
 当你配置 `strategies: 'injectManifest'` 选项时，插件将首先通过自定义 `Vite` 构建你的自定义 service worker。对于构建结果，vite-plugin-pwa 将调用 Workbox 的 `injectManifest` 方法，传递通过插件配置的 `injectManifest` 选项提供的那些选项。
