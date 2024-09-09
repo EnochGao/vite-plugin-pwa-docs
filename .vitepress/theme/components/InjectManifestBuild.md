@@ -12,7 +12,8 @@ The new Vite build will allow you to use [.env Files](https://vitejs.dev/guide/e
 - use `import.meta.env.DEV` or `import.meta.env.PROD` to check if the service worker is running on development or production (equivalent to `process.env.NODE_ENV`), check Vite [NODE_ENV and Modes](https://vitejs.dev/guide/env-and-mode#node-env-and-modes) docs.
 
 ::: tip 提示
-If you are using TypeScript in your service worker accessing `import.meta.env` variables, if TypeScript complains, add the following reference to the beginning of your service worker code:
+
+如果你在service worker中使用TypeScript访问 `import.meta.env` 变量，如果TypeScript提示错误，请将以下引用添加到service worker代码的开头:
 
 ```ts
 /// <reference types="vite/client" />

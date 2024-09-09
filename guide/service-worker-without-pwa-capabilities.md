@@ -4,7 +4,7 @@ title: 没有PWA功能的Service Worker | 指南
 
 # 没有 PWA 功能的 Service Worker
 
-有时候你不需要完整的 PWA 功能，比如**离线缓**存和**manifest 文件**，而只需要简单的自定义 Service Worker
+有时候你不需要完整的 PWA 功能，如**离线缓存**和**manifest 文件**，只需要简单的自定义 Service Worker
 
 你可以禁用所有 `vite-plugin-pwa` 支持的功能，仅使用它来管理你的 Service Worker 文件
 
@@ -13,7 +13,7 @@ title: 没有PWA功能的Service Worker | 指南
 假设你想创建一个 Service Worker 文件，用于捕获浏览器的 `fetch`:
 
 ```js
-// src/service-worker.js or src/service-worker.ts
+// src/service-worker.js 或者 src/service-worker.ts
 self.addEventListener('fetch', (event) => {
   event.respondWith(fetch(event.request));
 });
@@ -48,7 +48,7 @@ VitePWA({
 在您的入口模块中使用以下代码:
 
 ```js
-// src/main.js or src/main.ts
+// src/main.js 或者 src/main.ts
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register(
     import.meta.env.MODE === 'production'
@@ -61,7 +61,7 @@ if ('serviceWorker' in navigator) {
 如果你在服务端脚本中使用了导入语句（仅在基于 Chromium 的浏览器中生效），请检查 [injectManifest](/guide/development.html#injectmanifest-策略) 部分以获取更多信息：
 
 ```js
-// src/main.js or src/main.ts
+// src/main.js 或者 src/main.ts
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register(
     import.meta.env.MODE === 'production'

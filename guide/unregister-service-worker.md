@@ -24,7 +24,7 @@ title: 注销 Service Worker | 指南
 
 如果你想卸载当前部署的 service worker 并安装一个新的 service worker，不要使用 `selfDestroying`：
 
-- 在 `public` 文件夹中使用当前部署的 service worker 名称创建一个新的 JavaScript 文件，检查下面的示例
+- 在 `public` 文件夹中使用当前部署的 service worker 名称创建一个新的 JavaScript 文件，查看下面的示例
 - 在 PWA 配置中更改`filename` (这将生成一个具有新名称的新 service worker)
 
 例如，如果您没有指定 `filename`，service worker 名称将为 `sw.js`（默认值）。将 `filename` PWA 选项更改为 `service-worker.js` 或其他不同于 `sw.js` 的名称，然后将以下代码添加到 `public/sw.js` 文件（当前部署的 service worker）中：
@@ -56,7 +56,7 @@ self.addEventListener('activate', (e) => {
 });
 ```
 
-你可以根据需要重复上述过程多次，**记住不要从公共目录中删除**任何 service worker(你不知道你的应用程序的用户安装了什么版本)
+你可以根据需要重复上述过程多次，**记住不要从公共目录中删除**任何 service worker(你不知道你应用程序的用户安装了什么版本)
 
 ## 开发
 
