@@ -21,12 +21,13 @@ We use the timestamp in the examples projects to avoid having to touch a file ea
 
 ## 如何运行示例项目?
 
-If you want to run any of the examples projects you will need to download/clone to your local machine the `Vite Plugin PWA GitHub repo`.
+如果你想运行任何示例项目，你需要把`Vite Plugin PWA GitHub repo`下载/克隆到本地计算机。
 
-You will need `node 14` (or newer) to be able to build the `Vite Plugin PWA`.
+你需要 `node 14` (或更新的)才能构建 `Vite Plugin PWA`。
 
 ::: warning 警告
-Before following the instructions below, read the [Contribution 指南](https://github.com/antfu/vite-plugin-pwa/blob/main/CONTRIBUTING.md).
+
+在遵循下面的说明之前，请阅读[Contribution 指南](https://github.com/antfu/vite-plugin-pwa/blob/main/CONTRIBUTING.md)。
 :::
 
 如果你还没有安装 `PNPM`, 你必须首先安装 `npm`:
@@ -35,20 +36,20 @@ Before following the instructions below, read the [Contribution 指南](https://
 npm install -g pnpm
 ```
 
-Once the repo is on your local machine, you must install project dependencies and build the `vite-plugin-pwa` plugin, just run (from `vite-plugin-pwa` directory cloned locally):
+一旦仓库在本地机器上，您必须安装项目依赖项并构建 `vite-plugin-pwa` 插件，只需运行(在克隆的本地 `vite-plugin-pwa` 目录):
 
 ```shell
 pnpm install
 pnpm run build
 ```
 
-We use `PNPM` but should work with any `package manager`, for example, with `YARN`:
+我们使用 `PNPM` ，但应该适用于任何 `package manager` ，例如 `YARN` :
 
 ```shell
 yarn && yarn build
 ```
 
-::: info
+::: info 信息
 From here on, we will only show the commands to run the examples projects using `PNPM`, we leave it to you how to execute them with any other` package manager`.
 :::
 
@@ -71,7 +72,7 @@ To avoid `service worker` interference, you should do the following tasks when s
 
 Once we remove the `service worker`, run the corresponding script and just press browser `Refresh` button (or enter `https://localhost` on browser address).
 
-## How to test the examples projects Offline?
+## 如何测试示例项目离线?
 
 To test any of the examples projects (or your project) on `offline`, just open `dev tools` (`Option + ⌘ + J` on `macOS`, `Shift + CTRL + J` on `Windows/Linux`) and go to `Application > Network`, then locate `No throttling` selector: open it and select `Offline` option.
 
@@ -79,32 +80,32 @@ A common pitfall is to select `Offline` option, then restart the example project
 
 If you click the browser `Refresh` button, you can inspect `Application > Network` tab on `dev tools` to check that the `Service Worker` is serving all assets instead request them to the server.
 
-::: danger
+::: danger 危险
 Don't do a `hard refresh` since it will force the browser to go to the server, and then you will get `No internet connection` page.
 :::
 
-## Available Examples Projects
+## 可用的示例项
 
 <RunExamples />
 
-We provide the following examples projects:
+我们提供下面示例项目:
 
 - [Vue 3](/examples/vue)
-  - [Vue 3 generateSW Router Examples](/examples/vue#generatesw): set of examples with disparate behaviors.
-  - [Vue 3 injectManifest Router Examples](/examples/vue#generatesw): set of examples with disparate behaviors.
+  - [Vue 3 generateSW Router Examples](/examples/vue#generatesw): 一组具有不同行为的示例
+  - [Vue 3 injectManifest Router Examples](/examples/vue#generatesw): 一组具有不同行为的示例
 - [React](/examples/react)
-  - [React generateSW Router Examples](/examples/react#generatesw): set of examples with disparate behaviors.
-  - [React injectManifest Router Examples](/examples/react#generatesw): set of examples with disparate behaviors.
+  - [React generateSW Router Examples](/examples/react#generatesw): 一组具有不同行为的示例
+  - [React injectManifest Router Examples](/examples/react#generatesw): 一组具有不同行为的示例
 - [Svelte](/examples/svelte)
-  - [Svelte generateSW Router Examples](/examples/svelte#generatesw): set of examples with disparate behaviors.
-  - [Svelte injectManifest Router Examples](/examples/svelte#generatesw): set of examples with disparate behaviors.
+  - [Svelte generateSW Router Examples](/examples/svelte#generatesw): 一组具有不同行为的示例
+  - [Svelte injectManifest Router Examples](/examples/svelte#generatesw): 一组具有不同行为的示例
 - [SvelteKit](/examples/sveltekit)
 - [SolidJS](/examples/solidjs)
-  - [SolidJS generateSW Router Examples](/examples/solidjs#generatesw): set of examples with disparate behaviors.
-  - [SolidJS injectManifest Router Examples](/examples/solidjs#generatesw): set of examples with disparate behaviors.
+  - [SolidJS generateSW Router Examples](/examples/solidjs#generatesw): 一组具有不同行为的示例
+  - [SolidJS injectManifest Router Examples](/examples/solidjs#generatesw): 一组具有不同行为的示例
 - [Preact](/examples/preact)
-  - [Preact generateSW Router Examples](/examples/preact#generatesw): set of examples with disparate behaviors.
-  - [Preact injectManifest Router Examples](/examples/preact#generatesw): set of examples with disparate behaviors.
+  - [Preact generateSW Router Examples](/examples/preact#generatesw): 一组具有不同行为的示例
+  - [Preact injectManifest Router Examples](/examples/preact#generatesw): 一组具有不同行为的示例
 - [VitePress](/examples/vitepress).
-- [îles](/examples/iles): prompt for update.
+- [îles](/examples/iles): 更新提示
 - [Astro](/examples/astro).
